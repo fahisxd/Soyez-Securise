@@ -1,7 +1,7 @@
 # **Soyez Sécurisé**
 > *"Be Secure"* — A zero-knowledge password manager built from scratch by a self-taught 15-year-old developer.
 
-No auth libraries. No crypto shortcuts. Just vanilla JavaScript WebCrypto, a Python FastAPI backend, PostgreSQL, and Redis doing real cryptography.
+Built with WebCrypto APIs and custom authentication flow
 ---
 
 ## What It Does
