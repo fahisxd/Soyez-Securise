@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Soyez Sécurisé</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="icon" type="image/x-icon" href="images/favicon.svg">
+	</head>
+	<body class="is-preload">
+
+
+		<div id="user-button">
+							<button id="menu-btn">
+								<span class="icon fa-user"></span>
+							</button>
+										<div id="menu">
+											<div id="logged-in">
+											<a id="profilerequest" href="#profile">Profile</a>
+											<a id="logoutrequest" href="#">Logout</a>
+											</div>
+											<div id="logged-out">
+											<a id="signinfrequest" href="#signin">Sign-In</a>
+											<a id="loginrequest" href="#login">Login</a>
+											</div>
+										</div>
+												
+						</div>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				
+				<!-- Header -->
+					<header id="header">
+
+						<div class="content">
+							<div class="inner">
+								<h1 style="color: #8da9c4;">Soyez Sécurisé</h1>
+								<p id="quote">Built beyond simple password storage — combining encryption, authentication, monitoring, and adaptive security mechanisms.</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a id="storepassword" href="#store-password">Store Password</a></li>
+								<li><a id="listpassword" href="#list">List Password</a></li>
+								<li><a id="getpassword" href="#Getpassword">Get Password</a></li>
+								<li><a id="deletepassword" href="#Deletepassword">Delete Password</a></li>
+								
+							</ul>
+						</nav>
+					</header>
+					
+				<!-- Main -->
+					<div id="main">
+						<!-- Intro -->
+						 <article id="signin">
+								<h2 class="major">Sign-up</h2>
+								<p>Enter your details.</p>
+								<form id="Sign-in">
+									<div class="fields">
+										<div class="field half">
+											<label for="username">Create a Username</label>
+											<input type="text" name="username" id="username" />
+										</div>
+										<div class="field">
+											<label for="password">Create a Master Password</label>
+                                            <input type="password" name="password" id="password" />
+										</div>
+                                        <div class="field">
+											<label for="password">email(optional)</label>
+                                            <input type="email" name="email" id="email" />
+										</div>
+									</div>
+									<div class="feild"><p id="status-signin"></p></div>
+									<ul class="actions">
+										<li><input type="submit" value="Sign-in" class="primary" /></li>
+										<li><input type="reset" value="Reset" class="primary"/></li>
+									</ul>
+								</form>
+								<p>Your master password acts as the foundation of your encrypted vault architecture and should be created carefully and kept private.</p>
+							</article>
+
+							<article id="login">
+								<h2 class="major">Login</h2>
+								<form id="Login">
+									<div class="fields">
+										<div class="field half">
+											<label for="username">username</label>
+											<input type="text" name="username" id="login-username" />
+										</div>
+                                        <div class="field">
+											<label for="password">Master Password</label>
+                                            <input type="password" name="Password" id="login-password" />
+										</div>
+										<div class="field half">
+											<label for="otp">Enter OTP</label>
+                                            <input type="text" name="otp" id="otp" maxlength="6" placeholder="123456"/>
+										</div>
+									</div>
+									<div class="feild"><p id="status-login"></p></div>
+									<ul class="actions">
+										<li><input id="loginbtn" type="submit" value="Login" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+							</article>
+							<article id="store-password">
+								<h2 class="major">Store Password</h2>
+								<p>Enter your password name and password itself</a>.</p>
+								<form id="StorePassword">
+									<div class="fields">
+										<div class="field half">
+											<label for="username">Username to be stored</label>
+											<input type="text" name="username" id="usernametobestored" />
+										</div>
+										<div class="field half">
+											<label for="password-name">Service Name to be stored</label>
+											<input type="text" name="password-name" id="store-service-name" />
+										</div>
+										<div class="field">
+											<label for="store-password-input">Password to be stored</label>
+                                            <input type="password" name="password" id="store-password-input" />
+										</div>
+									</div>
+									<div class="feild"><p id="status-store"></p></div>
+									<ul class="actions">
+										<li><input type="submit" value="Store" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+								<p>Protecting passwords goes far beyond simply storing text in a database. We never store passwords in plain form. Sensitive information is encrypted using modern cryptographic techniques designed to keep your data secure even if unauthorized access occurs. Keys are derived from your master password, ensuring that only you can unlock and access your stored credentials. Through layered security measures, encryption, and privacy-focused design, we aim to make your passwords accessible to you — and unreadable to everyone else.</p>
+							</article>
+
+						<!-- Work -->
+							<article id="list">
+								<h2 class="major">Listing Password</h2>
+								<p>Your Passwords(service name) are:</p>
+								<div id="passwordList"></div>
+								<div class="feild"><p id="status-list">First login</p></div>
+								<p>The listing system is responsible for securely organizing and displaying stored credential entries associated with the authenticated user. Instead of exposing sensitive password data directly, the system first retrieves structured account information such as service names and associated usernames, allowing users to identify stored credentials safely and efficiently. Password secrets remain protected through encrypted storage mechanisms and are only processed when explicitly requested through authenticated verification flows.</p>
+							</article>
+
+						<!-- About -->
+							<article id="Getpassword">
+								<h2 class="major">Get Password</h2>
+								<form id="get-password" method="post" action="#">
+									<div class="fields">
+										<div class="field">
+											<label for="username">Your username</label>
+											<input type="text" name="username" id="getp-username" />
+										</div>
+										<div class="field">
+											<label for="username">username stored</label>
+											<input type="text" name="usernameS" id="getp-usernameS" />
+										</div>
+										<div class="field">
+											<label for="password-name">Service Name</label>
+											<input type="text" name="password-name" id="Servicename_G" />
+										</div>
+										
+									</div>
+									<div class="feild"><p id="status-get"></p></div>
+									<ul class="actions">
+										<li><input type="submit" value="get" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+
+									<h5 id="username_A"></h5>
+								
+									<div class="password-wrapper" id="gotpassword" style="display:none;">
+
+										<input
+											type="password"
+											id="retrievedPassword"
+											value=""
+											readonly
+										/>
+
+										<button
+											type="button"
+											class="copy-btn"
+											onclick="copypass()"
+										>
+											Copy
+										</button>
+										
+									</div>
+								<p>soyez securise retrieves stored credentials through a secure multi-step verification flow designed around a zero-knowledge-inspired architecture. When a user requests a password, the frontend first requests a temporary nonce from the backend. This nonce is signed locally using an authentication key derived from the user's master password through Argon2id and HKDF key separation. The server independently verifies this HMAC signature before allowing access to any encrypted vault data. Once verified, only the encrypted credential blob is returned from PostgreSQL. Decryption never occurs on the server; instead, the client uses the locally derived vault encryption key stored only in browser memory to decrypt the data. This ensures that even if the database were compromised, attackers would only obtain encrypted data and would still require the user's master-password-derived key material to recover the original credentials.</p>
+							</article>
+
+						<!-- Contact -->
+							<article id="Deletepassword">
+								<h2 class="major">Delete Passwords stored</h2>
+								<form id="delete-password">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Your username</label>
+											<input type="text" name="name" id="usernameD" />
+										</div>
+										<div class="field half">
+											<label for="email">username stored</label>
+											<input type="text" name="password-name" id="user-nameSD" />
+										</div>
+										<div class="field">
+											<label for="email">service name</label>
+											<input type="text" name="password-name" id="password-nameD" />
+										</div>
+									</div>
+									<div class="feild"><p id="status-del"></p></div>
+									<ul class="actions">
+										<li><input type="submit" value="DELETE" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+							</article>
+							<article id="profile">
+								<h2 class="major">User Profile</h2>
+								<div id="profile-not-logged-in" style="display:none;">
+									<p>You are not logged in. Please <a href="#login">login</a> to view your profile. If just logged in Refresh the page</p>
+								</div>
+								<div id="profile-logged-in" style="display:none;">
+									<!-- Account Information Section -->
+									<h3>Account Information</h3>
+									<p><strong>Username:</strong> <span id="usernameP"></span></p>
+									<p id="profile-status-msg"></p>
+
+									<!-- Password Manager Statistics -->
+									<h3>Vault Statistics</h3>
+									<div class="stats-container">
+										<p><strong>Stored Passwords:</strong> <span id="profile-password-count">0</span></p>
+										<p><strong>Last Modified:</strong> <span id="profile-last-modified">Never</span></p>
+									</div>
+
+									<!-- Security Settings Section -->
+									<h3>Security Settings</h3>
+
+									<!-- Master Password Security -->
+									<h3>Master Password Security</h3>
+									<p>Your master password is the foundation of your vault security. It should be:</p>
+									<ul>
+										<li>Unique and strong (12+ characters recommended)</li>
+										<li>Always kept private and never shared</li>
+										<li>Never written down or stored openly</li>
+										<li>Changed periodically for enhanced security</li>
+									</ul>
+
+									<!-- Encryption Details -->
+									<h3>Encryption Information</h3>
+									<p>Your vault uses modern encryption standards:</p>
+									<ul>
+										<li><strong>Master Password:</strong> Argon2id key derivation</li>
+										<li><strong>Stored Credentials:</strong> AES-256-GCM encryption</li>
+										<li><strong>Authentication:</strong> HMAC-SHA256 verification</li>
+										<li><strong>All operations:</strong> Zero-knowledge architecture</li>
+									</ul>
+
+									<!-- Quick Actions -->
+									<h3>Quick Actions</h3>
+									<ul class="actions">
+										<li><a href="#store-password" class="button primary small">Store Password</a></li>
+										<li><a href="#list" class="button primary small">View All Passwords</a></li>
+										<li><a href="#Getpassword" class="button primary small">Get Password</a></li>
+									</ul>
+
+									<!-- Danger Zone -->
+									<h3 style="color: #c23b3b; margin-top: 3em;">Account Management</h3>
+									<div class="danger-section" style="border: 2px solid #c23b3b; padding: 1.5em; border-radius: 0.35em;">
+										<p><strong>Logout from this device</strong></p>
+										<p>Your session data will be cleared, and you'll need to login again.</p>
+										<ul class="actions">
+											<li><input type="button" id="profile-logout-btn" value="Logout" class="button" style="background-color: #c23b3b;" /></li>
+										</ul>
+									</div>
+								</div>
+							</article>
+					</div>
+				
+				
+
+						
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">Soyez Sécurisé. Template by: <a href="https://html5up.net">HTML5 UP</a>. Project by <i>fahisxd</i></p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="https://cdn.jsdelivr.net/npm/argon2-browser/dist/argon2-bundled.min.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/quote.js"></script>
+			<script src="assets/js/store.js"></script>
+			<script src="assets/js/menu.js"></script>
+			<script src="assets/js/signup.js"></script>
+			<script src="assets/js/login.js"></script>
+			<script src="assets/js/get.js"></script>
+			<script src="assets/js/list.js"></script>
+			<script src="assets/js/delete.js"></script>
+			<script src="assets/js/profile.js"></script>
+	</body>
+</html>
