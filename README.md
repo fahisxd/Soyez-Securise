@@ -151,4 +151,4 @@ Built by **fahisxd**, age 15.
 Designed and implemented independently — the cryptographic architecture, the nonce/HMAC auth flow, the key separation scheme, and the backend were all figured out without following a tutorial for any of it.
 
 ---
-
+## This is just V1, it may include logic flaws, bugs or security issues, You can DM me to report at fahisxd(discord)
