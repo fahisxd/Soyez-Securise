@@ -18,6 +18,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import time
 import qrcode
 import io
+from psycopg2.extras import RealDictCursor
 from check_block import(
     check,
     blocker
@@ -33,17 +34,18 @@ from logger import (
 
 
 #---------------------------------------------------setup--------------------------------------------------#
+DATABASE_URL = os.getenv("DATABASE_URL")
+
 
 conn = psycopg2.connect(
-    dbname="database",
-    user="fahisxd",
-    password="fahis$fish$321",
-    host="localhost"
+    DATABASE_URL,
+    cursor_factory=RealDictCursor
 )
+REDIS_URL = os.getenv("REDIS_URL")
 
-nonce_db = redis.Redis(host="localhost", port=6379, db=0, decode_responses=True)
-ratelimitin = redis.Redis(host="localhost", port=6379, db=1, decode_responses=True)
-temp_blocked = redis.Redis(host="localhost", port=6379, db=2, decode_responses=True)
+nonce_db = redis.Redis.from_url(REDIS_URL,decode_responses=True)
+ratelimitin = redis.Redis.from_url(REDIS_URL,decode_responses=True)
+temp_blocked = redis.Redis.from_url(REDIS_URL,decode_responses=True)
 cursor = conn.cursor()
 app = FastAPI()
 #--------------------------------------------strict input classes--------------------------------------------------#
@@ -246,7 +248,18 @@ def time_equilizer(started_time):
 
 
 
+# =========================
+# ip
+# =========================
 
+def get_client_ip(request: Request):
+    trusted_proxies = ["127.0.0.1", "localhost"]
+    x_forwarded_for = request.headers.get("x-forwarded-for")
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(",")[0].strip()
+    else:
+        ip = request.client.host
+    return ip
 
 
 # =========================
@@ -284,16 +297,21 @@ def encrypter(data, un):
 # New IP alerting
 # =========================
 
-def IP_check(userid, ip):
-    cursor.execute("""
-        SELECT ip FROM iptracking WHERE userid = %s;
-""", (userid,))
-    old_ip = cursor.fetchone()[0]
-    if ip == old_ip:
-        return {"No ERROR" : "--"}
-    else:
-        return {"ERROR" : "You have Logged in from another device or ip"}
-    
+# def IP_check(userid, ip):
+#     cursor.execute("""
+#         SELECT ip FROM iptracking WHERE userid = %s;
+# """, (userid,))
+#     old_ip = cursor.fetchone()[0]
+#     if ip == old_ip:
+#         return {"No ERROR" : "--"}
+#     else:
+#         return {"ERROR" : "You have Logged in from another device or ip"}
+
+
+# =========================
+# Middleware
+# =========================
+
 
 app.add_middleware(
 
@@ -307,7 +325,20 @@ app.add_middleware(
 
     allow_headers=["*"]
 
+
 )
+
+@app.middleware("http")
+async def security_headers(request, call_next):
+    response = await call_next(request)
+    
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none';"
+    
+    return response
 
 
 #--------------------------------------------APIs--------------------------------------------------#
@@ -320,7 +351,7 @@ app.add_middleware(
 async def enable_otp(data: UsernameRequest, request: Request):
     start = time.time()
     request_id = uuid.uuid4().hex
-    ip = request.client.host
+    ip = get_client_ip(request)
     if check(ip) == "IP BLOCKED":
         return {"ERROR" : "You have been blocked for violating policies, Try again later"}
     username = data.username
@@ -402,7 +433,7 @@ async def enable_otp2(data: GetOTPRequest, request: Request):
         signature = data.signature
         un = data.username
         request_id = data.request_id
-        ip = request.client.host
+        ip = get_client_ip(request)
         if check(ip) == "IP BLOCKED":
             return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
         signature_bytes = bytes.fromhex(signature)
@@ -487,7 +518,7 @@ async def new_user(data: NewUserRequest, request: Request):
         hp = data.hash
         salt = data.salt
         email = data.email
-        ip = request.client.host
+        ip = get_client_ip(request)
         if check(ip) == "IP BLOCKED":
             return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
         request_id = uuid.uuid4().hex
@@ -553,7 +584,7 @@ async def store_password(data: UsernameRequest, request: Request):
     start = time.time()
     username = data.username
     request_id = uuid.uuid4().hex
-    ip = request.client.host
+    ip = get_client_ip(request)
     if check(ip) == "IP BLOCKED":
         return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
     cursor.execute(
@@ -622,7 +653,7 @@ async def store_password2(data: StoredPasswordRequest, request: Request):
         password_name = data.password_name
         usernametobestored = data.usernametbs
         enc_data = data.enc_data
-        ip = request.client.host
+        ip = get_client_ip(request)
         if check(ip) == "IP BLOCKED":
             return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
         request_id = data.request_id
@@ -704,7 +735,7 @@ async def store_password2(data: StoredPasswordRequest, request: Request):
 async def get_enc(data: UsernameRequest, request: Request):
     start = time.time()
     username = data.username
-    ip = request.client.host
+    ip = get_client_ip(request)
     if check(ip) == "IP BLOCKED":
         return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
     request_id = uuid.uuid4().hex
@@ -776,7 +807,7 @@ async def get_enc2(data: GetEncryptedRequest, request: Request):
         un = data.username
         password_name = data.password_name
         unS = data.usernameS
-        ip = request.client.host
+        ip = get_client_ip(request)
         if check(ip) == "IP BLOCKED":
             return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
         request_id = data.request_id
@@ -847,7 +878,7 @@ async def get_enc2(data: GetEncryptedRequest, request: Request):
 async def login(data: UsernameRequest, request: Request):
     start = time.time()
     username = data.username
-    ip = request.client.host
+    ip = get_client_ip(request)
     if check(ip) == "IP BLOCKED":
             return {"ERROR" : "You have been blocked for violating policies, Try again later"}
     request_id = uuid.uuid4().hex
@@ -913,7 +944,7 @@ async def login2(data: GetBackupRequest, request: Request):
         signature = data.signature
         un = data.username
         user_otp = data.otp
-        ip = request.client.host
+        ip = get_client_ip(request)
         check(ip)
         request_id = data.request_id
         if check(ip) == "IP BLOCKED":
@@ -980,7 +1011,7 @@ async def login2(data: GetBackupRequest, request: Request):
 async def list(data: UsernameRequest, request: Request):
     start = time.time()
     username = data.username
-    ip = request.client.host
+    ip = get_client_ip(request)
     if check(ip) == "IP BLOCKED":
             return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
     request_id = uuid.uuid4().hex
@@ -1042,7 +1073,7 @@ async def list2(data: ListPasswordRequest, request: Request):
     try:
         signature = data.signature
         un = data.username
-        ip = request.client.host
+        ip = get_client_ip(request)
         check(ip)
         request_id = data.request_id
         if check(ip) == "IP BLOCKED":
@@ -1105,7 +1136,7 @@ async def list2(data: ListPasswordRequest, request: Request):
 async def delete_password(data: UsernameRequest, request: Request):
     start = time.time()
     username = data.username
-    ip = request.client.host
+    ip = get_client_ip(request)
     if check(ip) == "IP BLOCKED":
             return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
     request_id = uuid.uuid4().hex
@@ -1168,7 +1199,7 @@ async def delete_password2(data: DeletePasswordRequest2, request: Request):
         un = data.username
         password_name = data.password_name
         unS = data.usernameS
-        ip = request.client.host
+        ip = get_client_ip(request)
         if check(ip) == "IP BLOCKED":
             return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
         request_id = data.request_id
