@@ -572,7 +572,7 @@ async def new_user(data: NewUserRequest, request: Request):
             return {"message": "User created successfully", "username": clean_un}
     except Exception as e:
         Log_event(sys_logger, "/newuser", "ERROR", f"""{str(e)}""", f"{un}", f"{ip}", f"{request_id}")
-        print(f"str(e)"}
+        print(f"str(e)")
         return {"ERROR" : "Something Went Wrong"}
 
 # =========================
