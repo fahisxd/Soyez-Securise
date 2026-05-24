@@ -34,14 +34,14 @@ from logger import (
 
 
 #---------------------------------------------------setup--------------------------------------------------#
-DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.getenv("POSTGRES_URL")
 
 
 conn = psycopg2.connect(
     DATABASE_URL,
     cursor_factory=RealDictCursor
 )
-REDIS_URL = os.getenv("REDIS_URL")
+REDIS_URL = os.getenv("REDIS_DB")
 
 nonce_db = redis.Redis.from_url(REDIS_URL,decode_responses=True)
 ratelimitin = redis.Redis.from_url(REDIS_URL,decode_responses=True)
