@@ -8,9 +8,14 @@ from logger import (
     otp_logger,
     Log_event
 )
+DATABASE_URL = os.getenv("POSTGRES_URL")
+REDIS_URL = os.getenv("REDIS_DB")
 
-ip_db = redis.Redis(host="localhost", port=6379, db=3, decode_responses=True)
-conn = sqlite3.connect("database.db")
+ip_db = redis.Redis.from_url(REDIS_URL,decode_responses=True)
+conn = psycopg2.connect(
+    DATABASE_URL,
+    cursor_factory=RealDictCursor
+)
 cursor = conn.cursor()
 
 def blocker(ip, request_id):
