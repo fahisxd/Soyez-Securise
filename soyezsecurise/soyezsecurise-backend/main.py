@@ -354,7 +354,7 @@ async def security_headers(request, call_next):
 # =========================
 
 @app.post("/enableotp")
-async def enable_otp(data: UsernameRequest, request: Request):
+async def enable_otp(data: UsernameRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     start = time.time()
     request_id = uuid.uuid4().hex
@@ -433,7 +433,7 @@ async def enable_otp(data: UsernameRequest, request: Request):
             }
 
 @app.post("/enable_otp2")
-async def enable_otp2(data: GetOTPRequest, request: Request):
+async def enable_otp2(data: GetOTPRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     try:
         signature = data.signature
@@ -517,7 +517,7 @@ async def enable_otp2(data: GetOTPRequest, request: Request):
 
 
 @app.post("/newuser")
-async def new_user(data: NewUserRequest, request: Request):
+async def new_user(data: NewUserRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     try:
         un = data.username
@@ -590,7 +590,7 @@ async def new_user(data: NewUserRequest, request: Request):
 
 # To store the password.
 @app.post("/storepassword")
-async def store_password(data: UsernameRequest, request: Request):
+async def store_password(data: UsernameRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     start = time.time()
     username = data.username
@@ -657,7 +657,7 @@ async def store_password(data: UsernameRequest, request: Request):
 
 
 @app.post("/storepassword2")
-async def store_password2(data: StoredPasswordRequest, request: Request):
+async def store_password2(data: StoredPasswordRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     try:
         signature = data.signature
@@ -746,7 +746,7 @@ async def store_password2(data: StoredPasswordRequest, request: Request):
 
 
 @app.post("/getenc")
-async def get_enc(data: UsernameRequest, request: Request):
+async def get_enc(data: UsernameRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     start = time.time()
     username = data.username
@@ -816,7 +816,7 @@ async def get_enc(data: UsernameRequest, request: Request):
 
 
 @app.post("/getenc2")
-async def get_enc2(data: GetEncryptedRequest, request: Request):
+async def get_enc2(data: GetEncryptedRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     try:
         signature = data.signature
@@ -893,7 +893,7 @@ async def get_enc2(data: GetEncryptedRequest, request: Request):
 # retriving backup
 # =========================
 @app.post("/login")
-async def login(data: UsernameRequest, request: Request):
+async def login(data: UsernameRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     start = time.time()
     username = data.username
@@ -958,7 +958,7 @@ async def login(data: UsernameRequest, request: Request):
 
 
 @app.post("/login2")
-async def login2(data: GetBackupRequest, request: Request):
+async def login2(data: GetBackupRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     try:
         signature = data.signature
@@ -1025,7 +1025,7 @@ async def login2(data: GetBackupRequest, request: Request):
 
 
 @app.post("/list")
-async def list(data: UsernameRequest, request: Request):
+async def list(data: UsernameRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     start = time.time()
     username = data.username
@@ -1087,7 +1087,7 @@ async def list(data: UsernameRequest, request: Request):
                 }
 
 @app.post("/list2")
-async def list2(data: ListPasswordRequest, request: Request):
+async def list2(data: ListPasswordRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     try:
         signature = data.signature
@@ -1153,7 +1153,7 @@ async def list2(data: ListPasswordRequest, request: Request):
     
 
 @app.post("/delete")
-async def delete_password(data: UsernameRequest, request: Request):
+async def delete_password(data: UsernameRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     start = time.time()
     username = data.username
@@ -1214,7 +1214,7 @@ async def delete_password(data: UsernameRequest, request: Request):
             "request_id": request_id
             }
 @app.post("/delete2")
-async def delete_password2(data: DeletePasswordRequest2, request: Request):
+async def delete_password2(data: DeletePasswordRequest2, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
     try:
         signature = data.signature
