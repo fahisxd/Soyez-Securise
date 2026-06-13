@@ -1087,7 +1087,7 @@ async def list(data: UsernameRequest, request: Request):
                 }
 
 @app.post("/list2")
-async def list2(data: ListPasswordRequest, request: Request
+async def list2(data: ListPasswordRequest, request: Request):
     cursor = conn.cursor()
     try:
         signature = data.signature
