@@ -72,7 +72,7 @@ let otp_username = localStorage.getItem("username")
 if(otp_username !== null){
     let otp_key = localStorage.getItem("authkey")
     if(otp_key !== null){
-    let response = await fetch("http://localhost:8000/enableotp",
+    let response = await fetch(`${server_link}/enableotp`,
     {
         method:"POST",
         headers:{
@@ -102,7 +102,7 @@ if(otp_username !== null){
             nonce = data.nonce
             requestid = data.request_id
             signature = await otpgeneratesign(nonce, otp_key)
-            let verifyResponse = await fetch("http://localhost:8000/enable_otp2",
+            let verifyResponse = await fetch(`${server_link}/enable_otp2`,
             {
             method:"POST",
 
@@ -163,6 +163,6 @@ window.addEventListener(
     warnUser
 )
 
-window.location.href = "main.html"
+window.location.href = "index.html"
 
 })

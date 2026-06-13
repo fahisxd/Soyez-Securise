@@ -60,7 +60,7 @@ document.getElementById("Login").addEventListener(
 async function(e){
 e.preventDefault()  
 loginbtn.disabled = true
-statusmsg.innerText = ("Wait...")
+login_statusmsg.innerText = ("Wait...")
 let usernameV = login_username.value
 let masterpassV = login_masterPassword.value
 let otpV = login_otp.value
@@ -69,7 +69,7 @@ if(otpV == ""){
 }
 login_statusmsg.innerText = "Requesting server for username"
 
-let response = await fetch("http://localhost:8000/login",
+let response = await fetch(`${server_link}/login`,
     {
         method:"POST",
         headers:{
@@ -139,7 +139,7 @@ let signature = await generatesign(nonce, login_authkey1)
 login_statusmsg.innerText = "Signature Generated"
 login_statusmsg.innerText = "Requesting Server"
 
-let verifyResponse = await fetch("http://localhost:8000/login2",
+let verifyResponse = await fetch(`${server_link}/login2`,
     {
     method:"POST",
 

@@ -1436,3 +1436,336 @@ Nonce was generated for user -fahis- at get-backup
 {"level": "INFO", "request-id": "f370b36d746747cead3e9978d4f532e8", "time": "2026-05-21 16:44:10.101564", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
 {"level": "INFO", "request-id": "f370b36d746747cead3e9978d4f532e8", "time": "2026-05-21 16:44:10.102706", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
 {"level": "INFO", "request-id": "f370b36d746747cead3e9978d4f532e8", "time": "2026-05-21 16:44:10.411530", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "ERROR", "request-id": "4fc516f757104237b31b7098b72c77c4", "time": "2026-06-13 11:37:44.582528", "event": "0", "user": "fahisxd", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "ERROR", "request-id": "7b545aa4e86b45d79491e6d7d4778b1e", "time": "2026-06-13 11:54:40.293968", "event": "can't adapt type 'RealDictRow'", "user": "fahisxd", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "db8b388e55214881958cfa6573f3c0a7", "time": "2026-06-13 12:19:51.249438", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "99e17b22cafd478c8c2ab58ab03e04c4", "time": "2026-06-13 12:24:49.908744", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "ERROR", "request-id": "3cbc4defeca94c2aa426e425bc2f5f03", "time": "2026-06-13 12:37:05.085022", "event": "duplicate key value violates unique constraint \"emails_email_key\"\nDETAIL:  Key (email)=(fahisshehandim@gmail.com) already exists.\n", "user": "fahis1", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "ERROR", "request-id": "a11288ef9a5645c297bddcc2ff97089d", "time": "2026-06-13 12:37:55.455158", "event": "current transaction is aborted, commands ignored until end of transaction block\n", "user": "fahis1", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "ERROR", "request-id": "1deeda123cc7430c91b77dec8891e151", "time": "2026-06-13 12:38:22.569413", "event": "current transaction is aborted, commands ignored until end of transaction block\n", "user": "fahis1", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "2a3ad305629045d39c52a0b35c19540d", "time": "2026-06-13 12:45:20.748056", "event": "Nonce generated", "user": "fahis1", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "2a3ad305629045d39c52a0b35c19540d", "time": "2026-06-13 12:45:21.473480", "event": "Temporary nonce stored", "user": "fahis1", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "2a3ad305629045d39c52a0b35c19540d", "time": "2026-06-13 12:45:21.473783", "event": "temperory Nonce Stored", "user": "fahis1", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "2a3ad305629045d39c52a0b35c19540d", "time": "2026-06-13 12:45:21.773981", "event": "Nonce generated", "user": "fahis1", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "c25d3fbd2183421e81bd2569314588be", "time": "2026-06-13 13:01:33.937832", "event": "Nonce generated", "user": "fahis2", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "c25d3fbd2183421e81bd2569314588be", "time": "2026-06-13 13:01:34.376628", "event": "Temporary nonce stored", "user": "fahis2", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "c25d3fbd2183421e81bd2569314588be", "time": "2026-06-13 13:01:34.377035", "event": "temperory Nonce Stored", "user": "fahis2", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "c25d3fbd2183421e81bd2569314588be", "time": "2026-06-13 13:01:34.653183", "event": "Nonce generated", "user": "fahis2", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "ERROR", "request-id": "c25d3fbd2183421e81bd2569314588be", "time": "2026-06-13 13:01:35.936757", "event": "0", "user": "fahis2", "ip": "127.0.0.1", "location": "/enableotp2"}
+error: -0- at otp-enabling
+{"level": "INFO", "request-id": "9d748914b8b34fd3ad3a1b90a81f1f93", "time": "2026-06-13 14:53:07.246125", "event": "Nonce generated", "user": "fah", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "9d748914b8b34fd3ad3a1b90a81f1f93", "time": "2026-06-13 14:53:09.860915", "event": "Temporary nonce stored", "user": "fah", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "9d748914b8b34fd3ad3a1b90a81f1f93", "time": "2026-06-13 14:53:09.861121", "event": "temperory Nonce Stored", "user": "fah", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "9d748914b8b34fd3ad3a1b90a81f1f93", "time": "2026-06-13 14:53:10.394068", "event": "Nonce generated", "user": "fah", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "9d748914b8b34fd3ad3a1b90a81f1f93", "time": "2026-06-13 14:53:11.880056", "event": "Server signature generated", "user": "fah", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "ERROR", "request-id": "9d748914b8b34fd3ad3a1b90a81f1f93", "time": "2026-06-13 14:53:12.316803", "event": "0", "user": "fah", "ip": "127.0.0.1", "location": "/enableotp2"}
+error: -0- at otp-enabling
+{"level": "INFO", "request-id": "325cce83423948808748ed60fc1c0ea2", "time": "2026-06-13 15:33:08.211602", "event": "Nonce generated", "user": "fahh", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "325cce83423948808748ed60fc1c0ea2", "time": "2026-06-13 15:33:09.807510", "event": "Temporary nonce stored", "user": "fahh", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "325cce83423948808748ed60fc1c0ea2", "time": "2026-06-13 15:33:09.807851", "event": "temperory Nonce Stored", "user": "fahh", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "325cce83423948808748ed60fc1c0ea2", "time": "2026-06-13 15:33:10.339603", "event": "Nonce generated", "user": "fahh", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "325cce83423948808748ed60fc1c0ea2", "time": "2026-06-13 15:33:11.337966", "event": "Server signature generated", "user": "fahh", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "ERROR", "request-id": "325cce83423948808748ed60fc1c0ea2", "time": "2026-06-13 15:33:11.733300", "event": "Traceback (most recent call last):\n  File \"/media/fahisxd/SSD/soyezsecurise/soyezsecurise-backend/main.py\", line 481, in enable_otp2\n    encrypt = encrypter(secret, user_id)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/media/fahisxd/SSD/soyezsecurise/soyezsecurise-backend/main.py\", line 277, in encrypter\n    hash_key = cursor.fetchone()[0]\n               ~~~~~~~~~~~~~~~~~^^^\nKeyError: 0\n", "user": "fahh", "ip": "127.0.0.1", "location": "/enableotp2"}
+{"level": "INFO", "request-id": "b76f107807824b47b1e950ca373afe17", "time": "2026-06-13 15:36:26.530326", "event": "Nonce generated", "user": "fahhh", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "b76f107807824b47b1e950ca373afe17", "time": "2026-06-13 15:36:28.020936", "event": "Temporary nonce stored", "user": "fahhh", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "b76f107807824b47b1e950ca373afe17", "time": "2026-06-13 15:36:28.021230", "event": "temperory Nonce Stored", "user": "fahhh", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "b76f107807824b47b1e950ca373afe17", "time": "2026-06-13 15:36:28.572342", "event": "Nonce generated", "user": "fahhh", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "b76f107807824b47b1e950ca373afe17", "time": "2026-06-13 15:36:29.818167", "event": "Server signature generated", "user": "fahhh", "ip": "127.0.0.1", "location": "/enable_otp2"}
+Secret was Encrpyted for user -13-
+{"level": "INFO", "request-id": "3e6f593e33cc4cdaa80b145f5b49f9b0", "time": "2026-06-13 15:39:50.224348", "event": "Nonce generated", "user": "fahhh", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "441522e0ed1740949151547483851e80", "time": "2026-06-13 15:41:10.203474", "event": "Nonce generated", "user": "fahhh", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "60dbe1ac60344274a43c00f8686383c8", "time": "2026-06-13 15:42:04.829844", "event": "Nonce generated", "user": "fahhh", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "b50f6d9ec42c42ca8afcbbc0defd45ad", "time": "2026-06-13 16:17:14.325980", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "b50f6d9ec42c42ca8afcbbc0defd45ad", "time": "2026-06-13 16:17:15.781835", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "b50f6d9ec42c42ca8afcbbc0defd45ad", "time": "2026-06-13 16:17:15.782107", "event": "temperory Nonce Stored", "user": "fahis", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "b50f6d9ec42c42ca8afcbbc0defd45ad", "time": "2026-06-13 16:17:16.123209", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "b50f6d9ec42c42ca8afcbbc0defd45ad", "time": "2026-06-13 16:17:17.596182", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/enable_otp2"}
+Secret was Encrpyted for user -14-
+{"level": "INFO", "request-id": "2a46e4eaa32e4c5199202d3b8f346cb2", "time": "2026-06-13 16:18:52.846357", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "2a46e4eaa32e4c5199202d3b8f346cb2", "time": "2026-06-13 16:18:53.001359", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "2a46e4eaa32e4c5199202d3b8f346cb2", "time": "2026-06-13 16:18:55.383767", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+Error: -0 occured at get-backup
+{"level": "INFO", "request-id": "7e5337127be4474d8bc72e418fec012c", "time": "2026-06-13 16:34:48.486523", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "7e5337127be4474d8bc72e418fec012c", "time": "2026-06-13 16:34:49.558157", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "7e5337127be4474d8bc72e418fec012c", "time": "2026-06-13 16:34:51.667489", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "ERROR", "request-id": "7e5337127be4474d8bc72e418fec012c", "time": "2026-06-13 16:34:52.934021", "event": "0", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+Error: -0 occured at get-backup
+{"level": "INFO", "request-id": "05b1c55c2da04211b27b1bfb23513a66", "time": "2026-06-13 16:38:27.074066", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "05b1c55c2da04211b27b1bfb23513a66", "time": "2026-06-13 16:38:28.160436", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "9ed0500f4c584376b25e7be87c56d893", "time": "2026-06-13 16:38:29.838773", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "9ed0500f4c584376b25e7be87c56d893", "time": "2026-06-13 16:38:30.016656", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "05b1c55c2da04211b27b1bfb23513a66", "time": "2026-06-13 16:38:31.857385", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "9ed0500f4c584376b25e7be87c56d893", "time": "2026-06-13 16:38:34.915822", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "475096af7e994c58872f26bc5c4834aa", "time": "2026-06-13 16:46:08.579973", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "475096af7e994c58872f26bc5c4834aa", "time": "2026-06-13 16:46:09.653078", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "757b66b555a64a9ebf02974fdf1c948c", "time": "2026-06-13 16:46:11.336075", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "757b66b555a64a9ebf02974fdf1c948c", "time": "2026-06-13 16:46:11.491788", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "475096af7e994c58872f26bc5c4834aa", "time": "2026-06-13 16:46:13.679753", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "757b66b555a64a9ebf02974fdf1c948c", "time": "2026-06-13 16:46:16.352176", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "ERROR", "request-id": "757b66b555a64a9ebf02974fdf1c948c", "time": "2026-06-13 16:46:17.614319", "event": "Traceback (most recent call last):\n  File \"/media/fahisxd/SSD/soyezsecurise/soyezsecurise-backend/main.py\", line 998, in login2\n    status = otp_generation_and_verfication(un, user_otp)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/media/fahisxd/SSD/soyezsecurise/soyezsecurise-backend/main.py\", line 212, in otp_generation_and_verfication\n    enc_secret = row[0]\n                 ~~~^^^\nKeyError: 0\n", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+Error: -0 occured at get-backup
+{"level": "INFO", "request-id": "fe313aabb29d49a0a73ce74c57a04b39", "time": "2026-06-13 16:46:20.343246", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "fe313aabb29d49a0a73ce74c57a04b39", "time": "2026-06-13 16:46:20.504179", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "23e5dceb17814724b5467d689189cf9f", "time": "2026-06-13 16:46:22.147705", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "23e5dceb17814724b5467d689189cf9f", "time": "2026-06-13 16:46:22.300550", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "fe313aabb29d49a0a73ce74c57a04b39", "time": "2026-06-13 16:46:24.057720", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "23e5dceb17814724b5467d689189cf9f", "time": "2026-06-13 16:46:26.699759", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "ERROR", "request-id": "23e5dceb17814724b5467d689189cf9f", "time": "2026-06-13 16:46:27.962157", "event": "Traceback (most recent call last):\n  File \"/media/fahisxd/SSD/soyezsecurise/soyezsecurise-backend/main.py\", line 998, in login2\n    status = otp_generation_and_verfication(un, user_otp)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/media/fahisxd/SSD/soyezsecurise/soyezsecurise-backend/main.py\", line 212, in otp_generation_and_verfication\n    enc_secret = row[0]\n                 ~~~^^^\nKeyError: 0\n", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+Error: -0 occured at get-backup
+{"level": "INFO", "request-id": "c2856affbda5450fa20ea8ed511de09b", "time": "2026-06-13 16:50:26.373230", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "c2856affbda5450fa20ea8ed511de09b", "time": "2026-06-13 16:50:27.421907", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "c2856affbda5450fa20ea8ed511de09b", "time": "2026-06-13 16:50:29.476167", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "b7ed2368838144e4bd4c31358643b446", "time": "2026-06-13 17:32:18.834907", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "b7ed2368838144e4bd4c31358643b446", "time": "2026-06-13 17:32:18.984926", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "b7ed2368838144e4bd4c31358643b446", "time": "2026-06-13 17:32:21.368900", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "166d2f4aaee840338772005e0a8b7cba", "time": "2026-06-13 17:33:37.789664", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "166d2f4aaee840338772005e0a8b7cba", "time": "2026-06-13 17:33:37.949332", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "166d2f4aaee840338772005e0a8b7cba", "time": "2026-06-13 17:33:40.085879", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+base64 encrypted transmitted data was decrypted form base64 at store-password
+{"level": "INFO", "request-id": "261f8eb201f14d3aa489c27b565dcfd8", "time": "2026-06-13 17:33:51.395772", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "261f8eb201f14d3aa489c27b565dcfd8", "time": "2026-06-13 17:33:51.550453", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "261f8eb201f14d3aa489c27b565dcfd8", "time": "2026-06-13 17:33:53.504880", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "aa290b879e6d4ee4b195ee0f84130d7b", "time": "2026-06-13 17:34:27.637872", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "aa290b879e6d4ee4b195ee0f84130d7b", "time": "2026-06-13 17:34:27.791416", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "aa290b879e6d4ee4b195ee0f84130d7b", "time": "2026-06-13 17:34:29.671290", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "b3be7a51e83943b290e613dd667ed783", "time": "2026-06-13 17:35:41.474363", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "b3be7a51e83943b290e613dd667ed783", "time": "2026-06-13 17:35:41.626386", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "b3be7a51e83943b290e613dd667ed783", "time": "2026-06-13 17:35:43.876062", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "35095e35aafe4399867928778074a26a", "time": "2026-06-13 17:36:06.252267", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "35095e35aafe4399867928778074a26a", "time": "2026-06-13 17:36:06.404298", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "8324bbfa944343ee914aece076585d63", "time": "2026-06-13 17:36:08.226474", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "8324bbfa944343ee914aece076585d63", "time": "2026-06-13 17:36:08.380215", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "35095e35aafe4399867928778074a26a", "time": "2026-06-13 17:36:11.043343", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "8324bbfa944343ee914aece076585d63", "time": "2026-06-13 17:36:12.546766", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "76c2ec9a7d2b448b94d608327b5b999b", "time": "2026-06-13 17:36:22.571464", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "76c2ec9a7d2b448b94d608327b5b999b", "time": "2026-06-13 17:36:22.726687", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "76c2ec9a7d2b448b94d608327b5b999b", "time": "2026-06-13 17:36:25.126803", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "445afc236ee445d18fd2e8f8e5afb28b", "time": "2026-06-13 17:36:29.551636", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "445afc236ee445d18fd2e8f8e5afb28b", "time": "2026-06-13 17:36:29.701478", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "445afc236ee445d18fd2e8f8e5afb28b", "time": "2026-06-13 17:36:32.491733", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "55347e8d7a98430ea2bb353393cc667f", "time": "2026-06-13 17:36:39.086598", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "55347e8d7a98430ea2bb353393cc667f", "time": "2026-06-13 17:36:39.239151", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "55347e8d7a98430ea2bb353393cc667f", "time": "2026-06-13 17:36:42.031885", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "504e39159ac74629a531336a089d3044", "time": "2026-06-13 17:40:39.460037", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "504e39159ac74629a531336a089d3044", "time": "2026-06-13 17:40:39.611141", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "504e39159ac74629a531336a089d3044", "time": "2026-06-13 17:40:42.013431", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "78af63a9929a4afdb51d0378c4eaf0c3", "time": "2026-06-13 17:40:50.065063", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "78af63a9929a4afdb51d0378c4eaf0c3", "time": "2026-06-13 17:40:50.216802", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "78af63a9929a4afdb51d0378c4eaf0c3", "time": "2026-06-13 17:40:52.408228", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "ae5d5e9476c745168760127cda40d934", "time": "2026-06-13 17:40:55.282189", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "ae5d5e9476c745168760127cda40d934", "time": "2026-06-13 17:40:55.436171", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "ae5d5e9476c745168760127cda40d934", "time": "2026-06-13 17:40:57.551562", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "ec2208ee5b9e450d9d18aab4852956bd", "time": "2026-06-13 17:41:55.345741", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "ec2208ee5b9e450d9d18aab4852956bd", "time": "2026-06-13 17:41:55.497676", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "ec2208ee5b9e450d9d18aab4852956bd", "time": "2026-06-13 17:41:57.455806", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "77aa3b2a65c24219aa1d5f4a6fa7ee8f", "time": "2026-06-13 17:57:12.237088", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "77aa3b2a65c24219aa1d5f4a6fa7ee8f", "time": "2026-06-13 17:57:12.390090", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "77aa3b2a65c24219aa1d5f4a6fa7ee8f", "time": "2026-06-13 17:57:14.901998", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "42d9edd3958548b9b3baa3172ac640f4", "time": "2026-06-13 17:57:24.929074", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "42d9edd3958548b9b3baa3172ac640f4", "time": "2026-06-13 17:57:25.082903", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "42d9edd3958548b9b3baa3172ac640f4", "time": "2026-06-13 17:57:27.309235", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "bfe83373698b41219a155f12c253310b", "time": "2026-06-13 17:58:18.856243", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "bfe83373698b41219a155f12c253310b", "time": "2026-06-13 17:58:19.015239", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "bfe83373698b41219a155f12c253310b", "time": "2026-06-13 17:58:21.081664", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "ebecb8505c18476284a04c21489185a7", "time": "2026-06-13 17:58:32.273480", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "ebecb8505c18476284a04c21489185a7", "time": "2026-06-13 17:58:32.427200", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "42c26832a0a948d29c7a6d5e7f9f66ea", "time": "2026-06-13 17:58:34.703296", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "42c26832a0a948d29c7a6d5e7f9f66ea", "time": "2026-06-13 17:58:34.862316", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "ebecb8505c18476284a04c21489185a7", "time": "2026-06-13 17:58:36.724670", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "42c26832a0a948d29c7a6d5e7f9f66ea", "time": "2026-06-13 17:58:39.591956", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "79baef66a0394cc3919b147afff6364d", "time": "2026-06-13 18:07:00.035854", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "79baef66a0394cc3919b147afff6364d", "time": "2026-06-13 18:07:01.111761", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "79baef66a0394cc3919b147afff6364d", "time": "2026-06-13 18:07:02.942007", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "ERROR", "request-id": "79baef66a0394cc3919b147afff6364d", "time": "2026-06-13 18:07:03.326719", "event": "list indices must be integers or slices, not str", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "8520343a584743d39c1f47846a65287a", "time": "2026-06-13 18:07:16.163410", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "8520343a584743d39c1f47846a65287a", "time": "2026-06-13 18:07:16.321138", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "8520343a584743d39c1f47846a65287a", "time": "2026-06-13 18:07:18.726084", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "f2f4e02ebf144b21a1045e0f97286ca3", "time": "2026-06-13 18:07:22.943614", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "f2f4e02ebf144b21a1045e0f97286ca3", "time": "2026-06-13 18:07:23.102434", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "f2f4e02ebf144b21a1045e0f97286ca3", "time": "2026-06-13 18:07:25.703543", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "ERROR", "request-id": "f2f4e02ebf144b21a1045e0f97286ca3", "time": "2026-06-13 18:07:26.077330", "event": "list indices must be integers or slices, not str", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "85c0a6115f6342d092156ae47d8b0cc7", "time": "2026-06-13 18:09:33.880934", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "85c0a6115f6342d092156ae47d8b0cc7", "time": "2026-06-13 18:09:34.952798", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "85c0a6115f6342d092156ae47d8b0cc7", "time": "2026-06-13 18:09:36.774774", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "ERROR", "request-id": "85c0a6115f6342d092156ae47d8b0cc7", "time": "2026-06-13 18:09:37.148850", "event": "'service'", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "2622912ccc244989b47b3bfa71cd9a5e", "time": "2026-06-13 18:09:38.236437", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "2622912ccc244989b47b3bfa71cd9a5e", "time": "2026-06-13 18:09:38.393239", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "bc5c7db862b7445caba556f4c406f636", "time": "2026-06-13 18:09:40.239089", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "bc5c7db862b7445caba556f4c406f636", "time": "2026-06-13 18:09:40.400113", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "2622912ccc244989b47b3bfa71cd9a5e", "time": "2026-06-13 18:09:42.188155", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "bc5c7db862b7445caba556f4c406f636", "time": "2026-06-13 18:09:45.288303", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "ERROR", "request-id": "bc5c7db862b7445caba556f4c406f636", "time": "2026-06-13 18:09:45.659009", "event": "'service'", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "ecf6ca1b1fc44b6fbd5ae455364f2308", "time": "2026-06-13 18:10:50.388008", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "ecf6ca1b1fc44b6fbd5ae455364f2308", "time": "2026-06-13 18:10:51.450874", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "ecf6ca1b1fc44b6fbd5ae455364f2308", "time": "2026-06-13 18:10:53.278305", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "6bc625c72ad4468baf01b944df081e07", "time": "2026-06-13 18:10:58.532139", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "6bc625c72ad4468baf01b944df081e07", "time": "2026-06-13 18:10:58.686070", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "06f0eec462eb417198a6c8d92fbeb85d", "time": "2026-06-13 18:11:00.793904", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "06f0eec462eb417198a6c8d92fbeb85d", "time": "2026-06-13 18:11:00.952221", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "6bc625c72ad4468baf01b944df081e07", "time": "2026-06-13 18:11:02.482435", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "06f0eec462eb417198a6c8d92fbeb85d", "time": "2026-06-13 18:11:04.922561", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "f20e0ceda8964c758863f349e37e8d28", "time": "2026-06-13 18:11:14.314180", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "f20e0ceda8964c758863f349e37e8d28", "time": "2026-06-13 18:11:14.470313", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "f20e0ceda8964c758863f349e37e8d28", "time": "2026-06-13 18:11:16.859676", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "4e02c18cca68452ba3d1131ee9a5b344", "time": "2026-06-13 18:11:21.052603", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "4e02c18cca68452ba3d1131ee9a5b344", "time": "2026-06-13 18:11:21.204334", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "4e02c18cca68452ba3d1131ee9a5b344", "time": "2026-06-13 18:11:23.310805", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "869bad366057423db532fc4e9a0b2d41", "time": "2026-06-13 18:12:29.128440", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "869bad366057423db532fc4e9a0b2d41", "time": "2026-06-13 18:12:29.280183", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "b85a528467e34c38be8e2a065c67020c", "time": "2026-06-13 18:12:31.102104", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "b85a528467e34c38be8e2a065c67020c", "time": "2026-06-13 18:12:31.258319", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "869bad366057423db532fc4e9a0b2d41", "time": "2026-06-13 18:12:33.679157", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "b85a528467e34c38be8e2a065c67020c", "time": "2026-06-13 18:12:36.157644", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+base64 encrypted transmitted data was decrypted form base64 at store-password
+Error: -0 occured at store-password
+{"level": "INFO", "request-id": "e5d497cd6086436f98d01f8800301470", "time": "2026-06-13 18:12:58.653722", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "e5d497cd6086436f98d01f8800301470", "time": "2026-06-13 18:12:58.808709", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "e5d497cd6086436f98d01f8800301470", "time": "2026-06-13 18:13:01.356803", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+base64 encrypted transmitted data was decrypted form base64 at store-password
+Error: -0 occured at store-password
+{"level": "INFO", "request-id": "6f4912554e54404fa6057110fdc87a06", "time": "2026-06-13 18:15:03.900977", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "6f4912554e54404fa6057110fdc87a06", "time": "2026-06-13 18:15:04.920906", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "6f4912554e54404fa6057110fdc87a06", "time": "2026-06-13 18:15:08.209116", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+base64 encrypted transmitted data was decrypted form base64 at store-password
+{"level": "ERROR", "request-id": "6f4912554e54404fa6057110fdc87a06", "time": "2026-06-13 18:15:09.239784", "event": "0", "user": "fahis", "ip": "127.0.0.1", "location": "/newuser"}
+Error: -0 occured at store-password
+{"level": "INFO", "request-id": "abd8dc37e3ce42658f5d2758051ad996", "time": "2026-06-13 18:16:33.770726", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "abd8dc37e3ce42658f5d2758051ad996", "time": "2026-06-13 18:16:34.838402", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "abd8dc37e3ce42658f5d2758051ad996", "time": "2026-06-13 18:16:38.030711", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+base64 encrypted transmitted data was decrypted form base64 at store-password
+{"level": "ERROR", "request-id": "abd8dc37e3ce42658f5d2758051ad996", "time": "2026-06-13 18:16:39.039078", "event": "Traceback (most recent call last):\n  File \"/media/fahisxd/SSD/soyezsecurise/soyezsecurise-backend/main.py\", line 712, in store_password2\n    names.append(name[0])\n                 ~~~~^^^\nKeyError: 0\n", "user": "fahis", "ip": "127.0.0.1", "location": "/newuser"}
+Error: -0 occured at store-password
+{"level": "INFO", "request-id": "cfb4b2927d7044fcbbe467a59e803470", "time": "2026-06-13 18:20:38.316931", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "cfb4b2927d7044fcbbe467a59e803470", "time": "2026-06-13 18:20:39.391864", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "cfb4b2927d7044fcbbe467a59e803470", "time": "2026-06-13 18:20:41.301049", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+base64 encrypted transmitted data was decrypted form base64 at store-password
+{"level": "INFO", "request-id": "c6c8db7e8da34544b4ce45c69429adb8", "time": "2026-06-13 18:20:51.089813", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "c6c8db7e8da34544b4ce45c69429adb8", "time": "2026-06-13 18:20:51.255930", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "c6c8db7e8da34544b4ce45c69429adb8", "time": "2026-06-13 18:20:53.404776", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+base64 encrypted transmitted data was decrypted form base64 at store-password
+{"level": "INFO", "request-id": "ed1702fe83ab406a97a692591d5502b6", "time": "2026-06-13 18:21:03.726961", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "ed1702fe83ab406a97a692591d5502b6", "time": "2026-06-13 18:21:03.887131", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "ed1702fe83ab406a97a692591d5502b6", "time": "2026-06-13 18:21:06.127227", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "15ecef3839d443099a8f2c49ac29c23c", "time": "2026-06-13 18:21:14.265065", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "15ecef3839d443099a8f2c49ac29c23c", "time": "2026-06-13 18:21:14.427081", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "15ecef3839d443099a8f2c49ac29c23c", "time": "2026-06-13 18:21:17.062571", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "73ac9d307f1d4c02b75eb0828ed2657b", "time": "2026-06-13 18:21:39.662436", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "73ac9d307f1d4c02b75eb0828ed2657b", "time": "2026-06-13 18:21:39.822029", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "73ac9d307f1d4c02b75eb0828ed2657b", "time": "2026-06-13 18:21:41.862635", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "93c8d35e61bb4f97b1221b7ab1e7a660", "time": "2026-06-13 18:21:54.962461", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc"}
+{"level": "INFO", "request-id": "93c8d35e61bb4f97b1221b7ab1e7a660", "time": "2026-06-13 18:21:55.126187", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc"}
+Nonce was generated for user -fahis- at getting-encrpyted-data
+{"level": "INFO", "request-id": "93c8d35e61bb4f97b1221b7ab1e7a660", "time": "2026-06-13 18:21:57.640544", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
+Encrypted data of User -fahis- was encrypted uaing base64 before transmision at getting-encrpyted-data
+{"level": "INFO", "request-id": "b329a8fd4051468fab4a53624508d94f", "time": "2026-06-13 18:25:47.152974", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc"}
+{"level": "INFO", "request-id": "b329a8fd4051468fab4a53624508d94f", "time": "2026-06-13 18:25:48.247993", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc"}
+Nonce was generated for user -fahis- at getting-encrpyted-data
+{"level": "INFO", "request-id": "b329a8fd4051468fab4a53624508d94f", "time": "2026-06-13 18:25:49.592011", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
+Encrypted data of User -fahis- was encrypted uaing base64 before transmision at getting-encrpyted-data
+{"level": "INFO", "request-id": "f0dab22f818649139586493166813b5f", "time": "2026-06-13 19:20:18.021456", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "f0dab22f818649139586493166813b5f", "time": "2026-06-13 19:20:18.328537", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "f0dab22f818649139586493166813b5f", "time": "2026-06-13 19:20:20.409834", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "1b6c1295e01b4bfc8586062f6948bb73", "time": "2026-06-13 19:20:39.590589", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "1b6c1295e01b4bfc8586062f6948bb73", "time": "2026-06-13 19:20:39.638781", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "1b6c1295e01b4bfc8586062f6948bb73", "time": "2026-06-13 19:20:41.513774", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "11471c03790f4fc896d0e3b06efda4da", "time": "2026-06-13 19:20:46.510100", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "11471c03790f4fc896d0e3b06efda4da", "time": "2026-06-13 19:20:46.554308", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "11471c03790f4fc896d0e3b06efda4da", "time": "2026-06-13 19:20:48.334638", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "c3e391ee823447eab17d75da07b60910", "time": "2026-06-13 19:20:56.303553", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "c3e391ee823447eab17d75da07b60910", "time": "2026-06-13 19:20:56.348930", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "c3e391ee823447eab17d75da07b60910", "time": "2026-06-13 19:20:57.920105", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "4997b1cf59154a60912482190d1228ca", "time": "2026-06-13 19:21:21.801069", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc"}
+{"level": "INFO", "request-id": "4997b1cf59154a60912482190d1228ca", "time": "2026-06-13 19:21:21.844719", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc"}
+Nonce was generated for user -fahis- at getting-encrpyted-data
+{"level": "INFO", "request-id": "4997b1cf59154a60912482190d1228ca", "time": "2026-06-13 19:21:23.093827", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
+Encrypted data of User -fahis- was encrypted uaing base64 before transmision at getting-encrpyted-data
+{"level": "INFO", "request-id": "36049de756744c6099f6e3a1bb001694", "time": "2026-06-13 19:21:51.601092", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "36049de756744c6099f6e3a1bb001694", "time": "2026-06-13 19:21:51.649421", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "36049de756744c6099f6e3a1bb001694", "time": "2026-06-13 19:21:53.669641", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "85cd9d1af19f4213811923d84f8c6a6b", "time": "2026-06-13 19:22:09.167676", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "85cd9d1af19f4213811923d84f8c6a6b", "time": "2026-06-13 19:22:09.212851", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "85cd9d1af19f4213811923d84f8c6a6b", "time": "2026-06-13 19:22:11.200658", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "e535c2b11e3a4b64913cc92fb60d673c", "time": "2026-06-13 19:22:29.278188", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/delete_password"}
+{"level": "INFO", "request-id": "e535c2b11e3a4b64913cc92fb60d673c", "time": "2026-06-13 19:22:29.321802", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/delete_password"}
+{"level": "INFO", "request-id": "e535c2b11e3a4b64913cc92fb60d673c", "time": "2026-06-13 19:22:30.471679", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/delete2"}
+{"level": "ERROR", "request-id": "e535c2b11e3a4b64913cc92fb60d673c", "time": "2026-06-13 19:22:30.878428", "event": "0", "user": "fahis", "ip": "127.0.0.1", "location": "/delete2"}
+{"level": "INFO", "request-id": "5ef0e196d879432b9bc183bc4d378846", "time": "2026-06-13 19:23:28.292227", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/delete_password"}
+{"level": "INFO", "request-id": "5ef0e196d879432b9bc183bc4d378846", "time": "2026-06-13 19:23:28.672092", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/delete_password"}
+{"level": "INFO", "request-id": "5ef0e196d879432b9bc183bc4d378846", "time": "2026-06-13 19:23:29.727916", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/delete2"}
+{"level": "INFO", "request-id": "4f18d175510742caa5c0731e8ffb228c", "time": "2026-06-13 19:23:41.237947", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "4f18d175510742caa5c0731e8ffb228c", "time": "2026-06-13 19:23:41.288869", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "4f18d175510742caa5c0731e8ffb228c", "time": "2026-06-13 19:23:42.784564", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "e9cf0e5ff7424670b1797a7aca874b76", "time": "2026-06-13 21:32:11.706677", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "e9cf0e5ff7424670b1797a7aca874b76", "time": "2026-06-13 21:32:12.974200", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "e9cf0e5ff7424670b1797a7aca874b76", "time": "2026-06-13 21:32:15.820140", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "ae53bf6942c44f398b435e5e93804ea5", "time": "2026-06-13 21:32:41.927838", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "ae53bf6942c44f398b435e5e93804ea5", "time": "2026-06-13 21:32:42.113092", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword"}
+{"level": "INFO", "request-id": "ae53bf6942c44f398b435e5e93804ea5", "time": "2026-06-13 21:32:45.070745", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+base64 encrypted transmitted data was decrypted form base64 at store-password
+{"level": "INFO", "request-id": "d8c669a587db4d08b2b57750bad4a883", "time": "2026-06-13 21:32:58.360617", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "d8c669a587db4d08b2b57750bad4a883", "time": "2026-06-13 21:32:58.535623", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "d8c669a587db4d08b2b57750bad4a883", "time": "2026-06-13 21:33:01.418611", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "6a05c1fc283840e6b52fe794f971f622", "time": "2026-06-13 21:33:07.625205", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "6a05c1fc283840e6b52fe794f971f622", "time": "2026-06-13 21:33:07.793126", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "6a05c1fc283840e6b52fe794f971f622", "time": "2026-06-13 21:33:10.846873", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "c59ca6909c814f2aa20d64cd8525e2bd", "time": "2026-06-13 21:33:14.928790", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "c59ca6909c814f2aa20d64cd8525e2bd", "time": "2026-06-13 21:33:15.103976", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "c59ca6909c814f2aa20d64cd8525e2bd", "time": "2026-06-13 21:33:18.280493", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "97333e1df68d4f45b6b46edefce3a89e", "time": "2026-06-13 21:33:33.675547", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "97333e1df68d4f45b6b46edefce3a89e", "time": "2026-06-13 21:33:33.844533", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "97333e1df68d4f45b6b46edefce3a89e", "time": "2026-06-13 21:33:37.049682", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "11fd9ac4d8c34f06965e55646169d6f4", "time": "2026-06-13 21:33:47.119104", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "11fd9ac4d8c34f06965e55646169d6f4", "time": "2026-06-13 21:33:47.299102", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "11fd9ac4d8c34f06965e55646169d6f4", "time": "2026-06-13 21:33:50.342270", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "06be7c56c83a47d6a6efdb0762424c83", "time": "2026-06-13 21:33:56.937494", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "06be7c56c83a47d6a6efdb0762424c83", "time": "2026-06-13 21:33:57.165833", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "06be7c56c83a47d6a6efdb0762424c83", "time": "2026-06-13 21:33:59.301965", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "0b18862a59294d72bdb059f905ed9cda", "time": "2026-06-13 21:34:16.237080", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc"}
+{"level": "INFO", "request-id": "0b18862a59294d72bdb059f905ed9cda", "time": "2026-06-13 21:34:16.402207", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc"}
+Nonce was generated for user -fahis- at getting-encrpyted-data
+{"level": "INFO", "request-id": "0b18862a59294d72bdb059f905ed9cda", "time": "2026-06-13 21:34:17.987562", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
+Encrypted data of User -fahis- was encrypted uaing base64 before transmision at getting-encrpyted-data
+{"level": "INFO", "request-id": "eb9b014bfa694ecf9132386f232f3df7", "time": "2026-06-13 21:34:51.490465", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+{"level": "INFO", "request-id": "eb9b014bfa694ecf9132386f232f3df7", "time": "2026-06-13 21:34:51.656442", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/login"}
+Nonce was generated for user -fahis- at get-backup
+{"level": "INFO", "request-id": "eb9b014bfa694ecf9132386f232f3df7", "time": "2026-06-13 21:34:55.190104", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "752382cfcd2f4f619d7ac54ee4630395", "time": "2026-06-13 21:35:12.761577", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/delete_password"}
+{"level": "INFO", "request-id": "752382cfcd2f4f619d7ac54ee4630395", "time": "2026-06-13 21:35:12.934558", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/delete_password"}
+{"level": "INFO", "request-id": "752382cfcd2f4f619d7ac54ee4630395", "time": "2026-06-13 21:35:15.306833", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/delete2"}
+{"level": "INFO", "request-id": "886a9cfc39cd4141afe8bef92476f1f4", "time": "2026-06-13 21:35:21.407494", "event": "Nonce generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "886a9cfc39cd4141afe8bef92476f1f4", "time": "2026-06-13 21:35:21.572547", "event": "Temporary nonce stored", "user": "fahis", "ip": "127.0.0.1", "location": "/list"}
+{"level": "INFO", "request-id": "886a9cfc39cd4141afe8bef92476f1f4", "time": "2026-06-13 21:35:23.653774", "event": "Server signature generated", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "02f645cef1ce4873ab0f85b7b2545fa5", "time": "2026-06-13 21:36:22.536432", "event": "Nonce generated", "user": "fahssssss", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "02f645cef1ce4873ab0f85b7b2545fa5", "time": "2026-06-13 21:36:23.235128", "event": "Temporary nonce stored", "user": "fahssssss", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "02f645cef1ce4873ab0f85b7b2545fa5", "time": "2026-06-13 21:36:23.235480", "event": "temperory Nonce Stored", "user": "fahssssss", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "02f645cef1ce4873ab0f85b7b2545fa5", "time": "2026-06-13 21:36:23.766334", "event": "Nonce generated", "user": "fahssssss", "ip": "127.0.0.1", "location": "/enableotp"}
+{"level": "INFO", "request-id": "02f645cef1ce4873ab0f85b7b2545fa5", "time": "2026-06-13 21:36:25.246584", "event": "Server signature generated", "user": "fahssssss", "ip": "127.0.0.1", "location": "/enable_otp2"}
+Secret was encrypted for user -16-

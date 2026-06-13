@@ -1,26 +1,34 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Soyez Sécurisé</title>
+		<title>Enable Two-Factor Authentication | Soyez Sécurisé</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="icon" type="image/x-icon" href="images/favicon.svg">
 	</head>
-	<body class="is-preload">
+	<body class="is-preload otp-page">
+
+			<div class="app-brand" aria-label="Soyez Sécurisé">
+				<a href="index.html">
+					<span class="brand-mark"><span class="icon fa-shield-alt"></span></span>
+					<span class="brand-copy">
+						<strong>SoyezSécurisé<span>.</span></strong>
+						<small>Security setup</small>
+					</span>
+				</a>
+			</div>
 
 		<!-- Wrapper --> 
 			<div id="wrapper">
-					<h3>This page will <bold>not be shown again</bold>, Please note the details provided.</h3>
+					<p class="one-time-notice"><span class="icon fa-exclamation-circle"></span><strong>One-time setup:</strong> save these details now. This page will not be shown again.</p>
 				<!-- Header -->
 					<header id="header">
-						<div class="logo">
-							<span class="icon fa-gem"></span>
-						</div>
 						<div class="content">
 							<div class="inner">
-								<h1 style="color: #8da9c4;">Soyez Sécurisé</h1>
-								<h4>Why 2-Factor Authentication is important:</h4>
+								<span class="hero-badge"><span class="status-pulse"></span> Account protection</span>
+								<h1>Secure your <span>vault.</span></h1>
 								<p id="answerforotpq">Security is not built when an attack begins. It is built long before anyone attempts one.</p>
 							</div>
 						</div>
@@ -35,80 +43,52 @@
 					<div id="main">
 
 						<!-- Intro -->
-							<article id="otp-scanner">
+						 <article id="otp-scanner">
+								<span class="article-eyebrow">Final security step</span>
 								<h2 class="major">OTP</h2>
-								<p>Scan the QR or enter secret code</a>.</p>
+								<p>Scan the QR code with your authenticator app, or enter the secret manually.</p>
 								<form id="otp">
 									<div class="fields">
-                                        <h4 class="otp-text">Scan this Code on your mobile google authenticator</h4>
+                                        <h4 class="otp-text">Scan with your authenticator app</h4>
 										<div class="qr-box">
-                                            <img id="qr" src="images/qr.png">
+                                            <img id="qr" src="images/qr.png" alt="Two-factor authentication QR code">
                                         </div>
-                                        <p>Enter This code in Google athenticator in your moblie device</p>
+                                        <p class="secret-label">Manual setup key</p>
                                         <div id="otpsecret">
-                            
-									<div class="password-wrapper">
-
-										<input
-											type="password"
-											id="otp-secret"
-											readonly
-										/>
-
-										<button
-											type="button"
-											class="copy-btn"
-											onclick="copyotp()"
-										>
-											Copy
-										</button>
-
-									
-
-								</div>
+											<div class="password-wrapper">
+												<input type="password" id="otp-secret" readonly aria-label="OTP secret key" />
+												<button type="button" class="copy-btn" onclick="copyotp()">Copy</button>
+											</div>
                                         <div class="otp-controls">
-                                    <ul class="actions">
-										<li><input type="submit" value="Done" class="primary" /></li>
-                                    </ul>
+											<ul class="actions">
+												<li><input type="submit" value="Finish setup" class="primary" href="index.html"/></li>
+											</ul>
                                         </div>
                                         </div>
-									</ul>
+									</div>
 								</form>
 							</article>
 							<article id="otp-status">
+								<span class="article-eyebrow">Preparing enrollment</span>
 								<h2 class="major">OTP</h2>
-								<p>QR code generating, Wait...</a>.</p>
+								<p>Generating your secure enrollment code. Please wait.</p>
 								<form id="otp-status-form">
-                                        <h6 class="otp-text">QR Generating...</h6>
+                                        <h6 class="otp-text loading-label">QR code generating...</h6>
 									<section>
 									<h3>Instructions</h3>
 									<ul class="alt">
-										<li>Download Google authenticator app(recommended).</li>
-										<li>Either Scan the QR code which will be generated.</li>
-										<li>Or Enter this secret code manually</li>
+										<li>Install Google Authenticator or another TOTP-compatible app.</li>
+										<li>Scan the QR code when it appears.</li>
+										<li>Use the secret key if you prefer manual setup.</li>
 									</ul>
 									</section>
-
-                                        <div class="otp-controls">
-                                        
-                                        </div>
-									</ul>
 								</form>
 								
 							</article>
 							<article id="otp-error">
+								<span class="article-eyebrow danger">Setup interrupted</span>
 								<h2 class="major">OTP</h2>
-								<p>ERROR</a>.</p>
-								<form id="otp">
-									<div class="fields">
-                                        <h4 class="otp-text">Unexpected error apeared please try signing in later</h4>
-								</div>
-
-                                    </ul>
-                                        </div>
-                                        </div>
-									</ul>
-								</form>
+								<p>We could not generate your enrollment details. Please try signing in again later.</p>
 							</article>
 							
 					</div>
@@ -129,6 +109,7 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
+			<script src="assets/js/api.js"></script>
 			<script src="assets/js/main.js"></script>
             <script src="assets/js/otpanswer.js"></script>
 			<script src="assets/js/enable_otp.js"></script>

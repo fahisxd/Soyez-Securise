@@ -1,6 +1,5 @@
 import hmac
 import hashlib
-from itertools import count
 import os
 from fastapi import FastAPI
 import redis
@@ -18,6 +17,8 @@ from fastapi.middleware.cors import CORSMiddleware
 import time
 import qrcode
 import io
+from dotenv import load_dotenv
+import traceback
 from psycopg2.extras import RealDictCursor
 from check_block import(
     check,
@@ -31,17 +32,16 @@ from logger import (
     Log_event
 )
 
-
-
 #---------------------------------------------------setup--------------------------------------------------#
-DATABASE_URL = os.getenv("POSTGRES_URL")
+load_dotenv()
 
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 conn = psycopg2.connect(
     DATABASE_URL,
     cursor_factory=RealDictCursor
 )
-REDIS_URL = os.getenv("REDIS_DB")
+REDIS_URL = os.getenv("REDIS_URL")
 
 nonce_db = redis.Redis.from_url(REDIS_URL,decode_responses=True)
 ratelimitin = redis.Redis.from_url(REDIS_URL,decode_responses=True)
@@ -201,21 +201,21 @@ def otp_generation_and_verfication(username, user_otp):
         """
     SELECT id FROM users WHERE username = %s;""",
         (username,),)
-    userid = cursor.fetchone()[0]
+    userid = cursor.fetchone()["id"]
     cursor.execute("""
     SELECT secret,salt FROM twofa WHERE userid = %s;
 """, (userid,),
 )
     row = cursor.fetchone()
-    enc_secret = row[0]
+    enc_secret = row["secret"]
     enc_secret = base64.b64decode(enc_secret)
-    salt = row[1]
+    salt = row["salt"]
     salt = base64.b64decode(salt)
     cursor.execute("""
     SELECT hash FROM users WHERE id = %s;
 """, (userid,),
 )
-    base_key = bytes.fromhex(cursor.fetchone()[0])
+    base_key = bytes.fromhex(cursor.fetchone()["hash"])
     key1 = HKDF(
     algorithm=hashes.SHA256(),
     length=32,
@@ -272,7 +272,7 @@ def encrypter(data, un):
         SELECT hash FROM users WHERE id = %s;""",
         (un,),
     )
-    hash_key = cursor.fetchone()[0]
+    hash_key = cursor.fetchone()["hash"]
     key1 = HKDF(
     algorithm=hashes.SHA256(),
     length=32,
@@ -287,7 +287,7 @@ def encrypter(data, un):
     salt_payload = base64.b64encode(salt_payload).decode()
     secret = ciphertext
     secret = base64.b64encode(ciphertext).decode()
-    sys_logger.info(f"Secret was Encrpyted for user -{un}-")
+    sys_logger.info(f"Secret was encrypted for user -{un}-")
     return {
         "secret" : secret,
         "salt_payload" : salt_payload
@@ -301,7 +301,7 @@ def encrypter(data, un):
 #     cursor.execute("""
 #         SELECT ip FROM iptracking WHERE userid = %s;
 # """, (userid,))
-#     old_ip = cursor.fetchone()[0]
+#     old_ip = cursor.fetchone()["ip"]
 #     if ip == old_ip:
 #         return {"No ERROR" : "--"}
 #     else:
@@ -328,17 +328,17 @@ app.add_middleware(
 
 )
 
-@app.middleware("http")
-async def security_headers(request, call_next):
-    response = await call_next(request)
+# @app.middleware("http")
+# async def security_headers(request, call_next):
+#     response = await call_next(request)
     
-    response.headers["X-Content-Type-Options"] = "nosniff"
-    response.headers["X-Frame-Options"] = "DENY"
-    response.headers["X-XSS-Protection"] = "1; mode=block"
-    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
-    response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none';"
+#     response.headers["X-Content-Type-Options"] = "nosniff"
+#     response.headers["X-Frame-Options"] = "DENY"
+#     response.headers["X-XSS-Protection"] = "1; mode=block"
+#     response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+#     response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none';"
     
-    return response
+#     return response
 
 
 #--------------------------------------------APIs--------------------------------------------------#
@@ -372,7 +372,6 @@ async def enable_otp(data: UsernameRequest, request: Request):
         salt = os.urandom(32).hex()
         time_equilizer(start)
         return {"nonce" : nonce,
-                "salt" : salt,
                 "request_id" : request_id}
     else:
         if ratelimitin.exists(f"rlpost:{username}"):
@@ -393,7 +392,7 @@ async def enable_otp(data: UsernameRequest, request: Request):
         nonce = os.urandom(32).hex()
         Log_event(sys_logger, "/enableotp", "INFO", "Nonce generated", f"{username}", f"{ip}", f"{request_id}")
         cursor.execute("SELECT id FROM users WHERE username = %s", (username,))
-        userid = cursor.fetchone()[0]
+        userid = cursor.fetchone()["id"]
         cursor.execute(
     "SELECT 1 FROM twofa WHERE userid = %s",
     (userid,)
@@ -412,14 +411,13 @@ async def enable_otp(data: UsernameRequest, request: Request):
         Log_event(sys_logger, "/enableotp", "INFO", "Temporary nonce stored", f"{username}", f"{ip}", f"{request_id}")
         Log_event(sys_logger, "/enableotp", "INFO", "temperory Nonce Stored", f"{username}", f"{ip}", f"{request_id}")
         nonce_db.expire(key, 300)
-        ratelimitin.incr(f"rlpost:{username}")
         if count == 1:
             ratelimitin.expire(f"rlpost:{username}", 3600)
         cursor.execute(
     "SELECT salt FROM salt WHERE userid = %s",
     (userid,)
 )
-        salt = cursor.fetchone()[0]
+        salt = cursor.fetchone()["salt"]
         Log_event(sys_logger, "/enableotp", "INFO", "Nonce generated", f"{username}", f"{ip}", f"{request_id}")
         time_equilizer(start)
         return {
@@ -435,7 +433,7 @@ async def enable_otp2(data: GetOTPRequest, request: Request):
         request_id = data.request_id
         ip = get_client_ip(request)
         if check(ip) == "IP BLOCKED":
-            return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
+            return {"ERROR" : "You have been blocked for violating policies, Try again later"}
         signature_bytes = bytes.fromhex(signature)
         data = nonce_db.hgetall(f"{un}:otp")
 
@@ -452,13 +450,13 @@ async def enable_otp2(data: GetOTPRequest, request: Request):
             return {"ERROR": f"Username or password is wrong"}
         cursor.execute("SELECT id FROM users WHERE username = %s", (un,))
         row = cursor.fetchone()
-        user_id = row[0]
+        user_id = row["id"]
         cursor.execute(
             """
         SELECT hash FROM users WHERE id = %s""",
             (user_id,),
         )
-        hash = cursor.fetchone()[0]
+        hash = cursor.fetchone()["hash"]
 
         server_signature = hmac.new(
             bytes.fromhex(hash), bytes.fromhex(data["value"]), hashlib.sha256
@@ -473,10 +471,9 @@ async def enable_otp2(data: GetOTPRequest, request: Request):
         secret = pyotp.random_base32()
         totp = pyotp.TOTP(secret)
         uri = totp.provisioning_uri(
-        name=un,
-        issuer_name="Ayano V2"
+            name=un,
+            issuer_name="Ayano V2",
         )
-        img = qrcode.make(uri)
         enabled = True
         encrypt = encrypter(secret, user_id)
         enc_secret = encrypt["secret"]
@@ -501,8 +498,8 @@ async def enable_otp2(data: GetOTPRequest, request: Request):
                 "qr" : img_b64}
 
     except Exception as e:
-        Log_event(sys_logger, "/enableotp2", "ERROR", f"""{str(e)}""", f"{un}", f"{ip}", f"{request_id}")
-        sys_logger.error(f"error: -{str(e)}- at otp-enabling")
+        conn.rollback()
+        Log_event(sys_logger, "/enableotp2", "ERROR", traceback.format_exc(), f"{un}", f"{ip}", f"{request_id}")
         return {"ERROR": "Something Went Wrong"}
     
 
@@ -520,7 +517,7 @@ async def new_user(data: NewUserRequest, request: Request):
         email = data.email
         ip = get_client_ip(request)
         if check(ip) == "IP BLOCKED":
-            return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
+            return {"ERROR" : "You have been blocked for violating policies, Try again later"}
         request_id = uuid.uuid4().hex
         cursor.execute(
             """
@@ -545,8 +542,8 @@ async def new_user(data: NewUserRequest, request: Request):
             )
 
             cursor.execute("SELECT id FROM users WHERE username = %s;", (clean_un,))
-            row = cursor.fetchone()[0]
-            user_id = row
+            row = cursor.fetchone()
+            user_id = row["id"]
             cursor.execute(
                 """
             INSERT INTO emails (userid, email)
@@ -571,8 +568,11 @@ async def new_user(data: NewUserRequest, request: Request):
             Log_event(login_logger, "/newuser", "INFO", "New user created", f"{un}", f"{ip}", f"{request_id}")
             return {"message": "User created successfully", "username": clean_un}
     except Exception as e:
-        Log_event(sys_logger, "/newuser", "ERROR", f"""{str(e)}""", f"{un}", f"{ip}", f"{request_id}")
-        print(str(e))
+        conn.rollback()
+        if "emails_email_key" in str(e):
+            return {"ERROR": "Email already registered"}
+    
+        Log_event(sys_logger, "/newuser", "ERROR", traceback.format_exc(), f"{un}", f"{ip}", f"{request_id}")
         return {"ERROR" : "Something Went Wrong"}
 
 # =========================
@@ -587,7 +587,7 @@ async def store_password(data: UsernameRequest, request: Request):
     request_id = uuid.uuid4().hex
     ip = get_client_ip(request)
     if check(ip) == "IP BLOCKED":
-        return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
+        return {"ERROR" : "You have been blocked for violating policies, Try again later"}
     cursor.execute(
         """
     SELECT * FROM users WHERE username = %s""",
@@ -628,16 +628,16 @@ async def store_password(data: UsernameRequest, request: Request):
         )
         Log_event(sys_logger, "/storepassword", "INFO", "Temporary nonce stored", f"{username}", f"{ip}", f"{request_id}")
         nonce_db.expire(f"post:{username}", 300)
-        ratelimitin.incr(f"rlpost:{username}")
+        count = ratelimitin.incr(f"rlpost:{username}")
         if count == 1:
             ratelimitin.expire(f"rlpost:{username}", 3600)
         cursor.execute("SELECT id FROM users WHERE username = %s", (username,))
-        userid = cursor.fetchone()[0]
+        userid = cursor.fetchone()["id"]
         cursor.execute(
     "SELECT salt FROM salt WHERE userid = %s",
     (userid,)
 )
-        salt = cursor.fetchone()[0]
+        salt = cursor.fetchone()["salt"]
         time_equilizer(start)
         return {
             "nonce": nonce,
@@ -656,7 +656,7 @@ async def store_password2(data: StoredPasswordRequest, request: Request):
         enc_data = data.enc_data
         ip = get_client_ip(request)
         if check(ip) == "IP BLOCKED":
-            return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
+            return {"ERROR" : "You have been blocked for violating policies, Try again later"}
         request_id = data.request_id
         signature_bytes = bytes.fromhex(signature)
         data = nonce_db.hgetall(f"post:{un}")
@@ -664,7 +664,7 @@ async def store_password2(data: StoredPasswordRequest, request: Request):
         row = cursor.fetchone()
         if row is None:
             return {"ERROR": f"Username or password is wrong"}
-        user_id = row
+        user_id = row["id"]
         if not data:
             blocker(ip, request_id)
             return {"ERROR": "Session expired"}
@@ -681,7 +681,7 @@ async def store_password2(data: StoredPasswordRequest, request: Request):
         SELECT hash FROM users WHERE id = %s""",
             (user_id,),
         )
-        hash = cursor.fetchone()[0]
+        hash = cursor.fetchone()["hash"]
         server_signature = hmac.new(
             bytes.fromhex(hash), bytes.fromhex(data["value"]), hashlib.sha256
         ).digest()
@@ -700,13 +700,13 @@ async def store_password2(data: StoredPasswordRequest, request: Request):
         row = cursor.fetchone()
         if row is None:
             return {"ERROR": f"Username or password is wrong"}
-        user_id = row[0]
+        user_id = row["id"]
         cursor.execute(
             "SELECT accountusername FROM stored where userid = %s", (user_id,))
         raw_names = cursor.fetchall()
         names = []
         for name in raw_names:
-            names.append(name[0])
+            names.append(name["accountusername"])
         if password_name in names:
             return {"ERROR" : "You have Already stored a password with this name"}
         cursor.execute(
@@ -720,6 +720,8 @@ async def store_password2(data: StoredPasswordRequest, request: Request):
         return {"message": "Password stored successfully"}
 
     except Exception as e:
+        conn.rollback()
+        Log_event(sys_logger, "/newuser", "ERROR", traceback.format_exc(), f"{un}", f"{ip}", f"{request_id}")
         sys_logger.error(f"Error: -{str(e)} occured at store-password")
         return {
             "ERROR": "Something went wrong",
@@ -738,7 +740,7 @@ async def get_enc(data: UsernameRequest, request: Request):
     username = data.username
     ip = get_client_ip(request)
     if check(ip) == "IP BLOCKED":
-        return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
+        return {"ERROR" : "You have been blocked for violating policies, Try again later"}
     request_id = uuid.uuid4().hex
     cursor.execute(
         """
@@ -787,12 +789,12 @@ async def get_enc(data: UsernameRequest, request: Request):
         nonce_db.expire(f"get:{username}", 300)
         sys_logger.info(f"Nonce was generated for user -{username}- at getting-encrpyted-data")
         cursor.execute("SELECT id FROM users WHERE username = %s", (username,))
-        userid = cursor.fetchone()[0]
+        userid = cursor.fetchone()["id"]
         cursor.execute(
     "SELECT salt FROM salt WHERE userid = %s",
     (userid,)
 )
-        salt = cursor.fetchone()[0]
+        salt = cursor.fetchone()["salt"]
         time_equilizer(start)
         return {
             "nonce": nonce.hex(),
@@ -810,7 +812,7 @@ async def get_enc2(data: GetEncryptedRequest, request: Request):
         unS = data.usernameS
         ip = get_client_ip(request)
         if check(ip) == "IP BLOCKED":
-            return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
+            return {"ERROR" : "You have been blocked for violating policies, Try again later"}
         request_id = data.request_id
         signature_bytes = bytes.fromhex(signature)
         data = nonce_db.hgetall(f"get:{un}")
@@ -831,7 +833,7 @@ async def get_enc2(data: GetEncryptedRequest, request: Request):
         SELECT hash FROM users WHERE username = %s""",
             (un,),
         )
-        hash = cursor.fetchone()[0]
+        hash = cursor.fetchone()["hash"]
 
         server_signature = hmac.new(
             bytes.fromhex(hash), bytes.fromhex(data["value"]), hashlib.sha256
@@ -841,12 +843,11 @@ async def get_enc2(data: GetEncryptedRequest, request: Request):
             ratelimitin.incr(f"rlpost:{un}")
             Log_event(login_logger, "/getenc2", "WARNING", "Invalid signature", f"{un}", f"{ip}", f"{request_id}")
             blocker(ip, request_id)
-            print(server_signature, signature_bytes)
             return {"ERROR": f"Username or password is wrong"}
         Log_event(login_logger, "/getenc2", "INFO", "Valid signature", f"{un}", f"{ip}", f"{request_id}")
         cursor.execute("SELECT id FROM users WHERE username = %s", (un,))
         row = cursor.fetchone()
-        user_id = row
+        user_id = row["id"]
         if row is None:
             return {"ERROR": f"Username or password is wrong"}
         cursor.execute(
@@ -854,13 +855,15 @@ async def get_enc2(data: GetEncryptedRequest, request: Request):
             SELECT encdata FROM stored WHERE userid = %s AND servicename = %s AND accountusername=%s""",
             (user_id, password_name, unS),
         )
-        enc = cursor.fetchone()[0]
+        enc = cursor.fetchone()["encdata"]
+        if isinstance(enc, memoryview):
+            enc = enc.tobytes()
         cursor.execute(
             """
             SELECT accountusername FROM stored WHERE userid = %s AND servicename = %s""",
             (user_id, password_name),
         )
-        username_A = cursor.fetchone()[0]
+        username_A = cursor.fetchone()["accountusername"]
         nonce_db.delete(f"get:{un}")
         nonce_db.delete(f"post:{un}")
         Log_event(db_logger, "/getenc2", "INFO", "Password retrieved", f"{un}", f"{ip}", f"{request_id}")
@@ -868,6 +871,7 @@ async def get_enc2(data: GetEncryptedRequest, request: Request):
         return {"encdata": enc,
                 "username_A": username_A}
     except Exception as e:
+        conn.rollback()
         Log_event(db_logger, "/getenc2", "WARNING", "Failed password retrieval", f"{un}", f"{ip}", f"{request_id}")
         sys_logger.error(f"Error: -{str(e)} occured at ")
         return {"ERROR":  f"Something Went Wrong"}
@@ -925,12 +929,12 @@ async def login(data: UsernameRequest, request: Request):
         nonce_db.expire(f"login:{username}", 300)
         sys_logger.info(f"Nonce was generated for user -{username}- at get-backup")
         cursor.execute("SELECT id FROM users WHERE username = %s", (username,))
-        userid = cursor.fetchone()[0]
+        userid = cursor.fetchone()["id"]
         cursor.execute(
     "SELECT salt FROM salt WHERE userid = %s",
     (userid,)
 )
-        salt = cursor.fetchone()[0]
+        salt = cursor.fetchone()["salt"]
         time_equilizer(start)
         return {
             "nonce": nonce.hex(),
@@ -968,13 +972,11 @@ async def login2(data: GetBackupRequest, request: Request):
             """
         SELECT hash FROM users WHERE username = %s""",
             (un,),)
-        hash = cursor.fetchone()[0]
+        hash = cursor.fetchone()["hash"]
         server_signature = hmac.new(
            bytes.fromhex(hash), bytes.fromhex(data["value"]), hashlib.sha256
         ).digest()
-        print(bytes.fromhex(data["value"]))
-        print(hash.encode())
-        print(server_signature)
+        # debug prints removed
         Log_event(sys_logger, "/login2", "INFO", "Server signature generated", f"{un}", f"{ip}", f"{request_id}")
         if not hmac.compare_digest(signature_bytes, server_signature):
             ratelimitin.incr(f"rlpost:{un}")
@@ -983,14 +985,13 @@ async def login2(data: GetBackupRequest, request: Request):
             return {"ERROR": f"Username or password is wrong"}
         Log_event(login_logger, "/login2", "INFO", "Valid signature", f"{un}", f"{ip}", f"{request_id}")
         cursor.execute("SELECT id FROM users WHERE username = %s", (un,))
-        user_id = cursor.fetchone()[0]
-        cursor.execute("SELECT salt FROM salt WHERE userid = %s", (user_id,))
+        user_id = cursor.fetchone()["id"]
         nonce_db.delete(f"list:{un}")
         nonce_db.delete(f"post:{un}")
         cursor.execute("SELECT enabled FROM twofa WHERE userid = %s", (user_id,))
         otp_status = cursor.fetchone()
 
-        if otp_status:
+        if otp_status and otp_status["enabled"]:
             status = otp_generation_and_verfication(un, user_otp)
             if status == "VALID":
                 Log_event(otp_logger, "/login2", "INFO", "OTP verified", f"{un}", f"{ip}", f"{request_id}")
@@ -999,11 +1000,11 @@ async def login2(data: GetBackupRequest, request: Request):
                 blocker(ip, request_id)
                 Log_event(otp_logger, "/login2", "WARNING", "Invalid OTP entered", f"{un}", f"{ip}", f"{request_id}")
                 return {"ERROR" : "Wrong OTP"}
-            cursor.execute("SELECT salt FROM salt WHERE userid = %s", (user_id,))
-            
             db_logger.info(f"Backup Data was given of user {un}")
         return {"Status": "Valid"}
     except Exception as e:
+        conn.rollback()
+        Log_event(sys_logger, "/login2", "ERROR", traceback.format_exc(), f"{un}", f"{ip}", f"{request_id}")
         sys_logger.error(f"Error: -{str(e)} occured at get-backup")
         return {"ERROR": "Something went wrong"}
 
@@ -1014,7 +1015,7 @@ async def list(data: UsernameRequest, request: Request):
     username = data.username
     ip = get_client_ip(request)
     if check(ip) == "IP BLOCKED":
-            return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
+        return {"ERROR" : "You have been blocked for violating policies, Try again later"}
     request_id = uuid.uuid4().hex
     cursor.execute(
         """
@@ -1057,11 +1058,11 @@ async def list(data: UsernameRequest, request: Request):
         Log_event(sys_logger, "/list", "INFO", "Temporary nonce stored", f"{username}", f"{ip}", f"{request_id}")
         nonce_db.expire(f"list:{username}", 300)
         cursor.execute("SELECT id FROM users WHERE username = %s", (username,))
-        userid = cursor.fetchone()[0]
+        userid = cursor.fetchone()["id"]
         cursor.execute(
     "SELECT salt FROM salt WHERE userid = %s",
     (userid,))
-        salt = cursor.fetchone()[0]
+        salt = cursor.fetchone()["salt"]
         time_equilizer(start)
         return {
             "nonce": nonce.hex(),
@@ -1093,13 +1094,13 @@ async def list2(data: ListPasswordRequest, request: Request):
         if not result:
             return {"ERROR": f"Username or password is wrong"}
         cursor.execute("SELECT id FROM users WHERE username = %s", (un,))
-        userid = cursor.fetchone()[0]
+        userid = cursor.fetchone()["id"]
         cursor.execute(
             """
         SELECT hash FROM users WHERE id = %s;""",
             (userid,),
         )
-        hash = cursor.fetchone()[0]
+        hash = cursor.fetchone()["hash"]
         data = nonce_db.hgetall(f"list:{un}")
         server_signature = hmac.new(
             bytes.fromhex(hash), bytes.fromhex(data["value"]), hashlib.sha256).digest()
@@ -1118,10 +1119,10 @@ async def list2(data: ListPasswordRequest, request: Request):
         rows = cursor.fetchall()
         passwords = []
 
-        for service, username in rows:
+        for row in rows:
             passwords.append({
-                "service": service,
-                "username": username
+                "service": row["servicename"],
+                "username": row["accountusername"]
             })
 
         nonce_db.delete(f"list:{un}")
@@ -1129,6 +1130,7 @@ async def list2(data: ListPasswordRequest, request: Request):
             "passwords": passwords
         }
     except Exception as e:
+        conn.rollback()
         Log_event(sys_logger, "/list2", "ERROR", f"""{str(e)}""", f"{un}", f"{ip}", f"{request_id}")
         return {"ERROR": "Something Went Wrong"}
     
@@ -1139,7 +1141,7 @@ async def delete_password(data: UsernameRequest, request: Request):
     username = data.username
     ip = get_client_ip(request)
     if check(ip) == "IP BLOCKED":
-            return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
+        return {"ERROR" : "You have been blocked for violating policies, Try again later"}
     request_id = uuid.uuid4().hex
     cursor.execute(
         """
@@ -1182,11 +1184,11 @@ async def delete_password(data: UsernameRequest, request: Request):
         Log_event(sys_logger, "/delete_password", "INFO", "Temporary nonce stored", f"{username}", f"{ip}", f"{request_id}")
         nonce_db.expire(f"delete:{username}", 300)
         cursor.execute("SELECT id FROM users WHERE username = %s", (username,))
-        userid = cursor.fetchone()[0]
+        userid = cursor.fetchone()["id"]
         cursor.execute(
     "SELECT salt FROM salt WHERE userid = %s",
     (userid,))
-        salt = cursor.fetchone()[0]
+        salt = cursor.fetchone()["salt"]
         time_equilizer(start)
         return {
             "nonce": nonce.hex(),
@@ -1202,7 +1204,7 @@ async def delete_password2(data: DeletePasswordRequest2, request: Request):
         unS = data.usernameS
         ip = get_client_ip(request)
         if check(ip) == "IP BLOCKED":
-            return {"ERROR" : "You have benn blocked for violating policies, Try again later"}
+            return {"ERROR" : "You have been blocked for violating policies, Try again later"}
         request_id = data.request_id
         signature_bytes = bytes.fromhex(signature)
         data = nonce_db.hgetall(f"delete:{un}")
@@ -1222,7 +1224,7 @@ async def delete_password2(data: DeletePasswordRequest2, request: Request):
             """
         SELECT hash FROM users WHERE username = %s""",
             (un,),)
-        hash = cursor.fetchone()[0]
+        hash = cursor.fetchone()["hash"]
         server_signature = hmac.new(
            bytes.fromhex(hash), bytes.fromhex(data["value"]), hashlib.sha256).digest()
         Log_event(sys_logger, "/delete2", "INFO", "Server signature generated", f"{un}", f"{ip}", f"{request_id}")
@@ -1236,7 +1238,7 @@ async def delete_password2(data: DeletePasswordRequest2, request: Request):
         row = cursor.fetchone()
         if row is None:
             return {"ERROR": f"Username or password is wrong"}
-        user_id = row[0]
+        user_id = row["id"]
         cursor.execute(
             """
             DELETE FROM stored WHERE userid = %s AND servicename = %s AND accountusername=%s""",
@@ -1247,5 +1249,6 @@ async def delete_password2(data: DeletePasswordRequest2, request: Request):
         nonce_db.delete(f"delete:{un}")
         return {"message": "Password deleted successfully"}
     except Exception as e:
+        conn.rollback()
         Log_event(sys_logger, "/delete2", "ERROR", f"""{str(e)}""", f"{un}", f"{ip}", f"{request_id}")
         return {"ERROR": "Something Went Wrong"}

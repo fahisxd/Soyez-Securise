@@ -37,7 +37,7 @@ async function loadPasswordCount(username) {
         }
         
 
-        let response = await fetch("http://localhost:8000/list", {
+        let response = await fetch(`${server_link}/list`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -63,7 +63,7 @@ async function loadPasswordCount(username) {
         let requestid = data.request_id
         let signature = await storegeneratesign(nonce, authkey)
         
-        let listverifyResponse = await fetch("http://localhost:8000/list2", {
+        let listverifyResponse = await fetch(`${server_link}/list2`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

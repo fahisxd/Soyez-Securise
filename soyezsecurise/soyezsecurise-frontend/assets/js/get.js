@@ -53,7 +53,7 @@ document.getElementById("get-password").addEventListener("submit",
             ["decrypt"]
         )
         get_status.innerText = "Requesting server...."
-        let response = await fetch("http://localhost:8000/getenc",
+        let response = await fetch(`${server_link}/getenc`,
             {
                 method:"POST",
                 headers:{
@@ -64,15 +64,14 @@ document.getElementById("get-password").addEventListener("submit",
                 })
             })
         let getdata = await response.json()
-        if(getdata.ERROR){
+    if(getdata.ERROR){
 
         get_status.innerText = getdata.ERROR
-        loginbtn.disabled = false
+        return
     }
 
     else if(!response.ok){
-        get_status.innerText = "Request failed"
-        loginbtn.disabled = false
+        get_status.innerText = "The server could not start this request. Please try again."
         return
     }
 
@@ -82,7 +81,7 @@ document.getElementById("get-password").addEventListener("submit",
         let authkey = localStorage.getItem("authkey")
         let signature = await storegeneratesign(nonce, authkey)
         get_status.innerText = "Verifying"
-        let getverifyResponse = await fetch("http://localhost:8000/getenc2",
+        let getverifyResponse = await fetch(`${server_link}/getenc2`,
             {
                 method:"POST",
 
@@ -105,7 +104,7 @@ document.getElementById("get-password").addEventListener("submit",
                 return
             }
             else if(!getverifyResponse.ok){
-                get_status.innerText = "Request failed"
+                get_status.innerText = "The password could not be retrieved. Please try again."
                 return
             }
             else{
@@ -132,16 +131,4 @@ document.getElementById("get-password").addEventListener("submit",
 
 }
 }
-
-            
-    
-
-
-
-
-
-
-
-    
 })
-

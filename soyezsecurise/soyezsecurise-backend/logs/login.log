@@ -420,3 +420,93 @@
 {"level": "INFO", "request-id": "2551112abe38472e920356329fede7c1", "time": "2026-05-21 16:41:51.528161", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
 {"level": "INFO", "request-id": "e7c58d43dbfe42aa8dcc25491a0b1133", "time": "2026-05-21 16:43:45.704551", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
 {"level": "INFO", "request-id": "f370b36d746747cead3e9978d4f532e8", "time": "2026-05-21 16:44:10.411720", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "WARNING", "request-id": "7564302652ab405aae47a99b66378264", "time": "2026-06-13 11:40:11.352143", "event": "Duplicate username registration attempt", "user": "fahisxd", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "15c7586535714a7a82d1dc65f53216e3", "time": "2026-06-13 11:57:15.486617", "event": "New user created", "user": "fahisxd", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "WARNING", "request-id": "042d21ff7bcd41b9978150ce1599096e", "time": "2026-06-13 11:58:20.078127", "event": "Duplicate username registration attempt", "user": "fahisxd", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "f41c8433f9dc4327b943cee3b862a137", "time": "2026-06-13 12:19:49.548465", "event": "New user created", "user": "fahis", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "3bdd4b4e15f54afe98d3343462311f8b", "time": "2026-06-13 12:24:48.765913", "event": "New user created", "user": "fahis", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "369c09ac31bc455fbabdd90e0841dfff", "time": "2026-06-13 12:45:18.602384", "event": "New user created", "user": "fahis1", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "5f13ffc904d74467a3e2af6aaefcd406", "time": "2026-06-13 13:01:32.894782", "event": "New user created", "user": "fahis2", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "25452657655b45048d63e60ac2b45fba", "time": "2026-06-13 14:53:03.279641", "event": "New user created", "user": "fah", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "9d748914b8b34fd3ad3a1b90a81f1f93", "time": "2026-06-13 14:53:11.880320", "event": "Valid signature", "user": "fah", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "INFO", "request-id": "45e4c5a481b44c14a60ee12adac008fb", "time": "2026-06-13 15:33:04.213026", "event": "New user created", "user": "fahh", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "325cce83423948808748ed60fc1c0ea2", "time": "2026-06-13 15:33:11.338173", "event": "Valid signature", "user": "fahh", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "INFO", "request-id": "43e2a2844b6b4d249742308ba4e85eee", "time": "2026-06-13 15:36:22.469865", "event": "New user created", "user": "fahhh", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "b76f107807824b47b1e950ca373afe17", "time": "2026-06-13 15:36:29.818529", "event": "Valid signature", "user": "fahhh", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "INFO", "request-id": "0b70ac4963a94de3acabac2f830d8892", "time": "2026-06-13 16:17:10.245741", "event": "New user created", "user": "fahis", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "b50f6d9ec42c42ca8afcbbc0defd45ad", "time": "2026-06-13 16:17:17.596483", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "INFO", "request-id": "2a46e4eaa32e4c5199202d3b8f346cb2", "time": "2026-06-13 16:18:55.383980", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "7e5337127be4474d8bc72e418fec012c", "time": "2026-06-13 16:34:51.667697", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "WARNING", "request-id": "05b1c55c2da04211b27b1bfb23513a66", "time": "2026-06-13 16:38:32.044506", "event": "Invalid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "9ed0500f4c584376b25e7be87c56d893", "time": "2026-06-13 16:38:34.916099", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "WARNING", "request-id": "475096af7e994c58872f26bc5c4834aa", "time": "2026-06-13 16:46:13.828137", "event": "Invalid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "757b66b555a64a9ebf02974fdf1c948c", "time": "2026-06-13 16:46:16.352380", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "WARNING", "request-id": "fe313aabb29d49a0a73ce74c57a04b39", "time": "2026-06-13 16:46:24.227760", "event": "Invalid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "23e5dceb17814724b5467d689189cf9f", "time": "2026-06-13 16:46:26.699989", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "c2856affbda5450fa20ea8ed511de09b", "time": "2026-06-13 16:50:29.476620", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "b7ed2368838144e4bd4c31358643b446", "time": "2026-06-13 17:32:21.369170", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "166d2f4aaee840338772005e0a8b7cba", "time": "2026-06-13 17:33:40.086215", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "261f8eb201f14d3aa489c27b565dcfd8", "time": "2026-06-13 17:33:53.505068", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "aa290b879e6d4ee4b195ee0f84130d7b", "time": "2026-06-13 17:34:29.671591", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "b3be7a51e83943b290e613dd667ed783", "time": "2026-06-13 17:35:43.876314", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "35095e35aafe4399867928778074a26a", "time": "2026-06-13 17:36:11.043691", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "8324bbfa944343ee914aece076585d63", "time": "2026-06-13 17:36:12.547015", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "76c2ec9a7d2b448b94d608327b5b999b", "time": "2026-06-13 17:36:25.127038", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "445afc236ee445d18fd2e8f8e5afb28b", "time": "2026-06-13 17:36:32.491930", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "55347e8d7a98430ea2bb353393cc667f", "time": "2026-06-13 17:36:42.032199", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "504e39159ac74629a531336a089d3044", "time": "2026-06-13 17:40:42.013711", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "78af63a9929a4afdb51d0378c4eaf0c3", "time": "2026-06-13 17:40:52.408461", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "ae5d5e9476c745168760127cda40d934", "time": "2026-06-13 17:40:57.551749", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "ec2208ee5b9e450d9d18aab4852956bd", "time": "2026-06-13 17:41:57.456090", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "77aa3b2a65c24219aa1d5f4a6fa7ee8f", "time": "2026-06-13 17:57:14.902307", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "42d9edd3958548b9b3baa3172ac640f4", "time": "2026-06-13 17:57:27.309537", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "bfe83373698b41219a155f12c253310b", "time": "2026-06-13 17:58:21.081856", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "WARNING", "request-id": "ebecb8505c18476284a04c21489185a7", "time": "2026-06-13 17:58:36.878531", "event": "Invalid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "42c26832a0a948d29c7a6d5e7f9f66ea", "time": "2026-06-13 17:58:39.592250", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "79baef66a0394cc3919b147afff6364d", "time": "2026-06-13 18:07:02.942302", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "8520343a584743d39c1f47846a65287a", "time": "2026-06-13 18:07:18.726343", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "f2f4e02ebf144b21a1045e0f97286ca3", "time": "2026-06-13 18:07:25.703790", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "85c0a6115f6342d092156ae47d8b0cc7", "time": "2026-06-13 18:09:36.774979", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "WARNING", "request-id": "2622912ccc244989b47b3bfa71cd9a5e", "time": "2026-06-13 18:09:42.346054", "event": "Invalid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "bc5c7db862b7445caba556f4c406f636", "time": "2026-06-13 18:09:45.288758", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "ecf6ca1b1fc44b6fbd5ae455364f2308", "time": "2026-06-13 18:10:53.278534", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "WARNING", "request-id": "6bc625c72ad4468baf01b944df081e07", "time": "2026-06-13 18:11:02.637317", "event": "Invalid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "06f0eec462eb417198a6c8d92fbeb85d", "time": "2026-06-13 18:11:04.922999", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "f20e0ceda8964c758863f349e37e8d28", "time": "2026-06-13 18:11:16.859943", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "4e02c18cca68452ba3d1131ee9a5b344", "time": "2026-06-13 18:11:23.311139", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "WARNING", "request-id": "869bad366057423db532fc4e9a0b2d41", "time": "2026-06-13 18:12:33.833281", "event": "Invalid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "b85a528467e34c38be8e2a065c67020c", "time": "2026-06-13 18:12:36.157836", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "e5d497cd6086436f98d01f8800301470", "time": "2026-06-13 18:13:01.357146", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "6f4912554e54404fa6057110fdc87a06", "time": "2026-06-13 18:15:08.209373", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "abd8dc37e3ce42658f5d2758051ad996", "time": "2026-06-13 18:16:38.030925", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "cfb4b2927d7044fcbbe467a59e803470", "time": "2026-06-13 18:20:41.301363", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "c6c8db7e8da34544b4ce45c69429adb8", "time": "2026-06-13 18:20:53.405120", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "ed1702fe83ab406a97a692591d5502b6", "time": "2026-06-13 18:21:06.127561", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "15ecef3839d443099a8f2c49ac29c23c", "time": "2026-06-13 18:21:17.062866", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "73ac9d307f1d4c02b75eb0828ed2657b", "time": "2026-06-13 18:21:41.862924", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "93c8d35e61bb4f97b1221b7ab1e7a660", "time": "2026-06-13 18:21:57.640875", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
+{"level": "INFO", "request-id": "b329a8fd4051468fab4a53624508d94f", "time": "2026-06-13 18:25:49.592227", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
+{"level": "INFO", "request-id": "f0dab22f818649139586493166813b5f", "time": "2026-06-13 19:20:20.410182", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "1b6c1295e01b4bfc8586062f6948bb73", "time": "2026-06-13 19:20:41.514022", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "11471c03790f4fc896d0e3b06efda4da", "time": "2026-06-13 19:20:48.334948", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "c3e391ee823447eab17d75da07b60910", "time": "2026-06-13 19:20:57.920450", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "4997b1cf59154a60912482190d1228ca", "time": "2026-06-13 19:21:23.094033", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
+{"level": "INFO", "request-id": "36049de756744c6099f6e3a1bb001694", "time": "2026-06-13 19:21:53.670091", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "85cd9d1af19f4213811923d84f8c6a6b", "time": "2026-06-13 19:22:11.201113", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "e535c2b11e3a4b64913cc92fb60d673c", "time": "2026-06-13 19:22:30.471966", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/delete2"}
+{"level": "INFO", "request-id": "5ef0e196d879432b9bc183bc4d378846", "time": "2026-06-13 19:23:29.728252", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/delete2"}
+{"level": "INFO", "request-id": "4f18d175510742caa5c0731e8ffb228c", "time": "2026-06-13 19:23:42.784793", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "e9cf0e5ff7424670b1797a7aca874b76", "time": "2026-06-13 21:32:15.820509", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "ae53bf6942c44f398b435e5e93804ea5", "time": "2026-06-13 21:32:45.070974", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "d8c669a587db4d08b2b57750bad4a883", "time": "2026-06-13 21:33:01.418963", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "6a05c1fc283840e6b52fe794f971f622", "time": "2026-06-13 21:33:10.847074", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "c59ca6909c814f2aa20d64cd8525e2bd", "time": "2026-06-13 21:33:18.280752", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "97333e1df68d4f45b6b46edefce3a89e", "time": "2026-06-13 21:33:37.050019", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "11fd9ac4d8c34f06965e55646169d6f4", "time": "2026-06-13 21:33:50.342679", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "06be7c56c83a47d6a6efdb0762424c83", "time": "2026-06-13 21:33:59.302344", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "0b18862a59294d72bdb059f905ed9cda", "time": "2026-06-13 21:34:17.987892", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
+{"level": "INFO", "request-id": "eb9b014bfa694ecf9132386f232f3df7", "time": "2026-06-13 21:34:55.190466", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "752382cfcd2f4f619d7ac54ee4630395", "time": "2026-06-13 21:35:15.307164", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/delete2"}
+{"level": "INFO", "request-id": "886a9cfc39cd4141afe8bef92476f1f4", "time": "2026-06-13 21:35:23.654103", "event": "Valid signature", "user": "fahis", "ip": "127.0.0.1", "location": "/list2"}
+{"level": "INFO", "request-id": "6eded183449b414d9d1e011f9dc30daf", "time": "2026-06-13 21:36:21.022879", "event": "New user created", "user": "fahssssss", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "02f645cef1ce4873ab0f85b7b2545fa5", "time": "2026-06-13 21:36:25.246894", "event": "Valid signature", "user": "fahssssss", "ip": "127.0.0.1", "location": "/enable_otp2"}

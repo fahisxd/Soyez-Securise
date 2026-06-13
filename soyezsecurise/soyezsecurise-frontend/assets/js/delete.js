@@ -9,7 +9,7 @@ const del_status = document.getElementById("status-del")
 const delpasswordfunc = document.getElementById("deletepassword")
 
 
-//start from here
+
 document.getElementById("deletepassword").addEventListener("click",
 async function(e){
     e.preventDefault() 
@@ -31,7 +31,7 @@ document.getElementById("delete-password").addEventListener("submit",
         let usernameDVS = usernameD.value
         let service_nameDV = servicename_D.value
         del_status.innerText = "Requesting server...."
-        let response = await fetch("http://localhost:8000/delete",
+        let response = await fetch(`${server_link}/delete`,
             {
                 method:"POST",
                 headers:{
@@ -43,12 +43,11 @@ document.getElementById("delete-password").addEventListener("submit",
             })
         let deldata = await response.json()
         if(deldata.ERROR){
-        get_status.innerText = deldata.ERROR
-        loginbtn.disabled = false
+        del_status.innerText = deldata.ERROR
+        return
         }
         else if(!response.ok){
-            del_status.innerText = "Request failed"
-            loginbtn.disabled = false
+            del_status.innerText = "The server could not start this request. Please try again."
             return
         }
         else{
@@ -57,7 +56,7 @@ document.getElementById("delete-password").addEventListener("submit",
             let authkey = localStorage.getItem("authkey")
             let signature = await storegeneratesign(nonce, authkey)
             del_status.innerText = "Verifying"
-            let delverifyResponse = await fetch("http://localhost:8000/delete2",
+            let delverifyResponse = await fetch(`${server_link}/delete2`,
             {
                 method:"POST",
 
@@ -76,11 +75,11 @@ document.getElementById("delete-password").addEventListener("submit",
             })
             let delverifyData = await delverifyResponse.json()
             if(delverifyData.ERROR){
-                del_status.innerText = getverifyData.ERROR
+                del_status.innerText = delverifyData.ERROR
                 return
             }
             else if(!delverifyResponse.ok){
-                del_status.innerText = "Request failed"
+                del_status.innerText = "The password could not be deleted. Please try again."
                 return
             }
             else{
@@ -97,4 +96,3 @@ document.getElementById("delete-password").addEventListener("submit",
 
 
 })
-

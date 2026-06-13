@@ -8,6 +8,7 @@ const signinbtn = document.querySelector(".primary")
 
 const statusmsg = document.getElementById("status-signin")
 
+
 async function hasher(password){
     
     let passwordbytes = new TextEncoder().encode(password)
@@ -97,7 +98,7 @@ let authkey1hex = bytesToHex(authkey1bytes)
 
 let salt = result.saltBytes
 salthex = bytesToHex(salt)
-let response = await fetch("http://localhost:8000/newuser",
+let response = await fetch(`${server_link}/newuser`,
     {
         method:"POST",
         headers:{

@@ -110,7 +110,7 @@ async function(e){
     const final = btoa(String.fromCharCode(...payload))
     store_status.innerText = "Requesting server for username"
 
-    let response = await fetch("http://localhost:8000/storepassword",
+    let response = await fetch(`${server_link}/storepassword`,
         {
             method:"POST",
             headers:{
@@ -129,13 +129,12 @@ async function(e){
 
     if(data.ERROR){
 
-        login_statusmsg.innerText = data.ERROR
-        loginbtn.disabled = false
+        store_status.innerText = data.ERROR
+        return
     }
 
     else if(!response.ok){
-        login_statusmsg.innerText = "Request failed"
-        loginbtn.disabled = false
+        store_status.innerText = "The server could not start this request. Please try again."
         return
     }
 
@@ -150,9 +149,8 @@ async function(e){
 
 
         let signature = await storegeneratesign(nonce, authkey)
-        login_statusmsg.innerText = "Signature Generated"
-        login_statusmsg.innerText = "Requesting Server"
-        let verifyResponse = await fetch("http://localhost:8000/storepassword2",
+        store_status.innerText = "Requesting server"
+        let verifyResponse = await fetch(`${server_link}/storepassword2`,
         {
         method:"POST",
 
@@ -174,8 +172,7 @@ async function(e){
                 store_status.innerText = verifyData.ERROR
             }
             else if(!verifyResponse.ok){
-                store_status.innerText = "Request failed"
-                loginbtn.disabled = false
+                store_status.innerText = "The password could not be stored. Please try again."
                 return
             }
             else{

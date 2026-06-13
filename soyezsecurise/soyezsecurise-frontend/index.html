@@ -1,18 +1,28 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Soyez Sécurisé</title>
+		<title>Soyez Sécurisé | Private Password Vault</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="A privacy-first, zero-knowledge password manager by Soyez Sécurisé." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="icon" type="image/x-icon" href="images/favicon.svg">
 	</head>
 	<body class="is-preload">
 
+		<div class="app-brand" aria-label="Soyez Sécurisé home">
+			<a href="#">
+				<span class="brand-mark"><span class="icon fa-shield-alt"></span></span>
+				<span class="brand-copy">
+					<strong>SoyezSécurisé<span>.</span></strong>
+					<small>Private password vault</small>
+				</span>
+			</a>
+		</div>
 
 		<div id="user-button">
-							<button id="menu-btn">
+							<button id="menu-btn" type="button" aria-label="Open account menu">
 								<span class="icon fa-user"></span>
 							</button>
 										<div id="menu">
@@ -36,16 +46,22 @@
 
 						<div class="content">
 							<div class="inner">
-								<h1 style="color: #8da9c4;">Soyez Sécurisé</h1>
+								<span class="hero-badge"><span class="status-pulse"></span> Zero-knowledge security</span>
+								<h1>Soyez <span>Sécurisé.</span></h1>
 								<p id="quote">Built beyond simple password storage — combining encryption, authentication, monitoring, and adaptive security mechanisms.</p>
+								<div class="trust-row" aria-label="Security features">
+									<span><i class="icon fa-lock"></i> AES-256-GCM</span>
+									<span><i class="icon fa-key"></i> Argon2id</span>
+									<span><i class="icon fa-mobile-alt"></i> Two-factor ready</span>
+								</div>
 							</div>
 						</div>
 						<nav>
 							<ul>
-								<li><a id="storepassword" href="#store-password">Store Password</a></li>
-								<li><a id="listpassword" href="#list">List Password</a></li>
-								<li><a id="getpassword" href="#Getpassword">Get Password</a></li>
-								<li><a id="deletepassword" href="#Deletepassword">Delete Password</a></li>
+								<li><a id="storepassword" href="#store-password"><i class="icon fa-plus"></i><span>Store</span></a></li>
+								<li><a id="listpassword" href="#list"><i class="icon fa-th-list"></i><span>Vault</span></a></li>
+								<li><a id="getpassword" href="#Getpassword"><i class="icon fa-key"></i><span>Retrieve</span></a></li>
+								<li><a id="deletepassword" href="#Deletepassword"><i class="icon fa-trash-alt"></i><span>Delete</span></a></li>
 								
 							</ul>
 						</nav>
@@ -55,26 +71,27 @@
 					<div id="main">
 						<!-- Intro -->
 						 <article id="signin">
-								<h2 class="major">Sign-up</h2>
-								<p>Enter your details.</p>
+								<span class="article-eyebrow">Create your vault</span>
+								<h2 class="major">Sign up</h2>
+								<p>Choose credentials that will protect your encrypted vault.</p>
 								<form id="Sign-in">
 									<div class="fields">
 										<div class="field half">
-											<label for="username">Create a Username</label>
+											<label for="username">Username</label>
 											<input type="text" name="username" id="username" />
 										</div>
 										<div class="field">
-											<label for="password">Create a Master Password</label>
+											<label for="password">Master password</label>
                                             <input type="password" name="password" id="password" />
 										</div>
                                         <div class="field">
-											<label for="password">email(optional)</label>
+											<label for="email">Email <span class="optional">Optional</span></label>
                                             <input type="email" name="email" id="email" />
 										</div>
 									</div>
 									<div class="feild"><p id="status-signin"></p></div>
 									<ul class="actions">
-										<li><input type="submit" value="Sign-in" class="primary" /></li>
+										<li><input type="submit" value="Create vault" class="primary" /></li>
 										<li><input type="reset" value="Reset" class="primary"/></li>
 									</ul>
 								</form>
@@ -82,19 +99,21 @@
 							</article>
 
 							<article id="login">
+								<span class="article-eyebrow">Welcome back</span>
 								<h2 class="major">Login</h2>
+								<p>Unlock your vault with your master credentials.</p>
 								<form id="Login">
 									<div class="fields">
 										<div class="field half">
-											<label for="username">username</label>
+											<label for="login-username">Username</label>
 											<input type="text" name="username" id="login-username" />
 										</div>
                                         <div class="field">
-											<label for="password">Master Password</label>
+											<label for="login-password">Master password</label>
                                             <input type="password" name="Password" id="login-password" />
 										</div>
 										<div class="field half">
-											<label for="otp">Enter OTP</label>
+											<label for="otp">Authenticator code</label>
                                             <input type="text" name="otp" id="otp" maxlength="6" placeholder="123456"/>
 										</div>
 									</div>
@@ -106,8 +125,9 @@
 								</form>
 							</article>
 							<article id="store-password">
+								<span class="article-eyebrow">Add a credential</span>
 								<h2 class="major">Store Password</h2>
-								<p>Enter your password name and password itself</a>.</p>
+								<p>Encrypt and add a new login to your private vault.</p>
 								<form id="StorePassword">
 									<div class="fields">
 										<div class="field half">
@@ -134,15 +154,17 @@
 
 						<!-- Work -->
 							<article id="list">
+								<span class="article-eyebrow">Your encrypted vault</span>
 								<h2 class="major">Listing Password</h2>
-								<p>Your Passwords(service name) are:</p>
-								<div id="passwordList"></div>
+								<p>Your saved services appear below. Passwords remain hidden until explicitly retrieved.</p>
+								<ul id="passwordList"></ul>
 								<div class="feild"><p id="status-list">First login</p></div>
 								<p>The listing system is responsible for securely organizing and displaying stored credential entries associated with the authenticated user. Instead of exposing sensitive password data directly, the system first retrieves structured account information such as service names and associated usernames, allowing users to identify stored credentials safely and efficiently. Password secrets remain protected through encrypted storage mechanisms and are only processed when explicitly requested through authenticated verification flows.</p>
 							</article>
 
 						<!-- About -->
 							<article id="Getpassword">
+								<span class="article-eyebrow">Secure retrieval</span>
 								<h2 class="major">Get Password</h2>
 								<form id="get-password" method="post" action="#">
 									<div class="fields">
@@ -192,6 +214,7 @@
 
 						<!-- Contact -->
 							<article id="Deletepassword">
+								<span class="article-eyebrow danger">Permanent action</span>
 								<h2 class="major">Delete Passwords stored</h2>
 								<form id="delete-password">
 									<div class="fields">
@@ -216,13 +239,14 @@
 								</form>
 							</article>
 							<article id="profile">
+								<span class="article-eyebrow">Account overview</span>
 								<h2 class="major">User Profile</h2>
 								<div id="profile-not-logged-in" style="display:none;">
 									<p>You are not logged in. Please <a href="#login">login</a> to view your profile. If just logged in Refresh the page</p>
 								</div>
 								<div id="profile-logged-in" style="display:none;">
 									<!-- Account Information Section -->
-									<h3>Account Information</h3>
+									<h3>Account Information(under Construction!)</h3>
 									<p><strong>Username:</strong> <span id="usernameP"></span></p>
 									<p id="profile-status-msg"></p>
 
@@ -296,6 +320,7 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
+			<script src="assets/js/api.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/quote.js"></script>
 			<script src="assets/js/store.js"></script>

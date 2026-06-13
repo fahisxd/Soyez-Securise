@@ -20,7 +20,7 @@ async function(e){
         window.location.href = "#login"
     }
 
-let response = await fetch("http://localhost:8000/list",
+let response = await fetch(`${server_link}/list`,
     {
         method:"POST",
         headers:{
@@ -33,11 +33,10 @@ let response = await fetch("http://localhost:8000/list",
     let data_L = await response.json()
     if(data_L.ERROR){
         list_status.innerText = data_L.ERROR
-        loginbtn.disabled = false
+        return
     }
     else if(!response.ok){
-        list_status.innerText = "Request failed"
-        loginbtn.disabled = false
+        list_status.innerText = "The server could not load your vault. Please try again."
         return
     }
     else{
@@ -45,7 +44,7 @@ let response = await fetch("http://localhost:8000/list",
         let requestid = data_L.request_id
         let signature = await storegeneratesign(nonce, authkey_list)
         list_status.innerText = "Verifying"
-        let listverifyResponse = await fetch("http://localhost:8000/list2",
+        let listverifyResponse = await fetch(`${server_link}/list2`,
             {
                 method:"POST",
 
@@ -64,12 +63,22 @@ let response = await fetch("http://localhost:8000/list",
                 list_status.innerText = listverifyData.ERROR
             }
         else if(!listverifyResponse.ok){
-            list_status.innerText = "Request failed"
+            list_status.innerText = "Your vault could not be verified. Please try again."
             return
         }
         else{
             listbox.innerText = ""
             list_status.innerText = ""
+            if (!Array.isArray(listverifyData.passwords)) {
+                list_status.innerText = "The server returned an incomplete vault response."
+                return
+            }
+
+            if (listverifyData.passwords.length === 0) {
+                list_status.innerText = "Your vault is empty."
+                return
+            }
+
             listverifyData.passwords.forEach(password=>{
 
             let li = document.createElement("li")
