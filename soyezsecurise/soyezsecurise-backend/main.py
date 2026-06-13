@@ -1,7 +1,7 @@
 import hmac
 import hashlib
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 import redis
 import base64
 from pydantic import BaseModel, StringConstraints
