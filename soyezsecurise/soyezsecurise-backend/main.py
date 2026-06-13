@@ -36,18 +36,24 @@ from logger import (
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
-
-conn = psycopg2.connect(
-    DATABASE_URL,
-    cursor_factory=RealDictCursor
-)
 REDIS_URL = os.getenv("REDIS_URL")
 
 nonce_db = redis.Redis.from_url(REDIS_URL,decode_responses=True)
 ratelimitin = redis.Redis.from_url(REDIS_URL,decode_responses=True)
 temp_blocked = redis.Redis.from_url(REDIS_URL,decode_responses=True)
-cursor = conn.cursor()
 app = FastAPI()
+
+def get_db():
+    conn = psycopg2.connect(
+        DATABASE_URL,
+        cursor_factory=RealDictCursor
+    )
+
+    try:
+        yield conn
+    finally:
+        conn.close()
+
 #--------------------------------------------strict input classes--------------------------------------------------#
 
 # =========================
@@ -349,6 +355,7 @@ async def security_headers(request, call_next):
 
 @app.post("/enableotp")
 async def enable_otp(data: UsernameRequest, request: Request):
+    cursor = conn.cursor()
     start = time.time()
     request_id = uuid.uuid4().hex
     ip = get_client_ip(request)
@@ -427,6 +434,7 @@ async def enable_otp(data: UsernameRequest, request: Request):
 
 @app.post("/enable_otp2")
 async def enable_otp2(data: GetOTPRequest, request: Request):
+    cursor = conn.cursor()
     try:
         signature = data.signature
         un = data.username
@@ -510,6 +518,7 @@ async def enable_otp2(data: GetOTPRequest, request: Request):
 
 @app.post("/newuser")
 async def new_user(data: NewUserRequest, request: Request):
+    cursor = conn.cursor()
     try:
         un = data.username
         hp = data.hash
@@ -582,6 +591,7 @@ async def new_user(data: NewUserRequest, request: Request):
 # To store the password.
 @app.post("/storepassword")
 async def store_password(data: UsernameRequest, request: Request):
+    cursor = conn.cursor()
     start = time.time()
     username = data.username
     request_id = uuid.uuid4().hex
@@ -648,6 +658,7 @@ async def store_password(data: UsernameRequest, request: Request):
 
 @app.post("/storepassword2")
 async def store_password2(data: StoredPasswordRequest, request: Request):
+    cursor = conn.cursor()
     try:
         signature = data.signature
         un = data.username
@@ -736,6 +747,7 @@ async def store_password2(data: StoredPasswordRequest, request: Request):
 
 @app.post("/getenc")
 async def get_enc(data: UsernameRequest, request: Request):
+    cursor = conn.cursor()
     start = time.time()
     username = data.username
     ip = get_client_ip(request)
@@ -805,6 +817,7 @@ async def get_enc(data: UsernameRequest, request: Request):
 
 @app.post("/getenc2")
 async def get_enc2(data: GetEncryptedRequest, request: Request):
+    cursor = conn.cursor()
     try:
         signature = data.signature
         un = data.username
@@ -881,6 +894,7 @@ async def get_enc2(data: GetEncryptedRequest, request: Request):
 # =========================
 @app.post("/login")
 async def login(data: UsernameRequest, request: Request):
+    cursor = conn.cursor()
     start = time.time()
     username = data.username
     ip = get_client_ip(request)
@@ -945,6 +959,7 @@ async def login(data: UsernameRequest, request: Request):
 
 @app.post("/login2")
 async def login2(data: GetBackupRequest, request: Request):
+    cursor = conn.cursor()
     try:
         signature = data.signature
         un = data.username
@@ -1011,6 +1026,7 @@ async def login2(data: GetBackupRequest, request: Request):
 
 @app.post("/list")
 async def list(data: UsernameRequest, request: Request):
+    cursor = conn.cursor()
     start = time.time()
     username = data.username
     ip = get_client_ip(request)
@@ -1071,7 +1087,8 @@ async def list(data: UsernameRequest, request: Request):
                 }
 
 @app.post("/list2")
-async def list2(data: ListPasswordRequest, request: Request):
+async def list2(data: ListPasswordRequest, request: Request
+    cursor = conn.cursor()
     try:
         signature = data.signature
         un = data.username
@@ -1137,6 +1154,7 @@ async def list2(data: ListPasswordRequest, request: Request):
 
 @app.post("/delete")
 async def delete_password(data: UsernameRequest, request: Request):
+    cursor = conn.cursor()
     start = time.time()
     username = data.username
     ip = get_client_ip(request)
@@ -1197,6 +1215,7 @@ async def delete_password(data: UsernameRequest, request: Request):
             }
 @app.post("/delete2")
 async def delete_password2(data: DeletePasswordRequest2, request: Request):
+    cursor = conn.cursor()
     try:
         signature = data.signature
         un = data.username
