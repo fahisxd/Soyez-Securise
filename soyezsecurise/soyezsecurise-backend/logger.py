@@ -60,4 +60,5 @@ def Log_event(func, location, level, event, user, ip, request_id):
     }
     level = level.lower()
     getattr(func, level)(json.dumps(log))
+    print(json.dumps(log))
     
