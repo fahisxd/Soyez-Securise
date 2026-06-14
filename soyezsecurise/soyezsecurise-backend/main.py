@@ -202,7 +202,7 @@ def decrypt(enc_secret, key, tag, nonce):
 # verifying otp
 # =========================
 
-def otp_generation_and_verfication(username, user_otp):
+def otp_generation_and_verfication(username, user_otp, cursor):
     cursor.execute(
         """
     SELECT id FROM users WHERE username = %s;""",
@@ -272,7 +272,7 @@ def get_client_ip(request: Request):
 # encrypting otp secret
 # =========================
 
-def encrypter(data, un):
+def encrypter(data, un, cursor):
     nonce_gen = os.urandom(12)
     cursor.execute("""
         SELECT hash FROM users WHERE id = %s;""",
@@ -483,7 +483,7 @@ async def enable_otp2(data: GetOTPRequest, request: Request, conn=Depends(get_db
             issuer_name="Ayano V2",
         )
         enabled = True
-        encrypt = encrypter(secret, user_id)
+        encrypt = encrypter(secret, user_id, cursor)
         enc_secret = encrypt["secret"]
         salt = encrypt["salt_payload"]
         cursor.execute(
@@ -1007,7 +1007,7 @@ async def login2(data: GetBackupRequest, request: Request, conn=Depends(get_db))
         otp_status = cursor.fetchone()
 
         if otp_status and otp_status["enabled"]:
-            status = otp_generation_and_verfication(un, user_otp)
+            status = otp_generation_and_verfication(un, user_otp, cursor)
             if status == "VALID":
                 Log_event(otp_logger, "/login2", "INFO", "OTP verified", f"{un}", f"{ip}", f"{request_id}")
                 pass
