@@ -1,7 +1,7 @@
 import hmac
 import hashlib
 import os
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, BackgroundTasks
 import redis
 import base64
 from pydantic import BaseModel, StringConstraints
@@ -72,7 +72,7 @@ def get_db():
 #--------------------------------------------strict input classes--------------------------------------------------#
 
 # =========================
-# Strict input parameters
+# Strict input parameters 
 # =========================
 
 OTPType = Annotated[
@@ -193,18 +193,18 @@ class NewUserRequest(BaseModel):
         )
     ]
     otp: OTPType
-
+    
 
 
 class StoredPasswordRequest(BaseModel):
     signature: Hex64Type
     username: UsernameType
     session_id: SessionIdType
-    password_name: PasswordNameType
+    password_name: PasswordNameType 
     usernametbs: UsernameType
     enc_data: Base64Type
     hint: Optional[Base64Type] = None
-    request_id: Requets_ID
+    request_id: Requets_ID 
 
 
 class GetEncryptedRequest(BaseModel):
@@ -280,7 +280,29 @@ def decrypt(enc_secret, key, tag, nonce):
 # verifying otp
 # =========================
 
-def otp_generation_and_verfication(username, user_otp, cursor, cmd):
+def queue_email(background_tasks, email_func, *args):
+    if background_tasks:
+        background_tasks.add_task(send_email_safely, email_func, *args)
+    else:
+        send_email_safely(email_func, *args)
+
+
+def send_email_safely(email_func, *args):
+    try:
+        email_func(*args)
+    except Exception:
+        Log_event(
+            sys_logger,
+            "/email",
+            "ERROR",
+            traceback.format_exc(),
+            args[0] if args else "-",
+            "-",
+            "-",
+        )
+
+
+def otp_generation_and_verfication(username, user_otp, cursor, cmd, background_tasks=None):
     cursor.execute(
         """
     SELECT id FROM users WHERE username = %s;""",
@@ -292,7 +314,7 @@ def otp_generation_and_verfication(username, user_otp, cursor, cmd):
         """
         SELECT method FROM twofa WHERE userid = %s;""",
             (userid,),)
-
+        
         row = cursor.fetchone()
         if row and row["method"]:
             method = row["method"]
@@ -323,7 +345,7 @@ def otp_generation_and_verfication(username, user_otp, cursor, cmd):
                 secret = decrypt(enc_secret, key, tag, nonce)
                 secret = secret.decode().strip()
                 totp = pyotp.TOTP(secret)
-                if totp.verify(str(user_otp)):
+                if totp.verify(str(user_otp)):  
                     return "VALID"
                 else:
                     return "INVALID"
@@ -353,8 +375,8 @@ def otp_generation_and_verfication(username, user_otp, cursor, cmd):
             )
             email = cursor.fetchone()["email"]
             gmail_otp.expire(key, 600)
-            r = otpVE(username, otp, email)
-            return r
+            queue_email(background_tasks, otpVE, username, otp, email)
+            return "queued"
     if cmd == "verG":
         stored = gmail_otp.get(key)
         if stored is None:
@@ -364,9 +386,9 @@ def otp_generation_and_verfication(username, user_otp, cursor, cmd):
             return "INVALID"
         gmail_otp.delete(key)
         return "VALID"
+    
 
-
-
+            
 def generate_otp_code():
     characters = string.ascii_uppercase + string.digits
     return ''.join(secrets.choice(characters) for _ in range(6))
@@ -405,7 +427,7 @@ def get_session_status(username, session_id, ip):
     ip_match = stored_session.get("ip") == ip
     ttl = session.ttl(key)
     return {
-        "authenticated": session_valid and ip_match,
+        "authenticated": session_valid,
         "session_valid": session_valid,
         "session_ttl": ttl if ttl > 0 else 0,
         "ip_match": ip_match,
@@ -415,7 +437,7 @@ def registration_key(username):
     return f"signup:{username}"
 
 
-def send_registration_otp(username, email,):
+def send_registration_otp(username, email, background_tasks=None):
     otp = generate_otp_code()
     key = registration_key(username)
     gmail_otp.hset(
@@ -426,7 +448,8 @@ def send_registration_otp(username, email,):
         },
     )
     gmail_otp.expire(key, 600)
-    return otpVE(username, otp, email)
+    queue_email(background_tasks, otpVE, username, otp, email)
+    return "queued"
 
 
 def verify_registration_otp(username, email, user_otp):
@@ -446,7 +469,7 @@ def verify_registration_otp(username, email, user_otp):
 
 
 
-
+    
 # =========================
 # time_equilizer
 # =========================
@@ -550,7 +573,7 @@ def encrypter(data, un, cursor):
     nonce = nonce_gen
     encrypted_data = ChaCha20_Poly1305.new(key=key, nonce=nonce)
     ciphertext, tag = encrypted_data.encrypt_and_digest(data.encode())
-    salt_payload = nonce + tag
+    salt_payload = nonce + tag 
     salt_payload = base64.b64encode(salt_payload).decode()
     secret = ciphertext
     secret = base64.b64encode(ciphertext).decode()
@@ -576,7 +599,7 @@ def IP_check(userid, ip , cursor):
         return "current_ip"
     else:
         return "new_ip"
-
+        
 
 
 # =========================
@@ -599,17 +622,17 @@ app.add_middleware(
 
 )
 
-@app.middleware("http")
-async def security_headers(request, call_next):
-    response = await call_next(request)
-
-    response.headers["X-Content-Type-Options"] = "nosniff"
-    response.headers["X-Frame-Options"] = "DENY"
-    response.headers["X-XSS-Protection"] = "1; mode=block"
-    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
-    response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none';"
-
-    return response
+# @app.middleware("http")
+# async def security_headers(request, call_next):
+#     response = await call_next(request)
+    
+#     response.headers["X-Content-Type-Options"] = "nosniff"
+#     response.headers["X-Frame-Options"] = "DENY"
+#     response.headers["X-XSS-Protection"] = "1; mode=block"
+#     response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+#     response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none';"
+    
+#     return response
 
 
 #--------------------------------------------APIs--------------------------------------------------#
@@ -626,7 +649,7 @@ async def enable_otp(data: UsernameRequest, request: Request, conn=Depends(get_d
     ip = get_client_ip(request)
     if check(ip) == "IP BLOCKED":
         return {"ERROR" : "You have been blocked for violating policies, Try again later"}
-
+    
     username = data.username
     count = ratelimitin.incr(f"rlpost:{username}")
     cursor.execute(
@@ -637,7 +660,7 @@ async def enable_otp(data: UsernameRequest, request: Request, conn=Depends(get_d
     if username == "' 1=1--":
         Log_event(login_logger, "/enableotp", "CRITICAL", "Bypassed pydantic", f"{username}", f"{ip}", f"{request_id}")
         return {"ERROR" : "Thats not gonna work bruh"}
-
+    
     result = cursor.fetchone()
     if not result:
         Log_event(login_logger, "/enableotp", "WARNING", "Invalid username entered", f"{username}", f"{ip}", f"{request_id}")
@@ -658,7 +681,7 @@ async def enable_otp(data: UsernameRequest, request: Request, conn=Depends(get_d
                 pass
         else:
             ratelimitin.set(f"rlpost:{username}", "0")
-
+        
         if temp_blocked.exists(f"blocked:{username}"):
             Log_event(login_logger, "/enableotp", "CRITICAL", "User blocked", f"{username}", f"{ip}", f"{request_id}")
             return {"ERROR": "You are temporarily blocked, try again in an hour"}
@@ -669,7 +692,7 @@ async def enable_otp(data: UsernameRequest, request: Request, conn=Depends(get_d
         cursor.execute(
     "SELECT 1 FROM twofa WHERE userid = %s",
     (userid,)
-)
+) 
         ifexists = cursor.fetchone()
         if ifexists:
             return {"ERROR" : "otp Already enabled"}
@@ -692,7 +715,7 @@ async def enable_otp(data: UsernameRequest, request: Request, conn=Depends(get_d
         salt = cursor.fetchone()["salt"]
         Log_event(sys_logger, "/enableotp", "INFO", "Nonce generated", f"{username}", f"{ip}", f"{request_id}")
         time_equilizer(start)
-
+        
         return {
             "nonce": nonce,
             "request_id" : request_id
@@ -792,7 +815,7 @@ async def enable_otp2(data: GetOTPRequest, request: Request, conn=Depends(get_db
         conn.rollback()
         Log_event(sys_logger, "/enableotp2", "ERROR", traceback.format_exc(), f"{un}", f"{ip}", f"{request_id}")
         return {"ERROR": "Something Went Wrong"}
-
+    
 
 # =========================
 # new user creation
@@ -800,7 +823,7 @@ async def enable_otp2(data: GetOTPRequest, request: Request, conn=Depends(get_db
 
 
 @app.post("/newuser1")
-async def new_user(data: NewUserVerification, request: Request, conn=Depends(get_db)):
+async def new_user(data: NewUserVerification, request: Request, background_tasks: BackgroundTasks, conn=Depends(get_db)):
     cursor = conn.cursor()
     un = data.username
     ip = get_client_ip(request)
@@ -822,7 +845,7 @@ async def new_user(data: NewUserVerification, request: Request, conn=Depends(get
 
         else:
             clean_un = un
-            send_registration_otp(clean_un, email)
+            send_registration_otp(clean_un, email, background_tasks)
             Log_event(otp_logger, "/newuser1", "INFO", "Signup OTP sent", f"{clean_un}", f"{ip}", f"{request_id}")
             return {"message": "Otp Sent", "sent on": email}
     except Exception as e:
@@ -831,7 +854,7 @@ async def new_user(data: NewUserVerification, request: Request, conn=Depends(get
         return {"ERROR" : "Something Went Wrong"}
 
 @app.post("/newuser2")
-async def newuser2(data: NewUserRequest, request: Request, conn=Depends(get_db)):
+async def newuser2(data: NewUserRequest, request: Request, background_tasks: BackgroundTasks, conn=Depends(get_db)):
     cursor = conn.cursor()
     clean_un = data.username
     ip = get_client_ip(request)
@@ -897,7 +920,7 @@ async def newuser2(data: NewUserRequest, request: Request, conn=Depends(get_db))
             Log_event(db_logger, "/newuser", "INFO", "Salt stored", f"{clean_un}", f"{ip}", f"{request_id}")
             conn.commit()
             Log_event(login_logger, "/newuser", "INFO", "New user created", f"{clean_un}", f"{ip}", f"{request_id}")
-            welcome(clean_un, email)
+            queue_email(background_tasks, welcome, clean_un, email)
             return {"message": "User created successfully", "username": clean_un}
     except Exception as e:
         conn.rollback()
@@ -1032,7 +1055,7 @@ async def store_password2(Pdata: StoredPasswordRequest, request: Request, conn=D
                 "ERROR": f"Username or password is wrong"
             }
         Log_event(login_logger, "/storepassword2", "INFO", "Valid signature", f"{un}", f"{ip}", f"{request_id}")
-
+        
         sys_logger.info(f"base64 encrypted transmitted data was decrypted form base64 at store-password")
         cursor.execute("SELECT id FROM users WHERE username = %s", (un,))
         row = cursor.fetchone()
@@ -1064,7 +1087,7 @@ async def store_password2(Pdata: StoredPasswordRequest, request: Request, conn=D
         (password_id, hint, user_id),
         )
         conn.commit()
-
+            
 
         return {"message": "Password stored successfully"}
 
@@ -1159,7 +1182,7 @@ async def get_enc(data: UsernameRequest, request: Request, conn=Depends(get_db))
 
 
 @app.post("/getenc2")
-async def get_enc2(Pdata: GetEncryptedRequest, request: Request, conn=Depends(get_db)):
+async def get_enc2(Pdata: GetEncryptedRequest, request: Request, background_tasks: BackgroundTasks, conn=Depends(get_db)):
     cursor = conn.cursor()
     try:
         signature = Pdata.signature
@@ -1231,7 +1254,7 @@ async def get_enc2(Pdata: GetEncryptedRequest, request: Request, conn=Depends(ge
         email = cursor.fetchone()["email"]
         time = datetime.now(timezone.utc)
         Log_event(db_logger, "/getenc2", "INFO", "Password retrieved", f"{un}", f"{ip}", f"{request_id}")
-        passretrieved(un, time, ip, username_A, password_name, email)
+        queue_email(background_tasks, passretrieved, un, time, ip, username_A, password_name, email)
         return {"encdata": enc,
                 "username_A": username_A}
     except Exception as e:
@@ -1244,7 +1267,7 @@ async def get_enc2(Pdata: GetEncryptedRequest, request: Request, conn=Depends(ge
 # retriving backup
 # =========================
 @app.post("/login")
-async def login(data: UsernameRequest, request: Request, conn=Depends(get_db)):
+async def login(data: UsernameRequest, request: Request, background_tasks: BackgroundTasks, conn=Depends(get_db)):
     cursor = conn.cursor()
     start = time.time()
     username = data.username
@@ -1308,8 +1331,8 @@ async def login(data: UsernameRequest, request: Request, conn=Depends(get_db)):
         cursor.execute("SELECT enabled,method FROM twofa WHERE userid = %s", (userid,))
         otp_status = cursor.fetchone()
         if otp_status and otp_status["method"] == "gmail":
-            otp_generation_and_verfication(username, "67", cursor, "gen")
-
+            otp_generation_and_verfication(username, "67", cursor, "gen", background_tasks)
+        
         salt = salt_row["salt"]
         time_equilizer(start)
         return {
@@ -1320,7 +1343,7 @@ async def login(data: UsernameRequest, request: Request, conn=Depends(get_db)):
 
 
 @app.post("/login2")
-async def login2(data: GetBackupRequest, request: Request, conn=Depends(get_db)):
+async def login2(data: GetBackupRequest, request: Request, background_tasks: BackgroundTasks, conn=Depends(get_db)):
     cursor = conn.cursor()
     try:
         signature = data.signature
@@ -1337,10 +1360,10 @@ async def login2(data: GetBackupRequest, request: Request, conn=Depends(get_db))
         if not data:
             blocker(ip, request_id)
             return {"ERROR": "Username or password is wrong"}
-        if data.get("request_id") != request_id or data.get("ip") != ip:
+        if data.get("request_id") != request_id:
             nonce_db.delete(f"login:{un}")
             blocker(ip, request_id)
-            Log_event(login_logger, "/login2", "WARNING", "Nonce metadata mismatch", f"{un}", f"{ip}", f"{request_id}")
+            Log_event(login_logger, "/login2", "WARNING", "Nonce request id mismatch", f"{un}", f"{ip}", f"{request_id}")
             return {"ERROR": "Username or password is wrong"}
         cursor.execute(
         """
@@ -1364,7 +1387,7 @@ async def login2(data: GetBackupRequest, request: Request, conn=Depends(get_db))
             Log_event(login_logger, "/login2", "WARNING", "Invalid signature", f"{un}", f"{ip}", f"{request_id}")
             blocker(ip, request_id)
             return {"ERROR": f"Username or password is wrong"}
-
+        
         Log_event(login_logger, "/login2", "INFO", "Valid signature", f"{un}", f"{ip}", f"{request_id}")
         cursor.execute("SELECT id FROM users WHERE username = %s", (un,))
         user_id = cursor.fetchone()["id"]
@@ -1405,7 +1428,7 @@ async def login2(data: GetBackupRequest, request: Request, conn=Depends(get_db))
         if ip_check == "current_ip":
             pass
         else:
-            validlogin(un, ip, email)
+            queue_email(background_tasks, validlogin, un, ip, email)
         session_id = uuid.uuid4().hex
         Log_event(sys_logger, "/login2", "INFO", "session_id", f"{un}", f"{ip}", f"{request_id}")
         key = f"session_id:{un}"
@@ -1519,10 +1542,10 @@ async def profile_status2(data: ProfileStatusRequest, request: Request, conn=Dep
         if not nonce_data:
             blocker(ip, request_id)
             return {"ERROR": "Session expired"}
-        if nonce_data.get("request_id") != request_id or nonce_data.get("ip") != ip:
+        if nonce_data.get("request_id") != request_id:
             nonce_db.delete(f"profile:{username}")
             blocker(ip, request_id)
-            Log_event(login_logger, "/profile/status2", "WARNING", "Nonce metadata mismatch", f"{username}", f"{ip}", f"{request_id}")
+            Log_event(login_logger, "/profile/status2", "WARNING", "Nonce request id mismatch", f"{username}", f"{ip}", f"{request_id}")
             return {"ERROR": "Username or password is wrong"}
 
         cursor.execute(
@@ -1652,7 +1675,7 @@ async def list(data: UsernameRequest, request: Request, conn=Depends(get_db)):
                 temp_blocked.expire(f"blocked:{username}", 3600)
                 ratelimitin.delete(f"rlpost:{username}")
                 Log_event(login_logger, "/list", "WARNING", "Rapid requests detected", f"{username}", f"{ip}", f"{request_id}")
-                return {"ERROR": "Too many requests, try again in an hour"}
+                return {"ERROR": "Too many requests, try again in an hour"}            
             else:
                 pass
         else:
@@ -1678,7 +1701,7 @@ async def list(data: UsernameRequest, request: Request, conn=Depends(get_db)):
         return {
             "nonce": nonce.hex(),
             "salt": salt,
-            "request_id": request_id
+            "request_id": request_id 
                 }
 
 @app.post("/list2")
@@ -1748,7 +1771,7 @@ async def list2(Pdata: ListPasswordRequest, request: Request, conn=Depends(get_d
         conn.rollback()
         Log_event(sys_logger, "/list2", "ERROR", f"""{str(e)}""", f"{un}", f"{ip}", f"{request_id}")
         return {"ERROR": "Something Went Wrong"}
-
+    
 
 @app.post("/delete")
 async def delete_password(data: UsernameRequest, request: Request, conn=Depends(get_db)):
@@ -1786,7 +1809,7 @@ async def delete_password(data: UsernameRequest, request: Request, conn=Depends(
                 temp_blocked.expire(f"blocked:{username}", 3600)
                 ratelimitin.delete(f"rlpost:{username}")
                 Log_event(login_logger, "/delete_password", "WARNING", "Rapid requests detected", f"{username}", f"{ip}", f"{request_id}")
-                return {"ERROR": "Too many requests, try again in an hour"}
+                return {"ERROR": "Too many requests, try again in an hour"}            
             else:
                 pass
         else:
@@ -1913,7 +1936,7 @@ async def hint(data: UsernameRequest, request: Request, conn=Depends(get_db)):
                 temp_blocked.expire(f"blocked:{username}", 3600)
                 ratelimitin.delete(f"rlpost:{username}")
                 Log_event(login_logger, "/hint", "WARNING", "Rapid requests detected", f"{username}", f"{ip}", f"{request_id}")
-                return {"ERROR": "Too many requests, try again in an hour"}
+                return {"ERROR": "Too many requests, try again in an hour"}            
             else:
                 pass
         else:
@@ -1939,7 +1962,7 @@ async def hint(data: UsernameRequest, request: Request, conn=Depends(get_db)):
         return {
             "nonce": nonce.hex(),
             "salt": salt,
-            "request_id": request_id
+            "request_id": request_id 
                 }
 
 
@@ -2014,7 +2037,7 @@ async def hint2(Pdata: HintPasswordRequest, request: Request, conn=Depends(get_d
         conn.rollback()
         Log_event(sys_logger, "/hint2", "ERROR", f"""{str(e)}""", f"{un}", f"{ip}", f"{request_id}")
         return {"ERROR": "Something Went Wrong"}
-
+    
 @app.post("/acc-delete")
 async def delete_account(data: UsernameRequest, request: Request, conn=Depends(get_db)):
     cursor = conn.cursor()
@@ -2051,7 +2074,7 @@ async def delete_account(data: UsernameRequest, request: Request, conn=Depends(g
                 temp_blocked.expire(f"blocked:{username}", 3600)
                 ratelimitin.delete(f"rlpost:{username}")
                 Log_event(login_logger, "/delete_password", "WARNING", "Rapid requests detected", f"{username}", f"{ip}", f"{request_id}")
-                return {"ERROR": "Too many requests, try again in an hour"}
+                return {"ERROR": "Too many requests, try again in an hour"}            
             else:
                 pass
         else:
