@@ -25,7 +25,6 @@ const otpFacts = [
 
 const answer = document.getElementById("answerforotpq")
 
-console.log(answer)
 setInterval(()=>{
     let randomIndex =
     Math.floor(Math.random()*otpFacts.length)

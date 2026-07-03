@@ -4,83 +4,34 @@ const storeservicename = document.getElementById("store-service-name")
 
 const passwordtobestored = document.querySelector("#StorePassword input[name='password']")
 
+const hinttobestored = document.getElementById("store-hint-input")
+
 const storepasswordfunc = document.getElementById("storepassword")
 
 const store_status = document.getElementById("status-store")
 
-function bytesToHex(bytes){
-    return Array.from(bytes).map(
-        byte =>
-        byte.toString(16)
-        .padStart(2,"0")
-    ).join("")
-}
-
-function base64ToBytes(base64){
-
-    base64 = base64.trim()
-
-    let binary = window.atob(base64)
-
-    let bytes = new Uint8Array(binary.length)
-
-    for(let i=0;i<binary.length;i++){
-        bytes[i] = binary.charCodeAt(i)
-    }
-
-    return bytes
-}
-
-async function storegeneratesign(noncehex, keyhex){
-    let noncebytes = Uint8Array.from(noncehex.match(/.{1,2}/g).map(b => parseInt(b,16)))
-    let keybytes = Uint8Array.from(keyhex.match(/.{1,2}/g).map(b=>parseInt(b,16)))
-
-    let cryptoKey = await crypto.subtle.importKey(
-        "raw",
-        keybytes,
-        {
-            name:"HMAC",
-
-            hash:"SHA-256"
-        },
-         false,
-
-        ["sign"]
-
-    )
-    let signaturebytes = await crypto.subtle.sign(
-        "HMAC",
-        cryptoKey,
-        noncebytes
-    )
-    let signaturearray = new Uint8Array(signaturebytes)
-    let signature = bytesToHex(signaturearray)
-    return signature
-}
-
-
-
 document.getElementById("storepassword").addEventListener("click",
-async function(e){
+function(e){
     e.preventDefault() 
-    if(window.vaultkey){
-        storepasswordfunc.href = "#store-password"
-        window.location.href = "#store-password"
-    }
-    else{
-        storepasswordfunc.href = "#login"
-        window.location.href = "#login"
-    }
+    storepasswordfunc.href = hasActiveSession() && window.vaultkey ? "#store-password" : "#login"
+    goToVaultRoute("#store-password")
 })
 
 document.getElementById("StorePassword").addEventListener("submit",
 async function(e){
     e.preventDefault()
+    if(!hasActiveSession() || !window.vaultkey){
+        store_status.innerText = "Session expired, login again"
+        goToLogin()
+        return
+    }
+
     store_status.innerText = "Encrypting..."
     let usernameS = usernametobestored.value
     let service_nameV = storeservicename.value
     let usernameV = localStorage.getItem("username")
     const passwordValue = passwordtobestored.value
+    const hintValue = hinttobestored.value.trim()
     let keybytes = window.vaultkey
     let iv = crypto.getRandomValues(new Uint8Array(12))
     let key = await crypto.subtle.importKey(
@@ -107,8 +58,8 @@ async function(e){
     let payload = new Uint8Array(iv.length + encrypted.byteLength)
     payload.set(iv)
     payload.set(new Uint8Array(encrypted),iv.length)
-    const final = btoa(String.fromCharCode(...payload))
-    store_status.innerText = "Requesting server for username"
+    const final = bytesToBase64(payload)
+    store_status.innerText = "Requesting server challenge..."
 
     let response = await fetch(`${server_link}/storepassword`,
         {
@@ -117,9 +68,9 @@ async function(e){
                 "Content-Type":
                 "application/json"
             },
-            body:JSON.stringify({
+            body:JSON.stringify(withSession({
                 "username": usernameV
-            })
+            }))
 
         }
 
@@ -148,8 +99,19 @@ async function(e){
         let enc_data = final
 
 
-        let signature = await storegeneratesign(nonce, authkey)
+        let signature = await generateSignature(nonce, authkey)
         store_status.innerText = "Requesting server"
+        let storePayload = {
+                "signature": signature,
+                "username": usernameV,
+                "session_id": getSessionId(),
+                "password_name": service_nameV,
+                "usernametbs": usernameS,
+                "enc_data": enc_data,
+                "request_id": requestid
+            }
+        storePayload.hint = hintValue ? textToBase64(hintValue) : "None"
+
         let verifyResponse = await fetch(`${server_link}/storepassword2`,
         {
         method:"POST",
@@ -158,14 +120,7 @@ async function(e){
             "Content-Type":
             "application/json"
         },
-        body:JSON.stringify({
-                "signature": signature,
-                "username": usernameV,
-                "password_name": service_nameV,
-                "usernametbs": usernameS,
-                "enc_data": enc_data,
-                "request_id": requestid
-            })
+        body:JSON.stringify(storePayload)
         })
         let verifyData = await verifyResponse.json()
         if(verifyData.ERROR){
@@ -176,11 +131,8 @@ async function(e){
                 return
             }
             else{
-                store_status.innerText = "Stored succesfully"
-                window.location.href = "#"
+                store_status.innerText = "Stored successfully"
 }
 }
-
-
-
-})
+}
+)

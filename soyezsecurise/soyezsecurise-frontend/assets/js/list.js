@@ -1,7 +1,3 @@
-const username_L = localStorage.getItem("username")
-
-const authkey_list = localStorage.getItem("authkey")
-
 const list_status = document.getElementById("status-list")
 
 const listpasswordfunc = document.getElementById("listpassword")
@@ -11,14 +7,13 @@ let listbox = document.getElementById("passwordList")
 document.getElementById("listpassword").addEventListener("click",
 async function(e){
     e.preventDefault() 
-    if(window.vaultkey){
-        listpasswordfunc.href = "#list"
-        window.location.href = "#list"
+    listpasswordfunc.href = hasActiveSession() && window.vaultkey ? "#list" : "#login"
+    if(!goToVaultRoute("#list")){
+        return
     }
-    else{
-        listpasswordfunc.href = "#login"
-        window.location.href = "#login"
-    }
+
+const username_L = localStorage.getItem("username")
+const authkey_list = localStorage.getItem("authkey")
 
 let response = await fetch(`${server_link}/list`,
     {
@@ -26,9 +21,9 @@ let response = await fetch(`${server_link}/list`,
         headers:{
             "Content-Type":"application/json"
             },
-        body:JSON.stringify({
+        body:JSON.stringify(withSession({
             username: username_L
-        })
+        }))
     })
     let data_L = await response.json()
     if(data_L.ERROR){
@@ -42,7 +37,7 @@ let response = await fetch(`${server_link}/list`,
     else{
         let nonce = data_L.nonce
         let requestid = data_L.request_id
-        let signature = await storegeneratesign(nonce, authkey_list)
+        let signature = await generateSignature(nonce, authkey_list)
         list_status.innerText = "Verifying"
         let listverifyResponse = await fetch(`${server_link}/list2`,
             {
@@ -55,6 +50,7 @@ let response = await fetch(`${server_link}/list`,
                 body:JSON.stringify({
                     signature:signature,
                     username:username_L,
+                    session_id: getSessionId(),
                     request_id: requestid
                     })
             })
@@ -82,9 +78,45 @@ let response = await fetch(`${server_link}/list`,
             listverifyData.passwords.forEach(password=>{
 
             let li = document.createElement("li")
+            li.className = "vault-item"
 
-            li.innerText =
-            `${password.service} (${password.username})`
+            let meta = document.createElement("div")
+            meta.className = "vault-item-meta"
+
+            let service = document.createElement("strong")
+            service.innerText = password.service
+
+            let account = document.createElement("span")
+            account.innerText = password.username
+
+            let actions = document.createElement("div")
+            actions.className = "vault-item-actions"
+
+            let retrieve = document.createElement("a")
+            retrieve.href = "#Getpassword"
+            retrieve.className = "button small"
+            retrieve.innerText = "Retrieve"
+            retrieve.addEventListener("click", function(){
+                document.getElementById("getp-username").value = username_L || ""
+                document.getElementById("getp-usernameS").value = password.username
+                document.getElementById("Servicename_G").value = password.service
+            })
+
+            let hint = document.createElement("a")
+            hint.href = "#Hintpassword"
+            hint.className = "button small"
+            hint.innerText = "Hint"
+            hint.addEventListener("click", function(){
+                document.getElementById("hint-username").value = username_L || ""
+                document.getElementById("hint-service-name").value = password.service
+            })
+
+            meta.appendChild(service)
+            meta.appendChild(account)
+            actions.appendChild(retrieve)
+            actions.appendChild(hint)
+            li.appendChild(meta)
+            li.appendChild(actions)
             document.getElementById("passwordList").appendChild(li)
         })
         }

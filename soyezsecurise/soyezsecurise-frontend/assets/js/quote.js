@@ -37,7 +37,6 @@ const securityQuotes = [
 
 const quote = document.getElementById("quote")
 
-console.log(quote)
 setInterval(()=>{
     let randomIndex =
     Math.floor(Math.random()*securityQuotes.length)

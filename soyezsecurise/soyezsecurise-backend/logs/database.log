@@ -44,7 +44,6 @@
 {"level": "INFO", "request-id": "8e767c2953324baea345c06940bc3722", "time": "2026-05-16 22:46:56.247200", "event": "User hash stored", "user": "testuser14", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "8e767c2953324baea345c06940bc3722", "time": "2026-05-16 22:46:56.247960", "event": "IP stored", "user": "testuser14", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "8e767c2953324baea345c06940bc3722", "time": "2026-05-16 22:46:56.248541", "event": "Salt stored", "user": "testuser14", "ip": "127.0.0.1", "location": "/newuser"}
-Backup Data was given of user testuser13
 {"level": "INFO", "request-id": "ad2095b7cfbc4ce2b7e14b46038267f1", "time": "2026-05-17 15:00:02.029903", "event": "User hash stored", "user": "testuser16", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "ad2095b7cfbc4ce2b7e14b46038267f1", "time": "2026-05-17 15:00:02.031343", "event": "IP stored", "user": "testuser16", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "ad2095b7cfbc4ce2b7e14b46038267f1", "time": "2026-05-17 15:00:02.031717", "event": "Salt stored", "user": "testuser16", "ip": "127.0.0.1", "location": "/newuser"}
@@ -60,49 +59,12 @@ Backup Data was given of user testuser13
 {"level": "INFO", "request-id": "27a193f0df7b430da213c9db13094ce5", "time": "2026-05-17 15:41:52.362250", "event": "User hash stored", "user": "test", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "27a193f0df7b430da213c9db13094ce5", "time": "2026-05-17 15:41:52.362878", "event": "IP stored", "user": "test", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "27a193f0df7b430da213c9db13094ce5", "time": "2026-05-17 15:41:52.363382", "event": "Salt stored", "user": "test", "ip": "127.0.0.1", "location": "/newuser"}
-Backup Data was given of user test
-Backup Data was given of user testuser13
 {"level": "INFO", "request-id": "38877e2862484e388572d7ec41b6208c", "time": "2026-05-18 15:43:29.502133", "event": "User hash stored", "user": "test10", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "38877e2862484e388572d7ec41b6208c", "time": "2026-05-18 15:43:29.503958", "event": "IP stored", "user": "test10", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "38877e2862484e388572d7ec41b6208c", "time": "2026-05-18 15:43:29.504454", "event": "Salt stored", "user": "test10", "ip": "127.0.0.1", "location": "/newuser"}
-Backup Data was given of user test
-Backup Data was given of user test
-Backup Data was given of user test
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
 {"level": "INFO", "request-id": "07c079452140434897e91a98ac457ee5", "time": "2026-05-19 10:21:58.931580", "event": "User hash stored", "user": "test20", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "07c079452140434897e91a98ac457ee5", "time": "2026-05-19 10:21:58.933072", "event": "IP stored", "user": "test20", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "07c079452140434897e91a98ac457ee5", "time": "2026-05-19 10:21:58.934378", "event": "Salt stored", "user": "test20", "ip": "127.0.0.1", "location": "/newuser"}
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user testuser13
-Backup Data was given of user testuser13
-Backup Data was given of user testuser13
-Backup Data was given of user testuser13
-Backup Data was given of user testuser13
-Backup Data was given of user testuser13
-Backup Data was given of user testuser13
-Backup Data was given of user test
-Backup Data was given of user test10
-Backup Data was given of user test
 {"level": "INFO", "request-id": "ca2a189c19804351b052d816724696c6", "time": "2026-05-20 11:34:03.674041", "event": "User hash stored", "user": "test100", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "ca2a189c19804351b052d816724696c6", "time": "2026-05-20 11:34:03.674707", "event": "IP stored", "user": "test100", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "ca2a189c19804351b052d816724696c6", "time": "2026-05-20 11:34:03.675274", "event": "Salt stored", "user": "test100", "ip": "127.0.0.1", "location": "/newuser"}
@@ -113,81 +75,42 @@ Backup Data was given of user test
 {"level": "INFO", "request-id": "7e8f2370ca8441a2984ee0fb6d8cbc00", "time": "2026-05-20 11:54:37.559166", "event": "User hash stored", "user": "test22", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "7e8f2370ca8441a2984ee0fb6d8cbc00", "time": "2026-05-20 11:54:37.559612", "event": "IP stored", "user": "test22", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "7e8f2370ca8441a2984ee0fb6d8cbc00", "time": "2026-05-20 11:54:37.560099", "event": "Salt stored", "user": "test22", "ip": "127.0.0.1", "location": "/newuser"}
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test22
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
-Backup Data was given of user test10
 {"level": "INFO", "request-id": "fae945abb459452b8378c003d85f94a9", "time": "2026-05-20 22:30:21.780533", "event": "User hash stored", "user": "fahis", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "fae945abb459452b8378c003d85f94a9", "time": "2026-05-20 22:30:21.782263", "event": "IP stored", "user": "fahis", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "fae945abb459452b8378c003d85f94a9", "time": "2026-05-20 22:30:21.783363", "event": "Salt stored", "user": "fahis", "ip": "127.0.0.1", "location": "/newuser"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "a202f209a1194c008312259585040929", "time": "2026-05-20 22:31:19.346653", "event": "Password stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "51a11f11b97d4d268961bc86863db11c", "time": "2026-05-20 22:34:59.751290", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "27004c2b5a1845d98a5c47e77669b423", "time": "2026-05-20 22:38:49.213018", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "8b5002b2a5c047578ac39716aecdaebe", "time": "2026-05-20 22:44:37.009312", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "b40349e255724b418a72c3025eefc987", "time": "2026-05-20 22:48:41.034840", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "e4166bd3e01b4a2c914a3f8e70088e08", "time": "2026-05-20 23:02:36.293218", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "371c913213004892830639c1ecec1f33", "time": "2026-05-20 23:05:53.394729", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "78b33a4d9a6c401eaf3ef62b51b67314", "time": "2026-05-20 23:08:47.624322", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "2e06893c078648969ca94f9e9800f4f1", "time": "2026-05-20 23:12:20.332864", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "28d0b77049934e2a9efb7c3ef4bbcd5c", "time": "2026-05-20 23:15:38.240754", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "dd8195a687074c4a947a709a778a6dde", "time": "2026-05-20 23:20:23.477570", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "bb2e5999c8d44c6d865e7302ecfbfdd6", "time": "2026-05-20 23:22:47.007517", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "a498cd0c3c7043c6b9cf5d2c88a90862", "time": "2026-05-20 23:49:57.845926", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
 {"level": "INFO", "request-id": "3964c55e89c64b779b14ed19e279e971", "time": "2026-05-21 07:56:11.311400", "event": "User hash stored", "user": "fahis2", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "3964c55e89c64b779b14ed19e279e971", "time": "2026-05-21 07:56:11.313575", "event": "IP stored", "user": "fahis2", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "3964c55e89c64b779b14ed19e279e971", "time": "2026-05-21 07:56:11.314926", "event": "Salt stored", "user": "fahis2", "ip": "127.0.0.1", "location": "/newuser"}
-Backup Data was given of user fahis2
 {"level": "INFO", "request-id": "bfd4ada04b7b43e3ba4222247a72432c", "time": "2026-05-21 07:57:02.625679", "event": "Password stored", "user": "fahis2", "ip": "127.0.0.1", "location": "/storepassword2"}
 {"level": "INFO", "request-id": "828420ec07244d4fb8876c25421be687", "time": "2026-05-21 07:57:16.090329", "event": "Password retrieved", "user": "fahis2", "ip": "127.0.0.1", "location": "/getenc2"}
 {"level": "INFO", "request-id": "8ce57c36f12c40cca3ecccccc9faa737", "time": "2026-05-21 09:58:58.292171", "event": "User hash stored", "user": "fahis3", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "8ce57c36f12c40cca3ecccccc9faa737", "time": "2026-05-21 09:58:58.294564", "event": "IP stored", "user": "fahis3", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "8ce57c36f12c40cca3ecccccc9faa737", "time": "2026-05-21 09:58:58.295931", "event": "Salt stored", "user": "fahis3", "ip": "127.0.0.1", "location": "/newuser"}
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "e5457978bc354348af281107a5b80d6f", "time": "2026-05-21 15:00:32.211721", "event": "Password stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
-Backup Data was given of user fahis
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "b8b9b44d26fb4df89cb8ba53e935ab78", "time": "2026-05-21 15:05:16.338489", "event": "Password stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
 {"level": "INFO", "request-id": "b6446defdf074dbbaf2efedbee9aca23", "time": "2026-05-21 15:05:51.179630", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
 {"level": "INFO", "request-id": "bc8eb68d092b4a21904538ff9e490d13", "time": "2026-05-21 15:06:09.389001", "event": "Password stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
 {"level": "INFO", "request-id": "5044793725ff457085f95021a4f1971d", "time": "2026-05-21 15:06:15.366242", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
 {"level": "INFO", "request-id": "e08f3b83949b46d99c463f54c76f9e4c", "time": "2026-05-21 15:06:26.279284", "event": "Password stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
 {"level": "INFO", "request-id": "f070b3bf3954466c8b26ba5a4ad6f60b", "time": "2026-05-21 15:06:29.550323", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "a9fc61450f4a45fd8f3e9f5f8d194512", "time": "2026-05-21 15:20:14.719516", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
 {"level": "INFO", "request-id": "8b9e7c15d60042d3b1c1d76c4a28a1b6", "time": "2026-05-21 15:20:34.603075", "event": "Password stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
 {"level": "INFO", "request-id": "eeccd6d87b7c406489e3b5d855c95499", "time": "2026-05-21 15:20:44.788950", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "49bbc250970d4622b0e5a8b6bd8c706d", "time": "2026-05-21 16:19:19.251329", "event": "Password deleted", "user": "fahis", "ip": "127.0.0.1", "location": "/delete2"}
 {"level": "INFO", "request-id": "0c23e8004ad7493fae3ac204334f4403", "time": "2026-05-21 16:20:01.842060", "event": "Password deleted", "user": "fahis", "ip": "127.0.0.1", "location": "/delete2"}
-Backup Data was given of user fahis
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "15c7586535714a7a82d1dc65f53216e3", "time": "2026-06-13 11:57:14.857100", "event": "User hash stored", "user": "fahisxd", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "15c7586535714a7a82d1dc65f53216e3", "time": "2026-06-13 11:57:15.070524", "event": "IP stored", "user": "fahisxd", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "15c7586535714a7a82d1dc65f53216e3", "time": "2026-06-13 11:57:15.282427", "event": "Salt stored", "user": "fahisxd", "ip": "127.0.0.1", "location": "/newuser"}
@@ -215,30 +138,75 @@ Backup Data was given of user fahis
 {"level": "INFO", "request-id": "0b70ac4963a94de3acabac2f830d8892", "time": "2026-06-13 16:17:09.662837", "event": "User hash stored", "user": "fahis", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "0b70ac4963a94de3acabac2f830d8892", "time": "2026-06-13 16:17:09.867604", "event": "IP stored", "user": "fahis", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "0b70ac4963a94de3acabac2f830d8892", "time": "2026-06-13 16:17:10.063628", "event": "Salt stored", "user": "fahis", "ip": "127.0.0.1", "location": "/newuser"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "166d2f4aaee840338772005e0a8b7cba", "time": "2026-06-13 17:33:40.679276", "event": "Password stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "cfb4b2927d7044fcbbe467a59e803470", "time": "2026-06-13 18:20:41.867083", "event": "Password stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
 {"level": "INFO", "request-id": "c6c8db7e8da34544b4ce45c69429adb8", "time": "2026-06-13 18:20:53.971793", "event": "Password stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
 {"level": "INFO", "request-id": "93c8d35e61bb4f97b1221b7ab1e7a660", "time": "2026-06-13 18:21:58.542353", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
 {"level": "INFO", "request-id": "b329a8fd4051468fab4a53624508d94f", "time": "2026-06-13 18:25:50.463132", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "4997b1cf59154a60912482190d1228ca", "time": "2026-06-13 19:21:23.770011", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "5ef0e196d879432b9bc183bc4d378846", "time": "2026-06-13 19:23:30.113585", "event": "Password deleted", "user": "fahis", "ip": "127.0.0.1", "location": "/delete2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "ae53bf6942c44f398b435e5e93804ea5", "time": "2026-06-13 21:32:45.726757", "event": "Password stored", "user": "fahis", "ip": "127.0.0.1", "location": "/storepassword2"}
-Backup Data was given of user fahis
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "0b18862a59294d72bdb059f905ed9cda", "time": "2026-06-13 21:34:18.902073", "event": "Password retrieved", "user": "fahis", "ip": "127.0.0.1", "location": "/getenc2"}
-Backup Data was given of user fahis
 {"level": "INFO", "request-id": "752382cfcd2f4f619d7ac54ee4630395", "time": "2026-06-13 21:35:15.742257", "event": "Password deleted", "user": "fahis", "ip": "127.0.0.1", "location": "/delete2"}
 {"level": "INFO", "request-id": "6eded183449b414d9d1e011f9dc30daf", "time": "2026-06-13 21:36:20.352881", "event": "User hash stored", "user": "fahssssss", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "6eded183449b414d9d1e011f9dc30daf", "time": "2026-06-13 21:36:20.558126", "event": "IP stored", "user": "fahssssss", "ip": "127.0.0.1", "location": "/newuser"}
 {"level": "INFO", "request-id": "6eded183449b414d9d1e011f9dc30daf", "time": "2026-06-13 21:36:20.794565", "event": "Salt stored", "user": "fahssssss", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "1d3c1c885b5d4ea8a8f3029e7bb09cea", "time": "2026-06-23 16:36:59.937690", "event": "User hash stored", "user": "his", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "1d3c1c885b5d4ea8a8f3029e7bb09cea", "time": "2026-06-23 16:37:00.137761", "event": "IP stored", "user": "his", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "1d3c1c885b5d4ea8a8f3029e7bb09cea", "time": "2026-06-23 16:37:00.328971", "event": "Salt stored", "user": "his", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "4dbffe3e1b6345a7a5c2b0d17e9c6ed6", "time": "2026-06-23 19:24:38.360463", "event": "User hash stored", "user": "hiss", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "4dbffe3e1b6345a7a5c2b0d17e9c6ed6", "time": "2026-06-23 19:24:38.549710", "event": "IP stored", "user": "hiss", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "4dbffe3e1b6345a7a5c2b0d17e9c6ed6", "time": "2026-06-23 19:24:38.742086", "event": "Salt stored", "user": "hiss", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "6fe6bd5061af4b2fb651aec896c40ba2", "time": "2026-06-23 20:13:08.426895", "event": "User hash stored", "user": "ronaldo777", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "6fe6bd5061af4b2fb651aec896c40ba2", "time": "2026-06-23 20:13:08.676731", "event": "IP stored", "user": "ronaldo777", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "6fe6bd5061af4b2fb651aec896c40ba2", "time": "2026-06-23 20:13:08.928718", "event": "Salt stored", "user": "ronaldo777", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "4bb9fb305d8f4ce7b52f4c49dd5cc40f", "time": "2026-06-29 18:23:41.785535", "event": "User hash stored", "user": "xd", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "4bb9fb305d8f4ce7b52f4c49dd5cc40f", "time": "2026-06-29 18:23:41.972175", "event": "IP stored", "user": "xd", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "4bb9fb305d8f4ce7b52f4c49dd5cc40f", "time": "2026-06-29 18:23:42.163265", "event": "Salt stored", "user": "xd", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "90aa4b4dcf0f44baa8ceb4dcda55884b", "time": "2026-07-01 14:24:09.951613", "event": "User hash stored", "user": "xd2", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "90aa4b4dcf0f44baa8ceb4dcda55884b", "time": "2026-07-01 14:24:10.161607", "event": "IP stored", "user": "xd2", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "90aa4b4dcf0f44baa8ceb4dcda55884b", "time": "2026-07-01 14:24:10.359806", "event": "Salt stored", "user": "xd2", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "98c3ce27e03b45278ac4eb6031fe9926", "time": "2026-07-01 15:04:51.293326", "event": "User hash stored", "user": "xd3", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "98c3ce27e03b45278ac4eb6031fe9926", "time": "2026-07-01 15:04:51.492690", "event": "IP stored", "user": "xd3", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "98c3ce27e03b45278ac4eb6031fe9926", "time": "2026-07-01 15:04:51.693796", "event": "Salt stored", "user": "xd3", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "5d5f0ba4056c4c7caf278620bdc8e276", "time": "2026-07-01 15:10:43.990289", "event": "User hash stored", "user": "xd4", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "5d5f0ba4056c4c7caf278620bdc8e276", "time": "2026-07-01 15:10:44.188912", "event": "IP stored", "user": "xd4", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "5d5f0ba4056c4c7caf278620bdc8e276", "time": "2026-07-01 15:10:44.394321", "event": "Salt stored", "user": "xd4", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "eb35783705a54a9386c2078a03627f78", "time": "2026-07-01 15:11:27.350588", "event": "User hash stored", "user": "xd5", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "eb35783705a54a9386c2078a03627f78", "time": "2026-07-01 15:11:27.554448", "event": "IP stored", "user": "xd5", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "eb35783705a54a9386c2078a03627f78", "time": "2026-07-01 15:11:27.765644", "event": "Salt stored", "user": "xd5", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "e1ce9bffb3274458a80418d4f1db0a9d", "time": "2026-07-01 15:16:54.018811", "event": "User hash stored", "user": "xd67", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "e1ce9bffb3274458a80418d4f1db0a9d", "time": "2026-07-01 15:16:54.227727", "event": "IP stored", "user": "xd67", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "e1ce9bffb3274458a80418d4f1db0a9d", "time": "2026-07-01 15:16:54.435993", "event": "Salt stored", "user": "xd67", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "147fa9447224466e9cded0bc30beaba3", "time": "2026-07-01 15:20:00.480873", "event": "Password stored", "user": "xd67", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "804b2304c67043939b965da5c3d6cb19", "time": "2026-07-01 15:23:54.556990", "event": "Password retrieved", "user": "xd67", "ip": "127.0.0.1", "location": "/getenc2"}
+{"level": "INFO", "request-id": "8a81a2585a284c3ba021bf55f75a510e", "time": "2026-07-01 15:24:40.069321", "event": "Password deleted", "user": "xd67", "ip": "127.0.0.1", "location": "/delete2"}
+{"level": "INFO", "request-id": "92c8c831c8b54e109a3c85ae32a587f9", "time": "2026-07-02 13:44:26.732195", "event": "Password stored", "user": "xd67", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "a2cc5cb860fe40439caa975d7232205e", "time": "2026-07-02 13:46:43.974380", "event": "Password stored", "user": "xd67", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "ef342b8fc73b476096515cd8389a60c3", "time": "2026-07-02 14:34:06.831709", "event": "Password stored", "user": "xd67", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "ebb3e5bf9f87455ab3e33c87bc8ef91d", "time": "2026-07-02 14:53:09.084398", "event": "User hash stored", "user": "administrator", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "ebb3e5bf9f87455ab3e33c87bc8ef91d", "time": "2026-07-02 14:53:09.271110", "event": "IP stored", "user": "administrator", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "ebb3e5bf9f87455ab3e33c87bc8ef91d", "time": "2026-07-02 14:53:09.460771", "event": "Salt stored", "user": "administrator", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "285774c68ff449fab25908e83c99a667", "time": "2026-07-02 14:57:51.242895", "event": "Password stored", "user": "administrator", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "c7aaa02b040d4626bc5fe8c0dd036376", "time": "2026-07-02 14:58:53.534698", "event": "Password retrieved", "user": "administrator", "ip": "127.0.0.1", "location": "/getenc2"}
+{"level": "INFO", "request-id": "f16b6de4e6bb44c0ae41110a67a335ca", "time": "2026-07-02 15:00:49.749663", "event": "Password deleted", "user": "administrator", "ip": "127.0.0.1", "location": "/delete2"}
+{"level": "INFO", "request-id": "d1259b8c3c4d45a084cba5908366ca54", "time": "2026-07-02 15:01:15.101687", "event": "Password stored", "user": "administrator", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "919ef35ca2b94e8fafc8dec6d890ae25", "time": "2026-07-02 15:01:26.942945", "event": "Password stored", "user": "administrator", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "18c35d2461254d4e81dff3f87c893810", "time": "2026-07-02 16:35:49.808734", "event": "User hash stored", "user": "fayaz", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "18c35d2461254d4e81dff3f87c893810", "time": "2026-07-02 16:35:50.002648", "event": "IP stored", "user": "fayaz", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "18c35d2461254d4e81dff3f87c893810", "time": "2026-07-02 16:35:50.204077", "event": "Salt stored", "user": "fayaz", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "28349509bf34417d918ce04233b9b7e4", "time": "2026-07-02 16:43:21.886481", "event": "User hash stored", "user": "fayaz1", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "28349509bf34417d918ce04233b9b7e4", "time": "2026-07-02 16:43:22.142550", "event": "IP stored", "user": "fayaz1", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "28349509bf34417d918ce04233b9b7e4", "time": "2026-07-02 16:43:22.385313", "event": "Salt stored", "user": "fayaz1", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "8fd07dee6bf141ec96e2e9aac3f25c0f", "time": "2026-07-02 16:50:50.039284", "event": "Password stored", "user": "fayaz1", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "7adb6b35cca14306b21e0d4315a0648a", "time": "2026-07-02 16:51:50.247466", "event": "Password retrieved", "user": "fayaz1", "ip": "127.0.0.1", "location": "/getenc2"}
+{"level": "INFO", "request-id": "1a3b055e072b48caadf4ead89a821a1b", "time": "2026-07-02 16:52:43.912341", "event": "Password stored", "user": "fayaz1", "ip": "127.0.0.1", "location": "/storepassword2"}
+{"level": "INFO", "request-id": "7fc39b6e95154e488e692fb10473ef92", "time": "2026-07-02 17:01:47.490761", "event": "User hash stored", "user": "xd333", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "7fc39b6e95154e488e692fb10473ef92", "time": "2026-07-02 17:01:47.679198", "event": "IP stored", "user": "xd333", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "7fc39b6e95154e488e692fb10473ef92", "time": "2026-07-02 17:01:47.866113", "event": "Salt stored", "user": "xd333", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "12f63b9d4873453bba87ba7eb1fd3d61", "time": "2026-07-02 20:29:13.186182", "event": "User hash stored", "user": "fs", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "12f63b9d4873453bba87ba7eb1fd3d61", "time": "2026-07-02 20:29:13.424656", "event": "IP stored", "user": "fs", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request-id": "12f63b9d4873453bba87ba7eb1fd3d61", "time": "2026-07-02 20:29:13.635010", "event": "Salt stored", "user": "fs", "ip": "127.0.0.1", "location": "/newuser"}
+{"level": "INFO", "request_id": "e90bb231e6d644629e1c21d9fd1d429f", "event": "User hash stored", "user": "ff", "ip": "127.0.0.1", "location": "/newuser", "logger": "database", "time": "2026-07-03T07:09:01.423549+00:00"}
+{"level": "INFO", "request_id": "e90bb231e6d644629e1c21d9fd1d429f", "event": "IP stored", "user": "ff", "ip": "127.0.0.1", "location": "/newuser", "logger": "database", "time": "2026-07-03T07:09:01.613263+00:00"}
+{"level": "INFO", "request_id": "e90bb231e6d644629e1c21d9fd1d429f", "event": "Salt stored", "user": "ff", "ip": "127.0.0.1", "location": "/newuser", "logger": "database", "time": "2026-07-03T07:09:01.804588+00:00"}

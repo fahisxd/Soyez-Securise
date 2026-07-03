@@ -145,3 +145,74 @@
 {"level": "INFO", "request-id": "11fd9ac4d8c34f06965e55646169d6f4", "time": "2026-06-13 21:33:51.865440", "event": "OTP verified", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
 {"level": "INFO", "request-id": "eb9b014bfa694ecf9132386f232f3df7", "time": "2026-06-13 21:34:56.551734", "event": "OTP verified", "user": "fahis", "ip": "127.0.0.1", "location": "/login2"}
 {"level": "INFO", "request-id": "02f645cef1ce4873ab0f85b7b2545fa5", "time": "2026-06-13 21:36:25.661252", "event": "OTP enabled", "user": "fahssssss", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "WARNING", "request-id": "bb8JwIKr7ANtxqodQH8qOjkwzKjIwDbW", "time": "2026-06-23 19:51:58.125542", "event": "Invalid OTP entered", "user": "hiss", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "WARNING", "request-id": "bb8JwIKr7ANtxqodQH8qOjkwzKjIwDbW", "time": "2026-06-23 19:53:00.621820", "event": "Invalid OTP entered", "user": "hiss", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "bb8JwIKr7ANtxqodQH8qOjkwzKjIwDbW", "time": "2026-06-23 20:07:54.495079", "event": "OTP verified", "user": "hiss", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "8a54868916db490eb937f2ca12687571", "time": "2026-06-29 17:55:36.371954", "event": "Signup OTP sent", "user": "ZJe7XdlK1I9hFcJP64RwSI2tGvFyfpof", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "WARNING", "request-id": "62f0fdce149348d79eb3f477cc98ae77", "time": "2026-06-29 17:57:37.762531", "event": "Invalid OTP entered", "user": "ZJe7XdlK1I9hFcJP64RwSI2tGvFyfpof", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "WARNING", "request-id": "6e78a9871436466ea3d9a103da29d14f", "time": "2026-06-29 17:58:40.172669", "event": "Invalid OTP entered", "user": "ZJe7XdlK1I9hFcJP64RwSI2tGvFyfpof", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "e930ef6478994d959eebaf31f2f02e72", "time": "2026-06-29 17:59:38.433568", "event": "Signup OTP sent", "user": "xd", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "WARNING", "request-id": "065d373923a4421a8ae75b86a40a13de", "time": "2026-06-29 18:00:12.606024", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "WARNING", "request-id": "ff44fb32d41c418a872402253c777c98", "time": "2026-06-29 18:08:44.262662", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "WARNING", "request-id": "36342ca12f994e2ab96eaddd8d5017df", "time": "2026-06-29 18:08:48.198007", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "WARNING", "request-id": "f01a1d700b0244ab9d81d2352d97017a", "time": "2026-06-29 18:08:50.830303", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "WARNING", "request-id": "29438c68c0e44573ae01d30291f0715e", "time": "2026-06-29 18:08:53.959966", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "WARNING", "request-id": "3b957a8691ca4c7ba327ce51eb23bd9d", "time": "2026-06-29 18:08:56.843956", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "WARNING", "request-id": "0fc6eb8e8d104e71837c50329e9bfbe0", "time": "2026-06-29 18:08:59.680806", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "WARNING", "request-id": "851f1682f68d414fad8a3b1074c5a91f", "time": "2026-06-29 18:09:02.926205", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "WARNING", "request-id": "372eafb51c0c4026ba713b751c6ba147", "time": "2026-06-29 18:09:05.817732", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "44f2469bbe814e928e1bff50cd6276db", "time": "2026-06-29 18:16:57.334131", "event": "Signup OTP sent", "user": "xxd", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "WARNING", "request-id": "b75be3d6c6844b519a0db53ee166ced2", "time": "2026-06-29 18:17:19.551440", "event": "Invalid OTP entered", "user": "xxd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "WARNING", "request-id": "577bd03ede214d3faaabd527abb8b259", "time": "2026-06-29 18:20:17.571232", "event": "Invalid OTP entered", "user": "xxd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "WARNING", "request-id": "f71e69e387a04826a68b84114b883866", "time": "2026-06-29 18:21:43.799474", "event": "Invalid OTP entered", "user": "xxd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "17af76889c1e43189906f14f9b3704d6", "time": "2026-06-29 18:23:18.717413", "event": "Signup OTP sent", "user": "xd", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "INFO", "request-id": "4bb9fb305d8f4ce7b52f4c49dd5cc40f", "time": "2026-06-29 18:23:41.202262", "event": "OTP verified", "user": "xd", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "WARNING", "request-id": "8e39a062756343c2b8cf36ada056aae4", "time": "2026-06-29 18:24:46.072976", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "WARNING", "request-id": "8e39a062756343c2b8cf36ada056aae4", "time": "2026-06-29 18:25:11.783792", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "WARNING", "request-id": "8e39a062756343c2b8cf36ada056aae4", "time": "2026-06-29 18:25:55.454829", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "WARNING", "request-id": "0fb254f149dc4dddaaec38405023923d", "time": "2026-06-29 18:35:29.862156", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "WARNING", "request-id": "0fb254f149dc4dddaaec38405023923d", "time": "2026-06-29 18:36:35.304691", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "WARNING", "request-id": "0fb254f149dc4dddaaec38405023923d", "time": "2026-06-29 18:36:49.117982", "event": "Invalid OTP entered", "user": "xd", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "0fb254f149dc4dddaaec38405023923d", "time": "2026-06-29 18:37:12.819657", "event": "OTP verified", "user": "xd", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "0023f4766431462e8f2e285d3f5ac80b", "time": "2026-07-01 14:23:15.887346", "event": "Signup OTP sent", "user": "xd2", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "INFO", "request-id": "90aa4b4dcf0f44baa8ceb4dcda55884b", "time": "2026-07-01 14:24:09.304578", "event": "OTP verified", "user": "xd2", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "ae66e1cb41a343339fd84f25d01cf9d2", "time": "2026-07-01 15:04:25.951337", "event": "Signup OTP sent", "user": "xd3", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "INFO", "request-id": "98c3ce27e03b45278ac4eb6031fe9926", "time": "2026-07-01 15:04:50.692519", "event": "OTP verified", "user": "xd3", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "555d980ba68140b1a6a09d87f71a852d", "time": "2026-07-01 15:10:14.461189", "event": "Signup OTP sent", "user": "xd4", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "INFO", "request-id": "5d5f0ba4056c4c7caf278620bdc8e276", "time": "2026-07-01 15:10:43.374934", "event": "OTP verified", "user": "xd4", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "7d71967791aa4ce582516899e7c8cd39", "time": "2026-07-01 15:11:09.159932", "event": "Signup OTP sent", "user": "xd5", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "INFO", "request-id": "eb35783705a54a9386c2078a03627f78", "time": "2026-07-01 15:11:26.732970", "event": "OTP verified", "user": "xd5", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "9a555c288fab4fd0bdf92013cba1826b", "time": "2026-07-01 15:16:29.740385", "event": "Signup OTP sent", "user": "xd67", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "INFO", "request-id": "e1ce9bffb3274458a80418d4f1db0a9d", "time": "2026-07-01 15:16:52.983921", "event": "OTP verified", "user": "xd67", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "3b3099e7f9eb4abbb681f24812debfcb", "time": "2026-07-01 15:17:14.348180", "event": "OTP enabled(gmail)", "user": "xd67", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "WARNING", "request-id": "151f9045b5e6447fb87af859d0289569", "time": "2026-07-01 15:17:50.178254", "event": "Invalid OTP entered", "user": "xd67", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "fa676c44f6ef4b899654189e5370ae69", "time": "2026-07-01 15:19:41.020045", "event": "OTP verified", "user": "xd67", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "WARNING", "request-id": "9d89e8d16ef048119dd6e9cad9eb67a8", "time": "2026-07-01 16:16:41.670695", "event": "Invalid OTP entered", "user": "xd67", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "21bece1fa9284ccca7266ff73a22a849", "time": "2026-07-01 16:17:54.320129", "event": "OTP verified", "user": "xd67", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "68fa2ea3d833413c8db67fc5f98a143c", "time": "2026-07-02 13:43:40.064176", "event": "OTP verified", "user": "xd67", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "d017af6f10cf4d0d840e0c9f17de5bf0", "time": "2026-07-02 13:53:16.166004", "event": "OTP verified", "user": "xd67", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "d4353e35ffc44d5ea4860f5e5f0c890d", "time": "2026-07-02 14:29:15.837566", "event": "OTP verified", "user": "xd67", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "6b36f6ee7df34f04914364cf35c5cccc", "time": "2026-07-02 14:52:32.597947", "event": "Signup OTP sent", "user": "administrator", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "INFO", "request-id": "ebb3e5bf9f87455ab3e33c87bc8ef91d", "time": "2026-07-02 14:53:08.488322", "event": "OTP verified", "user": "administrator", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "759de86fab344793a56e7bff869cf0cf", "time": "2026-07-02 14:53:18.095260", "event": "OTP enabled(gmail)", "user": "administrator", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "INFO", "request-id": "604bb67fbe4349b9ac0b651ec05340e3", "time": "2026-07-02 14:53:47.467970", "event": "OTP verified", "user": "administrator", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "WARNING", "request-id": "16cc70261b76429da6ab0f5d7445cb72", "time": "2026-07-02 14:56:23.922021", "event": "Invalid OTP entered", "user": "administrator", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "37bee62e21454b499842f143a255356d", "time": "2026-07-02 14:57:15.876590", "event": "OTP verified", "user": "administrator", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "772202ba1051450aa5bfcf1f65aacb36", "time": "2026-07-02 16:34:38.792011", "event": "Signup OTP sent", "user": "fayaz", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "INFO", "request-id": "18c35d2461254d4e81dff3f87c893810", "time": "2026-07-02 16:35:49.167578", "event": "OTP verified", "user": "fayaz", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "b711459b5c564be1b3cc3ecdb2e7c383", "time": "2026-07-02 16:36:44.114301", "event": "OTP enabled(gmail)", "user": "fayaz", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "INFO", "request-id": "71e3a763dc8e446092bf2e5d0d7fe6f0", "time": "2026-07-02 16:42:51.292687", "event": "Signup OTP sent", "user": "fayaz1", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "INFO", "request-id": "28349509bf34417d918ce04233b9b7e4", "time": "2026-07-02 16:43:21.178302", "event": "OTP verified", "user": "fayaz1", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "f91d0a7756cc4d8995d6fe73232a7da2", "time": "2026-07-02 16:43:32.961399", "event": "OTP enabled(gmail)", "user": "fayaz1", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "INFO", "request-id": "1046640d07ba4176beba46388664bb0f", "time": "2026-07-02 16:44:15.683038", "event": "OTP verified", "user": "fayaz1", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "13fa2fef12f9485786cc4d26152205b6", "time": "2026-07-02 16:48:31.001865", "event": "OTP verified", "user": "fayaz1", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request-id": "453ad0ab8d314f17bc50fced785cf788", "time": "2026-07-02 17:01:10.159326", "event": "Signup OTP sent", "user": "xd333", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "INFO", "request-id": "7fc39b6e95154e488e692fb10473ef92", "time": "2026-07-02 17:01:46.926814", "event": "OTP verified", "user": "xd333", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "756ee9b4fc2f4618aff7c9257fe5179e", "time": "2026-07-02 17:02:14.211594", "event": "OTP enabled(totp)", "user": "xd333", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "INFO", "request-id": "172bb464f1f74442b0c15156fbd738ba", "time": "2026-07-02 20:28:31.160818", "event": "Signup OTP sent", "user": "fs", "ip": "127.0.0.1", "location": "/newuser1"}
+{"level": "INFO", "request-id": "12f63b9d4873453bba87ba7eb1fd3d61", "time": "2026-07-02 20:29:12.566049", "event": "OTP verified", "user": "fs", "ip": "127.0.0.1", "location": "/newuser2"}
+{"level": "INFO", "request-id": "4755637c65e647ae970af01da833cbfd", "time": "2026-07-02 20:29:28.455063", "event": "OTP enabled(gmail)", "user": "fs", "ip": "127.0.0.1", "location": "/enable_otp2"}
+{"level": "INFO", "request-id": "f2c2ad2de7de440babf9c008991ac5ff", "time": "2026-07-02 20:30:10.252710", "event": "OTP verified", "user": "fs", "ip": "127.0.0.1", "location": "/login2"}
+{"level": "INFO", "request_id": "299cbb7c3176497697c62b7bf6ba9e37", "event": "Signup OTP sent", "user": "ff", "ip": "127.0.0.1", "location": "/newuser1", "logger": "otp", "time": "2026-07-03T07:08:39.470660+00:00"}
+{"level": "INFO", "request_id": "e90bb231e6d644629e1c21d9fd1d429f", "event": "OTP verified", "user": "ff", "ip": "127.0.0.1", "location": "/newuser2", "logger": "otp", "time": "2026-07-03T07:09:00.829930+00:00"}
+{"level": "INFO", "request_id": "f00cd941782e4dde98ebb2dbce713aad", "event": "OTP enabled(gmail)", "user": "ff", "ip": "127.0.0.1", "location": "/enable_otp2", "logger": "otp", "time": "2026-07-03T07:11:25.950211+00:00"}

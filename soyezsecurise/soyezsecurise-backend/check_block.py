@@ -2,6 +2,7 @@ import redis
 import os
 import time
 import psycopg2
+import traceback
 from psycopg2.extras import RealDictCursor
 from dotenv import load_dotenv
 from logger import (
@@ -72,7 +73,15 @@ def blocker(ip, request_id):
             return "IP BLOCKED"
 
     except Exception as e:
-        print(f"Error in blocker: {e}")
+        Log_event(
+            sys_logger,
+            "/check_block.py:blocker",
+            "ERROR",
+            traceback.format_exc(),
+            "--",
+            f"{ip}",
+            f"{request_id}"
+        )
         conn.rollback()
 
     return "not blocked"
@@ -94,6 +103,14 @@ def check(ip):
         else:
             return "not blocked"
 
-    except Exception as e:
-        print(f"Error in check: {e}")
+    except Exception:
+        Log_event(
+            sys_logger,
+            "/check_block.py:check",
+            "ERROR",
+            traceback.format_exc(),
+            "--",
+            f"{ip}",
+            "-"
+        )
         return "not blocked"

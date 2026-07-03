@@ -10,35 +10,30 @@ const getpasswordfunc = document.getElementById("getpassword")
 
 
 document.getElementById("getpassword").addEventListener("click",
-async function(e){
+function(e){
     e.preventDefault() 
-    if(window.vaultkey){
-        getpasswordfunc.href = "#Getpassword"
-        window.location.href = "#Getpassword"
-    }
-    else{
-        getpasswordfunc.href = "#login"
-        window.location.href = "#login"
-    }
+    getpasswordfunc.href = hasActiveSession() && window.vaultkey ? "#Getpassword" : "#login"
+    goToVaultRoute("#Getpassword")
 })
 
-function copypass(){
+async function copypass(){
 
-    let secret =
-    document.getElementById(
-    "retrievedPassword"
-    )
+    let secret = document.getElementById("retrievedPassword")
 
-    navigator.clipboard.writeText(
-        secret.value
-    )
+    await navigator.clipboard.writeText(secret.value)
 }
 
 
 document.getElementById("get-password").addEventListener("submit",
     async function(e){
         e.preventDefault()
-        get_status.innerText = "getting Values...."
+        if(!hasActiveSession() || !window.vaultkey){
+            get_status.innerText = "Session expired, login again"
+            goToLogin()
+            return
+        }
+
+        get_status.innerText = "Getting values..."
         let usernameGV = username_get.value
         let usernameGVS = usernameS.value
         let service_nameGV = servicename_G.value
@@ -59,9 +54,9 @@ document.getElementById("get-password").addEventListener("submit",
                 headers:{
                     "Content-Type":"application/json"
             },
-            body:JSON.stringify({
+            body:JSON.stringify(withSession({
                     username:usernameGV
-                })
+                }))
             })
         let getdata = await response.json()
     if(getdata.ERROR){
@@ -79,7 +74,7 @@ document.getElementById("get-password").addEventListener("submit",
         let nonce = getdata.nonce
         let requestid = getdata.request_id
         let authkey = localStorage.getItem("authkey")
-        let signature = await storegeneratesign(nonce, authkey)
+        let signature = await generateSignature(nonce, authkey)
         get_status.innerText = "Verifying"
         let getverifyResponse = await fetch(`${server_link}/getenc2`,
             {
@@ -92,6 +87,7 @@ document.getElementById("get-password").addEventListener("submit",
                 body:JSON.stringify({
                     signature:signature,
                     username:usernameGV,
+                    session_id: getSessionId(),
                     password_name:service_nameGV,
                     usernameS:usernameGVS,
                     request_id:requestid
@@ -108,9 +104,7 @@ document.getElementById("get-password").addEventListener("submit",
                 return
             }
             else{
-                get_status.innerText = "retrived..."
-                console.log(getverifyData.encdata)
-                console.log(typeof getverifyData.encdata)
+                get_status.innerText = "Retrieved"
                 let encrypted = await base64ToBytes(getverifyData.encdata)
                 let iv = encrypted.slice(0,12)
                 let ciphertext = encrypted.slice(12)

@@ -14,7 +14,7 @@
 				<a href="index.html">
 					<span class="brand-mark"><span class="icon fa-shield-alt"></span></span>
 					<span class="brand-copy">
-						<strong>SoyezSécurisé<span>.</span></strong>
+						<strong>SoyezSécurisé<span>.</span> <span class="version-badge">Beta</span></strong>
 						<small>Security setup</small>
 					</span>
 				</a>
@@ -22,7 +22,7 @@
 
 		<!-- Wrapper --> 
 			<div id="wrapper">
-					<p class="one-time-notice"><span class="icon fa-exclamation-circle"></span><strong>One-time setup:</strong> save these details now. This page will not be shown again.</p>
+					<p class="one-time-notice"><span class="icon fa-exclamation-circle"></span><strong>One-time setup:</strong> choose how you want to protect <span id="otp-account">your account</span> using your active login session.</p>
 				<!-- Header -->
 					<header id="header">
 						<div class="content">
@@ -33,8 +33,8 @@
 							</div>
 						</div>
 						<nav>
-							<ul>
-								<li><a id="otpenabling-link" href="#otp-status">Enable-OTP</a></li>		
+							<ul class="action-hub otp-hub">
+								<li><a id="otpenabling-link" href="#otp-status"><i class="icon fa-mobile-alt"></i><span>Setup OTP</span><small>Email verified setup</small></a></li>		
 							</ul>
 						</nav>
 					</header>
@@ -43,52 +43,85 @@
 					<div id="main">
 
 						<!-- Intro -->
-						 <article id="otp-scanner">
+							<article id="otp-scanner">
 								<span class="article-eyebrow">Final security step</span>
-								<h2 class="major">OTP</h2>
+								<h2 class="major">Authenticator</h2>
 								<p>Scan the QR code with your authenticator app, or enter the secret manually.</p>
 								<form id="otp">
 									<div class="fields">
-                                        <h4 class="otp-text">Scan with your authenticator app</h4>
-										<div class="qr-box">
-                                            <img id="qr" src="images/qr.png" alt="Two-factor authentication QR code">
-                                        </div>
-                                        <p class="secret-label">Manual setup key</p>
-                                        <div id="otpsecret">
-											<div class="password-wrapper">
-												<input type="password" id="otp-secret" readonly aria-label="OTP secret key" />
-												<button type="button" class="copy-btn" onclick="copyotp()">Copy</button>
+										<div class="field">
+	                                        <h4 class="otp-text">Scan with your authenticator app</h4>
+											<div class="qr-box">
+	                                            <img id="qr" src="images/qr.png" alt="Two-factor authentication QR code">
+	                                        </div>
+	                                        <p class="secret-label">Manual setup key</p>
+	                                        <div id="otpsecret">
+												<div class="password-wrapper">
+													<input type="password" id="otp-secret" readonly aria-label="OTP secret key" />
+													<button type="button" class="copy-btn" id="otp-copy-btn">Copy</button>
+												</div>
+												<p class="method-hint" id="otp-copy-status"></p>
 											</div>
-                                        <div class="otp-controls">
-											<ul class="actions">
-												<li><input type="submit" value="Finish setup" class="primary" href="index.html"/></li>
-											</ul>
-                                        </div>
-                                        </div>
+										</div>
+									</div>
+									<div class="otp-controls">
+										<ul class="actions">
+											<li><input type="submit" value="Finish setup" class="primary" /></li>
+										</ul>
 									</div>
 								</form>
 							</article>
 							<article id="otp-status">
-								<span class="article-eyebrow">Preparing enrollment</span>
-								<h2 class="major">OTP</h2>
-								<p>Generating your secure enrollment code. Please wait.</p>
+								<span class="article-eyebrow">Step 1 of 2</span>
+								<h2 class="major">Setup OTP</h2>
+								<p id="otp-status-message">Preparing a protected OTP setup challenge.</p>
 								<form id="otp-status-form">
-                                        <h6 class="otp-text loading-label">QR code generating...</h6>
-									<section>
-									<h3>Instructions</h3>
-									<ul class="alt">
-										<li>Install Google Authenticator or another TOTP-compatible app.</li>
-										<li>Scan the QR code when it appears.</li>
-										<li>Use the secret key if you prefer manual setup.</li>
+									<div class="setup-steps" id="otp-setup-steps" aria-label="OTP setup steps">
+										<span class="active">Challenge</span>
+										<span>Method</span>
+										<span>Finish</span>
+									</div>
+									<div class="fields">
+										<div class="field">
+											<label for="otp-method">Protection method</label>
+											<div class="method-select">
+												<select id="otp-method" name="otp-method">
+													<option value="gmail" selected>Email OTP</option>
+													<option value="totp">Authenticator app</option>
+												</select>
+											</div>
+											<p class="selected-method" id="otp-selected-method">Selected method: Email OTP</p>
+											<p class="method-hint" id="otp-method-hint">Use your email inbox for future login codes. No QR code is needed.</p>
+										</div>
+										<input type="hidden" id="otp-email-code" />
+									</div>
+									<div class="feild"><p id="status-otp"></p></div>
+									<ul class="actions">
+										<li><input id="otp-continue-btn" type="submit" value="Continue" class="primary" /></li>
+										<li><button id="otp-resend-btn" type="button">Restart challenge</button></li>
 									</ul>
-									</section>
+									<div class="security-note">
+										<span class="icon fa-shield-alt"></span>
+										<p>This setup uses your active login session and a fresh signed challenge. If you choose Email OTP, setup finishes immediately. If you choose an authenticator app, save the QR code shown next.</p>
+									</div>
 								</form>
 								
+							</article>
+							<article id="otp-success">
+								<span class="article-eyebrow">Protection enabled</span>
+								<h2 class="major">OTP ready</h2>
+								<p id="otp-success-message">Your account protection method was enabled successfully.</p>
+								<ul class="actions">
+									<li><a href="index.html" class="button primary">Return to vault</a></li>
+								</ul>
 							</article>
 							<article id="otp-error">
 								<span class="article-eyebrow danger">Setup interrupted</span>
 								<h2 class="major">OTP</h2>
-								<p>We could not generate your enrollment details. Please try signing in again later.</p>
+								<p id="otp-error-message">We could not generate your enrollment details. Please try signing in again later.</p>
+								<ul class="actions">
+									<li><a href="index.html#login" class="button primary">Back to login</a></li>
+								</ul>
 							</article>
 							
 					</div>
@@ -110,6 +143,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/api.js"></script>
+			<script src="assets/js/progress.js"></script>
 			<script src="assets/js/main.js"></script>
             <script src="assets/js/otpanswer.js"></script>
 			<script src="assets/js/enable_otp.js"></script>

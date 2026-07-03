@@ -11,22 +11,22 @@ const delpasswordfunc = document.getElementById("deletepassword")
 
 
 document.getElementById("deletepassword").addEventListener("click",
-async function(e){
+function(e){
     e.preventDefault() 
-    if(window.vaultkey){
-        delpasswordfunc.href = "#Deletepassword"
-        window.location.href = "#Deletepassword"
-    }
-    else{
-        delpasswordfunc.href = "#login"
-        window.location.href = "#login"
-    }
+    delpasswordfunc.href = hasActiveSession() && window.vaultkey ? "#Deletepassword" : "#login"
+    goToVaultRoute("#Deletepassword")
 })
 
 document.getElementById("delete-password").addEventListener("submit",
     async function(e){
         e.preventDefault()
-        del_status.innerText = "getting Values...."
+        if(!hasActiveSession()){
+            del_status.innerText = "Session expired, login again"
+            goToLogin()
+            return
+        }
+
+        del_status.innerText = "Getting values..."
         let usernameDV = username_del.value
         let usernameDVS = usernameD.value
         let service_nameDV = servicename_D.value
@@ -37,9 +37,9 @@ document.getElementById("delete-password").addEventListener("submit",
                 headers:{
                     "Content-Type":"application/json"
             },
-            body:JSON.stringify({
+            body:JSON.stringify(withSession({
                     username:usernameDV
-                })
+                }))
             })
         let deldata = await response.json()
         if(deldata.ERROR){
@@ -54,7 +54,7 @@ document.getElementById("delete-password").addEventListener("submit",
             let nonce = deldata.nonce
             let requestid = deldata.request_id
             let authkey = localStorage.getItem("authkey")
-            let signature = await storegeneratesign(nonce, authkey)
+            let signature = await generateSignature(nonce, authkey)
             del_status.innerText = "Verifying"
             let delverifyResponse = await fetch(`${server_link}/delete2`,
             {
@@ -67,6 +67,7 @@ document.getElementById("delete-password").addEventListener("submit",
                 body:JSON.stringify({
                     signature:signature,
                     username:usernameDV,
+                    session_id: getSessionId(),
                     password_name:service_nameDV,
                     usernameS:usernameDVS,
                     request_id:requestid
@@ -83,16 +84,8 @@ document.getElementById("delete-password").addEventListener("submit",
                 return
             }
             else{
-                del_status.innerText = "password deleted succesfully"
+                del_status.innerText = "Password deleted successfully"
             }
 
         }
-
-
-
-
-
-
-
-
 })

@@ -1,4 +1,4 @@
-const server_link = "http://localhost:8000";
+const server_link = "http://available_when_deployed";
 
 
 (function($) {
