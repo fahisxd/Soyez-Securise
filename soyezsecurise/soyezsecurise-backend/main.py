@@ -329,10 +329,10 @@ def otp_generation_and_verfication(username, user_otp, cursor, cmd, background_t
                 salt = row["salt"]
                 salt = base64.b64decode(salt)
                 cursor.execute("""
-                    SELECT hash FROM users WHERE id = %s;
+                    SELECT authkey FROM users WHERE id = %s;
                 """, (userid,),
                 )
-                base_key = bytes.fromhex(cursor.fetchone()["hash"])
+                base_key = bytes.fromhex(cursor.fetchone()["authkey"])
                 key1 = HKDF(
                 algorithm=hashes.SHA256(),
                 length=32,
@@ -559,10 +559,10 @@ async def log_requests(request: Request, call_next):
 def encrypter(data, un, cursor):
     nonce_gen = os.urandom(12)
     cursor.execute("""
-        SELECT hash FROM users WHERE id = %s;""",
+        SELECT authkey FROM users WHERE id = %s;""",
         (un,),
     )
-    hash_key = cursor.fetchone()["hash"]
+    hash_key = cursor.fetchone()["authkey"]
     key1 = HKDF(
     algorithm=hashes.SHA256(),
     length=32,
@@ -611,7 +611,8 @@ app.add_middleware(
 
     CORSMiddleware,
 
-    allow_origins=["*"],
+    allow_origins=["soyezsecurise.com",
+                   "coffre.soyezsecurise.com"],
 
     allow_credentials=True,
 
@@ -751,10 +752,10 @@ async def enable_otp2(data: GetOTPRequest, request: Request, conn=Depends(get_db
         user_id = row["id"]
         cursor.execute(
             """
-        SELECT hash FROM users WHERE id = %s""",
+        SELECT authkey FROM users WHERE id = %s""",
             (user_id,),
         )
-        hash = cursor.fetchone()["hash"]
+        hash = cursor.fetchone()["authkey"]
 
         server_signature = hmac.new(
             bytes.fromhex(hash), bytes.fromhex(nonce_data["value"]), hashlib.sha256
@@ -889,7 +890,7 @@ async def newuser2(data: NewUserRequest, request: Request, background_tasks: Bac
                 return {"ERROR" : "OTP Expired!"}
             cursor.execute(
                 """
-            INSERT INTO users (username, hash)
+            INSERT INTO users (username, authkey)
         VALUES (%s, %s);
         """,
                 (clean_un, hp),
@@ -905,7 +906,7 @@ async def newuser2(data: NewUserRequest, request: Request, background_tasks: Bac
         """,
                 (user_id, email),
             )
-            Log_event(db_logger, "/newuser", "INFO", "User hash stored", f"{clean_un}", f"{ip}", f"{request_id}")
+            Log_event(db_logger, "/newuser", "INFO", "User authkey stored", f"{clean_un}", f"{ip}", f"{request_id}")
             cursor.execute("""
             INSERT INTO iptracking (userid, ip) VALUES(%s, %s);
             """, (user_id, ip))
@@ -1039,10 +1040,10 @@ async def store_password2(Pdata: StoredPasswordRequest, request: Request, conn=D
             return session_error
         cursor.execute(
             """
-        SELECT hash FROM users WHERE id = %s""",
+        SELECT authkey FROM users WHERE id = %s""",
             (user_id,),
         )
-        hash = cursor.fetchone()["hash"]
+        hash = cursor.fetchone()["authkey"]
         server_signature = hmac.new(
             bytes.fromhex(hash), bytes.fromhex(data["value"]), hashlib.sha256
         ).digest()
@@ -1209,10 +1210,10 @@ async def get_enc2(Pdata: GetEncryptedRequest, request: Request, background_task
             return {"ERROR": f"Username or password is wrong"}
         cursor.execute(
             """
-        SELECT hash FROM users WHERE username = %s""",
+        SELECT authkey FROM users WHERE username = %s""",
             (un,),
         )
-        hash = cursor.fetchone()["hash"]
+        hash = cursor.fetchone()["authkey"]
         session_error = require_active_session(Pdata)
         if session_error:
             return session_error
@@ -1375,9 +1376,9 @@ async def login2(data: GetBackupRequest, request: Request, background_tasks: Bac
             return {"ERROR": f"Username or password is wrong"}
         cursor.execute(
             """
-        SELECT hash FROM users WHERE username = %s""",
+        SELECT authkey FROM users WHERE username = %s""",
             (un,),)
-        hash = cursor.fetchone()["hash"]
+        hash = cursor.fetchone()["authkey"]
         server_signature = hmac.new(
            bytes.fromhex(hash), bytes.fromhex(data["value"]), hashlib.sha256
         ).digest()
@@ -1568,10 +1569,10 @@ async def profile_status2(data: ProfileStatusRequest, request: Request, conn=Dep
         userid = cursor.fetchone()["id"]
         cursor.execute(
             """
-        SELECT hash FROM users WHERE id = %s;""",
+        SELECT authkey FROM users WHERE id = %s;""",
             (userid,),
         )
-        hash = cursor.fetchone()["hash"]
+        hash = cursor.fetchone()["authkey"]
         server_signature = hmac.new(
             bytes.fromhex(hash), bytes.fromhex(nonce_data["value"]), hashlib.sha256
         ).digest()
@@ -1735,10 +1736,10 @@ async def list2(Pdata: ListPasswordRequest, request: Request, conn=Depends(get_d
         userid = cursor.fetchone()["id"]
         cursor.execute(
             """
-        SELECT hash FROM users WHERE id = %s;""",
+        SELECT authkey FROM users WHERE id = %s;""",
             (userid,),
         )
-        hash = cursor.fetchone()["hash"]
+        hash = cursor.fetchone()["authkey"]
         data = nonce_db.hgetall(f"list:{un}")
         server_signature = hmac.new(
             bytes.fromhex(hash), bytes.fromhex(data["value"]), hashlib.sha256).digest()
@@ -1868,9 +1869,9 @@ async def delete_password2(Pdata: DeletePasswordRequest2, request: Request, conn
             return session_error
         cursor.execute(
             """
-        SELECT hash FROM users WHERE username = %s""",
+        SELECT authkey FROM users WHERE username = %s""",
             (un,),)
-        hash = cursor.fetchone()["hash"]
+        hash = cursor.fetchone()["authkey"]
         server_signature = hmac.new(
            bytes.fromhex(hash), bytes.fromhex(data["value"]), hashlib.sha256).digest()
         Log_event(sys_logger, "/delete2", "INFO", "Server signature generated", f"{un}", f"{ip}", f"{request_id}")
@@ -1999,10 +2000,10 @@ async def hint2(Pdata: HintPasswordRequest, request: Request, conn=Depends(get_d
         userid = cursor.fetchone()["id"]
         cursor.execute(
             """
-        SELECT hash FROM users WHERE id = %s;""",
+        SELECT authkey FROM users WHERE id = %s;""",
             (userid,),
         )
-        hash = cursor.fetchone()["hash"]
+        hash = cursor.fetchone()["authkey"]
         data = nonce_db.hgetall(f"hint:{un}")
         server_signature = hmac.new(
             bytes.fromhex(hash), bytes.fromhex(data["value"]), hashlib.sha256).digest()
@@ -2135,9 +2136,9 @@ async def delete_account2(Pdata: DeletePasswordRequest2, request: Request, conn=
             return session_error
         cursor.execute(
             """
-        SELECT hash FROM users WHERE username = %s""",
+        SELECT authkey FROM users WHERE username = %s""",
             (un,),)
-        hash = cursor.fetchone()["hash"]
+        hash = cursor.fetchone()["authkey"]
         server_signature = hmac.new(
            bytes.fromhex(hash), bytes.fromhex(data["value"]), hashlib.sha256).digest()
         Log_event(sys_logger, "/delete2", "INFO", "Server signature generated", f"{un}", f"{ip}", f"{request_id}")
