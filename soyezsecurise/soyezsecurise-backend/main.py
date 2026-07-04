@@ -1083,7 +1083,7 @@ async def store_password2(Pdata: StoredPasswordRequest, request: Request, conn=D
         password_id = cursor.fetchone()
         password_id = password_id["id"]
         cursor.execute(
-        "INSERT INTO hints (password_id,hint,userid) VALUES (%s,  %s)",
+        "INSERT INTO hints (password_id,hint,userid) VALUES (%s,  %s, %s)",
         (password_id, hint, user_id),
         )
         conn.commit()
