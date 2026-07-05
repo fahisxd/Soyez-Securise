@@ -9,3 +9,4 @@ psycopg2-binary==2.9.12
 qrcode==8.2
 resend==2.32.2
 python-dotenv==1.0.0
+Pillow
