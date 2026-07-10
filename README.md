@@ -228,7 +228,7 @@ Visit https://soyezsecurise.com/
 
 ## Author
 
-Built by **fahisxd**, age 15.
+Built by **@fahisxd** on https://instagram.com or discord
 
 Designed and implemented independently: the cryptographic architecture, nonce/HMAC auth flow, key separation scheme, frontend, and backend were all figured out without following a tutorial for any of it.
 
